@@ -1,26 +1,8 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* app/globals.css */
+/* Caladan port: Webflow's caladan-template.shared.css (loaded via <link> in app/layout.tsx)
+   owns ALL base styling. Tailwind's preflight reset is intentionally NOT imported here —
+   it would override Webflow's box-sizing/margins/heading/list resets.
+   To add Tailwind utilities later WITHOUT the reset, use:
+     @import "tailwindcss/theme.css" layer(theme);
+     @import "tailwindcss/utilities.css" layer(utilities);
+   (do not import the base/preflight layer). */
