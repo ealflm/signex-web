@@ -1,33 +1,12 @@
-"use client";
-
 import { HeroQuoteForm } from "@/app/components/home/hero-quote-form";
-import { useLang } from "@/app/lib/use-lang";
+import type { Dictionary } from "@/app/[lang]/dictionaries";
 
-// Stable references so re-rendering on a language change does NOT make React re-apply
-// the inline style and clobber the opacity/blur that Webflow IX2 animates away.
+// Server-rendered per locale, so this never re-renders client-side — a plain object is
+// fine (no IX2-reveal clobbering concern; language changes are a full navigation now).
 const REVEAL_STYLE: React.CSSProperties = { opacity: 0, filter: "blur(5px)" };
 
-const T = {
-  en: {
-    eyebrow: "Excellence in Manufacturing Since 2003",
-    titleTop: "Manufacturing",
-    titleBottom: "Brand Identity",
-    subtitle:
-      "Specialized in manufacturing logos, emblems, labels, badges, and custom identity components for the garment and fashion industry.",
-    imageAlt: "Contemporary cliffside house at twilight",
-  },
-  vi: {
-    eyebrow: "Xuất Sắc Trong Sản Xuất Từ Năm 2003",
-    titleTop: "Sản Xuất Sản Phẩm",
-    titleBottom: "Nhận Diện Thương Hiệu",
-    subtitle:
-      "Chuyên sản xuất logo, emblem, nhãn mác, badge và các chi tiết nhận diện theo yêu cầu cho ngành may mặc và thời trang.",
-    imageAlt: "Nhà trên vách đá lúc hoàng hôn",
-  },
-} as const;
-
-export function Hero() {
-  const t = T[useLang()];
+export function Hero({ dict }: { dict: Dictionary }) {
+  const t = dict.hero;
 
   return (
     <section className="section_hero-home-a">
@@ -60,6 +39,7 @@ export function Hero() {
                   </div>
                 </div>
                 <HeroQuoteForm
+                  dict={dict.form}
                   data-w-id="e727a2b9-869a-7dcf-ee76-b8e98292f02d"
                   style={REVEAL_STYLE}
                 />

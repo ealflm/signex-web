@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { Navbar } from "@/app/components/navbar";
 import { SalesCta } from "@/app/components/sales-cta";
 import { Footer } from "@/app/components/footer";
 import { WebflowRuntime } from "@/app/components/webflow-runtime";
 import { WebflowPageAttrs } from "@/app/components/webflow-page-attrs";
+import { LOCALES } from "@/app/lib/i18n-config";
 
 // Verbatim from legacy/caladan/index.html <head>: the FOUC guard hides animated
 // elements until the IX2 runtime adds w-mod-ix3; the shim sets w-mod-js/w-mod-touch early.
@@ -26,12 +27,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+// Pre-render one route per locale; reject any other locale with a 404.
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
   return (
     // suppressHydrationWarning: the WF_MOD_SHIM script adds w-mod-js/w-mod-touch to <html> before
     // hydration, and WebflowPageAttrs sets data-wf-page on it — both intentionally diverge from SSR.
     <html
-      lang="en"
+      lang={lang}
       suppressHydrationWarning
       data-wf-domain="caladan-template.webflow.io"
       data-wf-site="69833b76e5b4bee55e873012"

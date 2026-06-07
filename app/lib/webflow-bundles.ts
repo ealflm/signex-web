@@ -30,7 +30,20 @@ const WF_PAGE_IDS: Record<string, string> = {
   "/404": "69833b76e5b4bee55e872ffc",
 };
 
-export function profileForRoute(pathname: string): { pageScripts: string[]; wfPage: string; wfCollection?: string } {
+// Under [lang] routing the pathname carries a locale prefix (/en, /vi/resorts). Strip it
+// so the Webflow page/bundle map keeps keying off the bare route (/, /resorts/...).
+const LOCALE_PREFIXES = new Set(["en", "vi"]);
+function routeFromPathname(pathname: string): string {
+  const seg = pathname.split("/"); // ["", "vi", "resorts", ...]
+  if (LOCALE_PREFIXES.has(seg[1])) {
+    const rest = "/" + seg.slice(2).join("/");
+    return rest === "/" ? "/" : rest.replace(/\/+$/, "");
+  }
+  return pathname;
+}
+
+export function profileForRoute(pathnameWithLocale: string): { pageScripts: string[]; wfPage: string; wfCollection?: string } {
+  const pathname = routeFromPathname(pathnameWithLocale);
   if (pathname === "/") return { pageScripts: [HOME], wfPage: WF_PAGE_IDS["/"] };
   if (pathname.startsWith("/resorts/")) return { pageScripts: [DCDAA, RESORT], wfPage: "69af2cd1ff90f14953b3f7d6", wfCollection: "69af2cd0ff90f14953b3f7cf" };
   if (pathname.startsWith("/blogs/")) return { pageScripts: [DCDAA, STANDARD], wfPage: "69a98d48f21f4a171c4e1bae", wfCollection: "69a98d47f21f4a171c4e1948" };

@@ -169,6 +169,20 @@
   }
 }
 
+/* Vietnamese hero headline: the copy is longer than English, so at the full h0 size
+   each phrase wraps. Keep the SAME font size as EN and instead let each phrase stay on
+   one line (white-space: nowrap) by lifting the column's max-width — the longer VI lines
+   extend across the sky area of the hero image. Keyed off html[lang="vi"] (EN untouched);
+   mobile keeps natural wrap. */
+@media screen and (min-width: 768px) {
+  html[lang="vi"] .section_hero-home-a .heading_home-a {
+    max-width: none;
+  }
+  html[lang="vi"] .section_hero-home-a .heading-style-h0 {
+    white-space: nowrap;
+  }
+}
+
 /* ───────── Navbar EN/VI language toggle (ADDED) ───────── */
 /* Inherits the navbar's text colour via currentColor; inactive option is muted with
    opacity so it reads correctly on the light nav pill without hard-coding a colour. */
@@ -180,8 +194,6 @@
   white-space: nowrap;
 }
 .lang-toggle_option {
-  appearance: none;
-  -webkit-appearance: none;
   margin: 0;
   padding: 0;
   border: 0;
@@ -191,6 +203,7 @@
   letter-spacing: 0.03em;
   line-height: 1;
   color: currentColor;
+  text-decoration: none;
   opacity: 0.45;
   cursor: pointer;
   transition: opacity 160ms ease;

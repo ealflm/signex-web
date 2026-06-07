@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Xuất Sắc Trong Sản Xuất Từ Năm 2003",
+    "titleTop": "Sản Xuất Sản Phẩm",
+    "titleBottom": "Nhận Diện Thương Hiệu",
+    "subtitle": "Chuyên sản xuất logo, emblem, nhãn mác, badge và các chi tiết nhận diện theo yêu cầu cho ngành may mặc và thời trang.",
+    "imageAlt": "Nhà trên vách đá lúc hoàng hôn"
+  },
+  "form": {
+    "name": "Tên",
+    "namePlaceholder": "Họ và tên",
+    "email": "Email",
+    "emailPlaceholder": "your.email@company.com",
+    "phone": "Số Điện Thoại",
+    "phonePlaceholder": "+84 xxx xxx xxxx",
+    "quantity": "Số Lượng",
+    "quantityPlaceholder": "vd: 1000 cái",
+    "standard": "Tiêu Chuẩn",
+    "standardPlaceholder": "Chọn tiêu chuẩn",
+    "standardOptions": ["OEKO-TEX Standard 100", "ISO 9001", "GRS (Tái chế)", "GOTS (Hữu cơ)", "Khác / Tùy chỉnh"],
+    "height": "Dài (mm)",
+    "heightPlaceholder": "vd: 50",
+    "width": "Rộng (mm)",
+    "widthPlaceholder": "vd: 100",
+    "thickness": "Dày (mm)",
+    "thicknessPlaceholder": "vd: 2",
+    "upload": "Tải Mẫu Sản Phẩm",
+    "uploadHelp": "JPG, PNG, hoặc PDF",
+    "message": "Lời Nhắn",
+    "messagePlaceholder": "Mô tả yêu cầu sản phẩm...",
+    "submit": "Gửi Thông Tin",
+    "success": "Cảm ơn bạn — chúng tôi đã nhận được yêu cầu và sẽ phản hồi trong vòng 24 giờ."
+  }
+}
