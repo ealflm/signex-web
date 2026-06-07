@@ -4,19 +4,20 @@
 import { useRef, useState } from "react";
 
 /**
- * Hero quote form — progressive disclosure.
+ * Hero quote form — progressive disclosure, full-width.
  *
- * Reuses Caladan's existing form classes verbatim (.hero-form_inner, .input_wrap,
- * .text-field, .text_input-label.label-large, .master_label/.label-small,
- * .button_submit-static, .cta_primary) so the visual design is unchanged.
+ * Reuses Caladan's existing form classes verbatim (.form, .input_wrap, .text-field,
+ * .text_input-label.label-large, .master_label/.label-small, .button_submit-static,
+ * .cta_primary) so the visual design is unchanged.
  *
- * Behaviour added on top:
- *  - Collapsed: only the "Your Information" group (Name / Email / Phone) + submit.
- *  - Focusing any field expands the "Product Information" group.
+ *  - Collapsed: a horizontal full-width bar — Your Information (Name · Email · Phone)
+ *    with the Send Message button inline at the end, like the original hero bar.
+ *  - Focusing any field reveals the "Product Information" group below (full width).
+ *    The submit moves to the bottom of the expanded form.
  *  - Blurring out of the form while every field is still empty collapses it again.
  *
- * The reveal animation hook (data-w-id + the opacity/blur FOUC guard) is forwarded
- * onto the <form> so Webflow IX2 still plays the hero's two-stage blur-in reveal.
+ * The reveal animation hook (data-w-id + opacity/blur FOUC guard) is forwarded onto
+ * the <form> so Webflow IX2 still plays the hero's two-stage blur-in reveal.
  */
 export function HeroQuoteForm({
   "data-w-id": dataWId,
@@ -34,10 +35,8 @@ export function HeroQuoteForm({
   const handleBlur = (e: React.FocusEvent<HTMLFormElement>) => {
     const form = formRef.current;
     if (!form) return;
-    // Focus moved to another control still inside the form → keep it open.
     const next = e.relatedTarget as Node | null;
-    if (next && form.contains(next)) return;
-    // Focus left the form: collapse only if the user typed/selected nothing.
+    if (next && form.contains(next)) return; // focus still inside the form
     const hasValue = Array.from(form.elements).some((el) => {
       if (el instanceof HTMLInputElement) {
         if (el.type === "submit" || el.type === "button") return false;
@@ -51,8 +50,33 @@ export function HeroQuoteForm({
     if (!hasValue) setExpanded(false);
   };
 
-  // Product-Information controls are not tab-reachable until expanded.
   const detailTab = expanded ? 0 : -1;
+
+  const submitButton = (extraClass: string, tabIndex?: number) => (
+    <div button="" className={`button_submit-static ${extraClass}`}>
+      <input
+        className="button_submit w-button"
+        data-wait="Please wait..."
+        tabIndex={tabIndex}
+        type="submit"
+        value="Send message"
+      />
+      <a
+        button=""
+        className="cta_primary w-inline-block"
+        data-wf--cta-primary--variant="primary"
+        href="#"
+        tabIndex={tabIndex}
+      >
+        <div className="button_text-mask">
+          <div button-text="" className="text-button">
+            Send Message
+          </div>
+        </div>
+        <div button-bg="" className="btn-bg"></div>
+      </a>
+    </div>
+  );
 
   return (
     <div className="form-block w-form">
@@ -72,11 +96,11 @@ export function HeroQuoteForm({
           }}
         >
           <div className="hero-quote_inner">
-            {/* ---- Your Information (always visible) ---- */}
+            {/* ---- Your Information — horizontal bar (always visible) ---- */}
             <div className="master_label" data-wf--tag--variant="base">
               <div className="label-small">Your Information</div>
             </div>
-            <div className="hero-quote_grid hero-quote_grid--2">
+            <div className="hero-quote_bar">
               <div className="input_wrap">
                 <div className="text_input-label label-large">
                   Name
@@ -109,7 +133,7 @@ export function HeroQuoteForm({
                   type="email"
                 />
               </div>
-              <div className="input_wrap hero-quote_field--full">
+              <div className="input_wrap">
                 <div className="text_input-label label-large">
                   Phone Number
                   <sup>*</sup>
@@ -125,6 +149,8 @@ export function HeroQuoteForm({
                   type="tel"
                 />
               </div>
+              {/* Inline submit at the end of the bar, only while collapsed */}
+              {!expanded && submitButton("hero-quote_submit--bar")}
             </div>
 
             {/* ---- Product Information (revealed on focus) ---- */}
@@ -136,7 +162,7 @@ export function HeroQuoteForm({
                 <div className="master_label" data-wf--tag--variant="base">
                   <div className="label-small">Product Information</div>
                 </div>
-                <div className="hero-quote_grid hero-quote_grid--2">
+                <div className="hero-quote_grid hero-quote_grid--3">
                   <div className="input_wrap">
                     <div className="text_input-label label-large">Quantity</div>
                     <input
@@ -224,29 +250,9 @@ export function HeroQuoteForm({
                     tabIndex={detailTab}
                   />
                 </div>
+                {/* Submit at the bottom of the expanded form */}
+                {submitButton("hero-quote_submit", detailTab)}
               </div>
-            </div>
-
-            <div button="" className="button_submit-static hero-quote_submit">
-              <input
-                className="button_submit w-button"
-                data-wait="Please wait..."
-                type="submit"
-                value="Send message"
-              />
-              <a
-                button=""
-                className="cta_primary w-inline-block"
-                data-wf--cta-primary--variant="primary"
-                href="#"
-              >
-                <div className="button_text-mask">
-                  <div button-text="" className="text-button">
-                    Send Message
-                  </div>
-                </div>
-                <div button-bg="" className="btn-bg"></div>
-              </a>
             </div>
           </div>
         </form>

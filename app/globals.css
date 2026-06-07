@@ -10,39 +10,54 @@
 /* ─────────────────────────────────────────────────────────────────────────────
    Hero quote form — progressive disclosure (ADDED feature, scoped).
    Webflow's caladan-template.shared.css is NOT touched. These rules only drive
-   the new expand/collapse interaction and the form's layout. Fields keep Caladan's
-   own .text-field / .input_wrap / .label / .cta_primary styling.
+   the new expand/collapse interaction and layout. Fields keep Caladan's own
+   .text-field / .input_wrap / .label / .cta_primary styling.
    ───────────────────────────────────────────────────────────────────────────── */
 
-/* The form reads as a self-contained dark card (so it sits cleanly over the hero
-   image) instead of Caladan's full-width horizontal bar. Scoped via .hero-quote_panel
-   so other .form elements (e.g. the footer newsletter) are unaffected. */
+/* Full-width form band over the hero image (readable dark glass). Scoped via
+   .hero-quote_panel so other .form elements (e.g. footer newsletter) are unaffected. */
 .hero-quote_panel.hero-quote_panel {
-  max-width: 44rem;
+  max-width: none;
+  width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: rgba(8, 10, 12, 0.66);
+  background-color: rgba(8, 10, 12, 0.58);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 
-/* Vertical form layout with field grids (mirrors the reference: Name|Email + Phone,
-   then the product fields 2-up, Message full width). */
 .hero-quote_inner {
   display: flex;
   flex-direction: column;
   grid-row-gap: var(--spacing--space-tiny, 0.5rem);
   gap: var(--spacing--space-tiny, 0.5rem);
 }
+
+/* Your Information — horizontal full-width bar (fields side by side, submit inline
+   at the end), mirroring Caladan's original hero booking bar. */
+.hero-quote_bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  grid-column-gap: var(--spacing--space-tiny, 0.5rem);
+  grid-row-gap: var(--spacing--space-tiny, 0.5rem);
+  gap: var(--spacing--space-tiny, 0.5rem);
+}
+.hero-quote_bar > .input_wrap {
+  flex: 1 1 12rem;
+  width: auto;
+}
+.hero-quote_submit--bar {
+  flex: 0 0 auto;
+}
+
+/* Product Information — 3-up field grid, full width. */
 .hero-quote_grid {
   display: grid;
   grid-column-gap: var(--spacing--space-tiny, 0.5rem);
   grid-row-gap: var(--spacing--space-tiny, 0.5rem);
 }
-.hero-quote_grid--2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-.hero-quote_field--full {
-  grid-column: 1 / -1;
+.hero-quote_grid--3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* "Product Information" group: collapsed by default, expands on focus.
@@ -95,11 +110,11 @@
 }
 
 @media screen and (max-width: 767px) {
-  .hero-quote_grid--2 {
-    grid-template-columns: 1fr;
+  .hero-quote_bar > .input_wrap {
+    flex-basis: 100%;
   }
-  .hero-quote_panel.hero-quote_panel {
-    max-width: none;
+  .hero-quote_grid--3 {
+    grid-template-columns: 1fr;
   }
 }
 @media (prefers-reduced-motion: reduce) {
