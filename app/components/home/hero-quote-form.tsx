@@ -97,9 +97,6 @@ export function HeroQuoteForm({
         >
           <div className="hero-quote_inner">
             {/* ---- Your Information — horizontal bar (always visible) ---- */}
-            <div className="master_label" data-wf--tag--variant="base">
-              <div className="label-small">Your Information</div>
-            </div>
             <div className="hero-quote_bar">
               <div className="input_wrap">
                 <div className="text_input-label label-large">
@@ -159,9 +156,6 @@ export function HeroQuoteForm({
               aria-hidden={!expanded}
             >
               <div className="hero-form_collapsible-inner">
-                <div className="master_label" data-wf--tag--variant="base">
-                  <div className="label-small">Product Information</div>
-                </div>
                 <div className="hero-quote_grid hero-quote_grid--3">
                   <div className="input_wrap">
                     <div className="text_input-label label-large">Quantity</div>
