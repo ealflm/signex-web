@@ -1,4 +1,6 @@
 // app/components/navbar.tsx
+import { LangToggle } from "@/app/components/lang-toggle";
+
 export function Navbar() {
   return (
     <div className="master_navigation">
@@ -285,6 +287,7 @@ export function Navbar() {
               </div>
             </div>
             <div className="nav_right">
+              <LangToggle />
               <div className="nav_button-desktop">
                 <a button="" className="cta_tertiary w-inline-block" href="/resorts">
                   <div>

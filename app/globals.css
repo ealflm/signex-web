@@ -49,6 +49,10 @@
 .hero-quote_submit--bar {
   flex: 0 0 auto;
 }
+/* Hidden (not unmounted) while the form is expanded, so its IX2 hover binding lives on. */
+.hero-quote_submit--bar.is-hidden {
+  display: none;
+}
 
 /* Product Information — 3-up field grid, full width. */
 .hero-quote_grid {
@@ -61,12 +65,16 @@
 }
 
 /* "Product Information" group: collapsed by default, expands on focus.
-   grid-template-rows 0fr→1fr animates height with no JS measuring. */
+   grid-template-rows 0fr→1fr animates height with no JS measuring; the bottom-anchored
+   hero content means this growth smoothly pushes the headline upward in lockstep.
+   ease-out-expo gives a premium, settled feel. */
 .hero-form_collapsible {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 320ms ease, opacity 240ms ease;
+  transition: grid-template-rows 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 360ms ease-out;
+  will-change: grid-template-rows;
 }
 .hero-form_collapsible.is-open {
   grid-template-rows: 1fr;
@@ -79,34 +87,72 @@
   flex-direction: column;
   grid-row-gap: var(--spacing--space-tiny, 0.5rem);
   gap: var(--spacing--space-tiny, 0.5rem);
+  /* gentle slide-in of the revealed fields, matched to the height curve */
+  transform: translateY(-0.5rem);
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-form_collapsible.is-open .hero-form_collapsible-inner {
+  transform: translateY(0);
 }
 
 /* Message textarea — sized to match fields (more specific than .text-field). */
 .hero-quote_inner .hero-quote_message {
   height: auto;
-  min-height: 5.5rem;
+  min-height: 4.25rem;
   resize: vertical;
 }
 .hero-quote_inner .hero-form_file {
   height: auto;
 }
 .hero-quote_submit {
-  align-self: flex-start;
+  align-self: flex-end;
   margin-top: var(--spacing--space-minimal, 0.25rem);
 }
 
-/* Let the hero grow to fit the expanded form. Collapsed (no .is-open) keeps the
-   stock 100dvh hero untouched; :has() keys off the open state — no JS drilling. */
-.wrap_home-a:has(.hero-form_collapsible.is-open) {
-  height: auto;
-  min-height: 100dvh;
-  max-height: none;
-}
-.content_hero-home-a:has(.hero-form_collapsible.is-open) {
-  height: auto;
-}
-.master_hero-home-a:has(.hero-form_collapsible.is-open) {
-  overflow: visible;
+/* Home hero vertical layout for the expanding form.
+   Caladan's default sends the headline to the middle (margin-top:auto) and the form
+   to the bottom. Instead we PIN the headline near the top (just below the navbar) and
+   let the form sit at the bottom via margin-top:auto. As the form expands it grows
+   UPWARD into the gap — the headline stays put (no jump). The hero only grows downward
+   for any overflow past 100dvh, so its size barely changes and the motion stays smooth. */
+/* Desktop only (mobile keeps Caladan's auto-height hero). Higher specificity
+   (.wrap_home-a …) is required to beat Caladan's own rules, which load after globals.css.
+
+   Layout: the headline rests at the TOP of the content, positioned purely by the
+   content's top padding; the form sits at the BOTTOM via margin-top:auto. The hero
+   height TRACKS its content (height:auto, never below the collapsed viewport height)
+   so it grows/shrinks smoothly with the form and doesn't grow at all on tall screens.
+
+   Headline motion: the top padding is large when COLLAPSED (headline at its original
+   resting spot) and smaller when EXPANDED (headline rises toward the navbar, keeping a
+   gap). Transitioning padding-top makes the headline glide up only on expand — and
+   glide back down on collapse — while staying still in the collapsed state. */
+@media screen and (min-width: 768px) {
+  .wrap_home-a:has(.hero-quote_inner) {
+    height: auto;
+    min-height: min(100dvh, 75rem);
+    max-height: none;
+  }
+  /* The headline sits directly above the form (kill Caladan's margin-top:auto, which
+     would otherwise shove it to the top). The whole headline+form group rests at the
+     BOTTOM (justify-content:flex-end), so when collapsed the headline is right above
+     the form bar and the empty space is ABOVE the headline — NOT a gap between them. */
+  .wrap_home-a .headline_home-a {
+    margin-top: 0;
+  }
+  .wrap_home-a .content_hero-home-a {
+    justify-content: flex-end;
+    height: auto;
+    /* fill the collapsed viewport (minus the hero's ~6rem of paddings) so the group
+       rests at the bottom; a definite value is required because the auto-height
+       ancestors can't resolve a percentage min-height. */
+    min-height: calc(min(100dvh, 75rem) - 6rem);
+    /* nav-clearance floor: as the expanding form pushes the group up, the headline
+       stops ~128px below the top (clear of the navbar) and the hero grows for the rest.
+       Because the rise is driven by the form's animated height, it's smooth — and the
+       headline only moves on expand, staying put (just above the form) when collapsed. */
+    padding-top: 5rem;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -121,4 +167,44 @@
   .hero-form_collapsible {
     transition: none;
   }
+}
+
+/* ───────── Navbar EN/VI language toggle (ADDED) ───────── */
+/* Inherits the navbar's text colour via currentColor; inactive option is muted with
+   opacity so it reads correctly on the light nav pill without hard-coding a colour. */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.lang-toggle_option {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: currentColor;
+  opacity: 0.45;
+  cursor: pointer;
+  transition: opacity 160ms ease;
+}
+.lang-toggle_option:hover {
+  opacity: 0.8;
+}
+.lang-toggle_option.is-active {
+  opacity: 1;
+  font-weight: 600;
+}
+.lang-toggle_divider {
+  font-size: 0.85rem;
+  line-height: 1;
+  opacity: 0.3;
+  user-select: none;
 }
