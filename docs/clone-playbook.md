@@ -50,6 +50,21 @@ React must not fight it:
 - **`app/types/webflow-attrs.d.ts` is REQUIRED** — it declares the custom JSX attributes
   (`data-w-id`, `marquee-up`, `button=""`, `data-wf--cta-primary--variant`, …). Without it
   the TS build fails.
+- **⚠️ IX2 interactions are PAGE-SCOPED by a compound key `<data-wf-page>|<data-w-id>`.** When
+  you port a section from a *different* page (e.g. the `/resorts` grid onto the home page), its
+  `data-w-id` reveal triggers are registered ONLY for the source page's `data-wf-page` id, NOT
+  the host page's. The data is in the global JS bundle (it greps as "present"), but IX2 won't
+  activate it on the host page → the wrapper stays `opacity:0; blur(5px)` forever (invisible
+  section, no JS error). **Fix:** re-point the ported reveal wrapper's `data-w-id` to a *host-page*
+  trigger that runs the standard reveal actionList **`a-124`** (`STYLE_OPACITY`+`STYLE_FILTER` on
+  `self`). On the home page those are: `0f29df12-…` (`headline_features`), `04f2c9d6-…`
+  (`headline_service-v1`), `b3ac1ddc-…` (`heading_resorts-slider`), hero headline. Sharing an
+  a-124 id is safe — it targets only the trigger element itself, so each element reveals
+  independently (same as the 4 resort cards sharing `53807880`). Diagnose by dumping the IX2
+  registry: `window.Webflow.require('ix2').store.getState().ixData.{events,actionLists}` — find
+  events whose `target.id` starts with the host page's `data-wf-page` id. (`a-107` =
+  `TRANSFORM_MOVE`, a slide — NOT the fade reveal.) Keep non-reveal source ids (card hover, image
+  parallax) as-is; they're page-gated and harmlessly inert until wired to host equivalents.
 
 ---
 
