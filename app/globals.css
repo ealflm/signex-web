@@ -183,6 +183,16 @@
   }
 }
 
+/* Vietnamese Features headline is longer than EN. Caladan caps `.heading_features` at
+   max-width:448px, which wraps the bold first line ("Vì Sao Các Thương Hiệu") onto two
+   lines. Widen the heading column (VI only) so each part of the <br>-split headline sits
+   on exactly one line. EN is untouched (it already fits at 2 lines). */
+@media screen and (min-width: 768px) {
+  html[lang="vi"] .section_features .heading_features {
+    max-width: 32rem;
+  }
+}
+
 /* ───────── Navbar EN/VI language toggle (ADDED) ───────── */
 /* Inherits the navbar's text colour via currentColor; inactive option is muted with
    opacity so it reads correctly on the light nav pill without hard-coding a colour. */

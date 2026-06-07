@@ -19,11 +19,6 @@ export function Hero({ dict }: { dict: Dictionary }) {
               <div className="content_hero-home-a">
                 <div className="headline_home-a" data-w-id="e727a2b9-869a-7dcf-ee76-b8e98292f022" style={REVEAL_STYLE}>
                   <div className="heading_home-a">
-                    <div className="master_label" data-wf--tag--variant="base">
-                      <div className="label-small">
-                        {t.eyebrow}
-                      </div>
-                    </div>
                     <h1 className="heading-style-h0">
                       {t.titleTop}
                       <br />

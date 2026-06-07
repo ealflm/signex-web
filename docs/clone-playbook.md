@@ -165,6 +165,10 @@ collection-driven ones (`resorts/*`, `blogs/*`).
   clean), executablePath `/usr/bin/google-chrome-stable`. Pattern:
   - `goto` the URL, then **wait for `.headline_home-a` opacity > 0.9** (IX2 reveal done) before
     screenshotting — otherwise you capture the hidden pre-reveal state.
+  - **Below-the-fold sections reveal on SCROLL, not load.** Their headline sits at
+    `opacity:0; blur(5px)` until scrolled into view (e.g. `.headline_features`). To verify them,
+    `el.scrollIntoView({block:'center'})` THEN wait for opacity > 0.9. opacity 0 at top-of-page is
+    correct Caladan behavior, not a regression.
   - **Measure the DOM** (heights, `getBoundingClientRect`, attribute values, console warnings) —
     don't just eyeball. This caught the headline-under-navbar, the hover-animation regression,
     and confirmed locale/`<html lang>`/asset behavior.

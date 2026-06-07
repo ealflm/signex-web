@@ -1,6 +1,5 @@
 {
   "hero": {
-    "eyebrow": "Xuất Sắc Trong Sản Xuất Từ Năm 2003",
     "titleTop": "Sản Xuất Sản Phẩm",
     "titleBottom": "Nhận Diện Thương Hiệu",
     "subtitle": "Chuyên sản xuất logo, emblem, nhãn mác, badge và các chi tiết nhận diện theo yêu cầu cho ngành may mặc và thời trang.",
@@ -30,5 +29,22 @@
     "messagePlaceholder": "Mô tả yêu cầu sản phẩm...",
     "submit": "Gửi Thông Tin",
     "success": "Cảm ơn bạn — chúng tôi đã nhận được yêu cầu và sẽ phản hồi trong vòng 24 giờ."
+  },
+  "features": {
+    "eyebrow": "Xuất Sắc Trong Sản Xuất Từ Năm 2003",
+    "titleTop": "Vì Sao Các Thương Hiệu",
+    "titleBottom": "Chọn Chúng Tôi",
+    "cta": "Yêu Cầu Báo Giá",
+    "videoTitle": "Bên Trong Xưởng Sản Xuất",
+    "videoText": "Tìm hiểu cách chúng tôi giữ vững dung sai từ mẫu thử đến lô hàng hoàn thiện.",
+    "featured": {
+      "title": "Chất Lượng Sản Xuất Ổn Định",
+      "desc": "Chất lượng đồng nhất qua từng lô sản xuất."
+    },
+    "cards": [
+      { "title": "Quy Trình Sản Xuất Minh Bạch", "desc": "Quy trình rõ ràng, kiểm soát chặt chẽ." },
+      { "title": "Định Hướng Hợp Tác Lâu Dài", "desc": "Xây dựng quan hệ hợp tác bền vững theo thời gian." },
+      { "title": "Tôn Trọng Tính Toàn Vẹn Thương Hiệu", "desc": "Tuân thủ nghiêm ngặt tiêu chuẩn thương hiệu." }
+    ]
   }
 }

@@ -1,6 +1,5 @@
 {
   "hero": {
-    "eyebrow": "Excellence in Manufacturing Since 2003",
     "titleTop": "Manufacturing",
     "titleBottom": "Brand Identity",
     "subtitle": "Specialized in manufacturing logos, emblems, labels, badges, and custom identity components for the garment and fashion industry.",
@@ -30,5 +29,22 @@
     "messagePlaceholder": "Describe your product requirements...",
     "submit": "Send Message",
     "success": "Thank you — we've received your request and will get back to you within 24 hours."
+  },
+  "features": {
+    "eyebrow": "Excellence in Manufacturing Since 2003",
+    "titleTop": "Why Brands",
+    "titleBottom": "Choose Us",
+    "cta": "Request a Quote",
+    "videoTitle": "Inside Our Workshop",
+    "videoText": "See how we hold tolerances from sample to finished batch.",
+    "featured": {
+      "title": "Consistent Production Quality",
+      "desc": "Stable, repeatable quality across every production batch."
+    },
+    "cards": [
+      { "title": "Transparent Manufacturing Processes", "desc": "Clean, controlled processes with full accountability." },
+      { "title": "Long-Term Cooperation Mindset", "desc": "Manufacturing partnerships built for the long term." },
+      { "title": "Respect for Brand Integrity", "desc": "Strict adherence to brand standards and specifications." }
+    ]
   }
 }

@@ -18,7 +18,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <>
       <Hero dict={dict} />
       <div className="home-a_rest-content">
-        <Features />
+        <Features dict={dict.features} />
         <Services />
         <ResortsSlider />
         <Testimonial />

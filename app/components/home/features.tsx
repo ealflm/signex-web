@@ -1,4 +1,23 @@
-export function Features() {
+import type { Dictionary } from "@/app/[lang]/dictionaries";
+
+/**
+ * Features — the section directly below the hero, adapted to signex's manufacturing
+ * brand values. Caladan's design is kept 100%: same markup, classes, grid, images,
+ * video, and IX2 reveal bindings (data-w-id). Only the TEXT is swapped (from the
+ * per-locale dictionary) and the three resort icons are replaced with manufacturing
+ * glyphs that reuse the exact same Caladan icon markup (.icon_service-card / lucide
+ * stroke icons), so the visual design is unchanged.
+ *
+ * Content mapping (preserves the four value cards + their 1→4 reading order):
+ *   ① featured image tile  → Consistent Production Quality
+ *   ② icon card            → Transparent Manufacturing Processes  (eye)
+ *   ③ icon card            → Long-Term Cooperation Mindset        (handshake)
+ *   ④ icon card            → Respect for Brand Integrity          (shield-check)
+ *   video tile             → complementary workshop/process clip  (added content)
+ */
+export function Features({ dict }: { dict: Dictionary["features"] }) {
+  const t = dict;
+
   return (
     <section className="section_features">
       <div className="padding-global">
@@ -7,24 +26,22 @@ export function Features() {
             <div className="heading_features">
               <div className="master_label" data-wf--tag--variant="base">
                 <div className="label-small">
-                  Overwater Excellence
+                  {t.eyebrow}
                 </div>
               </div>
               <h2 className="margin-0">
-                Wellness Redefined
+                {t.titleTop}
+                <br />
                 <span className="tone-medium">
-                  Above the Reef
+                  {t.titleBottom}
                 </span>
               </h2>
             </div>
             <div className="right_features-headline">
-              <p className="tone-medium margin-0">
-                Discover what makes Caladan&apos;s lagoon sanctuary unmatched. Glass floors reveal marine life during every session.
-              </p>
-              <a button="" className="cta_primary w-inline-block" data-wf--cta-primary--variant="primary" href="/book-inquiry">
+              <a button="" className="cta_primary w-inline-block" data-wf--cta-primary--variant="primary" href="#quote-form">
                 <div className="button_text-mask">
                   <div button-text="" className="text-button">
-                    Book Your Overwater Escape
+                    {t.cta}
                   </div>
                 </div>
                 <div button-bg="" className="btn-bg">
@@ -34,19 +51,20 @@ export function Features() {
           </div>
           <div className="master_features">
             <div className="w-layout-grid grid_features-2">
+              {/* ① Featured value — Consistent Production Quality */}
               <div className="image_features">
                 <div className="image-inner_features" data-w-id="d354a09c-1c94-8247-3fc0-60e3f5ed678a">
                   <img alt="Pexels saeb mahajna 14125913 6297105" className="image_cover is-parallax" loading="lazy" src="/assets/images/69a9746c7ab6e4371c4aae70_pexels-saeb-mahajna-14125913-6297105.avif" />
                   <div className="overlay_dark-16">
                   </div>
                 </div>
-                <a className="content_image-features is-horizontal w-inline-block" href="/resorts">
+                <a className="content_image-features is-horizontal w-inline-block" href="#quote-form">
                   <div className="features_text-tile">
                     <div className="text_body-bold">
-                      Begin with Tide Breath
+                      {t.featured.title}
                     </div>
                     <p className="text-size-small">
-                      Your overwater yoga mat becomes the world&apos;s most alive studio.
+                      {t.featured.desc}
                     </p>
                   </div>
                   <div className="icon_arrow-right w-embed">
@@ -59,78 +77,78 @@ export function Features() {
                   </div>
                 </a>
               </div>
+              {/* ② Transparent Manufacturing Processes */}
               <div className="card_service-v2">
                 <div className="wrap_icon-service-card">
                   <div className="icon_service-card w-embed">
-                    <svg className="lucide lucide-anchor-icon lucide-anchor" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 6v16">
+                    <svg className="lucide lucide-eye-icon lucide-eye" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0">
                       </path>
-                      <path d="m19 13 2-1a9 9 0 0 1-18 0l2 1">
-                      </path>
-                      <path d="M9 11h6">
-                      </path>
-                      <circle cx="12" cy="4" r="2">
+                      <circle cx="12" cy="12" r="3">
                       </circle>
                     </svg>
                   </div>
                 </div>
                 <div className="wrap_text-service-card">
                   <div className="text-size-large text_body-bold">
-                    Polynesian Healing Arts
+                    {t.cards[0].title}
                   </div>
                   <p className="tone-medium margin-0">
-                    Traditional lomilomi massages, crystal sound baths, and tide-synced breathwork. Ancient Tahitian wisdom delivered by expert practitioners in open-air serenity.
+                    {t.cards[0].desc}
                   </p>
                 </div>
               </div>
             </div>
             <div className="w-layout-grid grid_features-3">
+              {/* ③ Long-Term Cooperation Mindset */}
               <div className="card_service-v2">
                 <div className="wrap_icon-service-card">
                   <div className="icon_service-card w-embed">
-                    <svg fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4">
+                    <svg className="lucide lucide-handshake-icon lucide-handshake" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m11 17 2 2a1 1 0 1 0 3-3">
                       </path>
-                      <path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3">
+                      <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4">
                       </path>
-                      <path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35">
+                      <path d="m21 3 1 11h-2">
                       </path>
-                      <path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14">
+                      <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3">
+                      </path>
+                      <path d="M3 4h8">
                       </path>
                     </svg>
                   </div>
                 </div>
                 <div className="wrap_text-service-card">
                   <div className="text-size-large text_body-bold">
-                    Private Overwater Access
+                    {t.cards[1].title}
                   </div>
                   <p className="tone-medium margin-0">
-                    Solo, couples, or family pods with dedicated decks. Sunrise flows for one, hand-in-hand rituals for two, or group harmony for all, intimacy meets the infinite sea.
+                    {t.cards[1].desc}
                   </p>
                 </div>
               </div>
+              {/* ④ Respect for Brand Integrity */}
               <div className="card_service-v2">
                 <div className="wrap_icon-service-card">
                   <div className="icon_service-card w-embed">
-                    <svg className="lucide lucide-martini-icon lucide-martini" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 22h8">
+                    <svg className="lucide lucide-shield-check-icon lucide-shield-check" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
                       </path>
-                      <path d="M12 11v11">
-                      </path>
-                      <path d="m19 3-7 8-7-8Z">
+                      <path d="m9 12 2 2 4-4">
                       </path>
                     </svg>
                   </div>
                 </div>
                 <div className="wrap_text-service-card">
                   <div className="text-size-large text_body-bold">
-                    Lagoon Rhythm Integration
+                    {t.cards[2].title}
                   </div>
                   <p className="tone-medium margin-0">
-                    Sessions timed to natural tides and marine cycles. Exhale with waves, release with reef fish schools — nature&apos;s pulse becomes your healing heartbeat.
+                    {t.cards[2].desc}
                   </p>
                 </div>
               </div>
+              {/* Complementary workshop/process video (added content) */}
               <div className="video_features" id="w-node-_7592271b-69fa-3faa-e7e1-e8f1255559a7-5e872ff7">
                 <div className="image-inner_features" data-w-id="7592271b-69fa-3faa-e7e1-e8f1255559a8">
                   <div className="video_cover w-background-video w-background-video-atom" data-autoplay="true" data-loop="true" data-poster-url="/assets/images/69ac9062c7d860e7441b1f36_6168566-hd_1920_1080_30fps_poster.0000000.jpg" data-video-urls="/assets/videos/69ac9062c7d860e7441b1f36_6168566-hd_1920_1080_30fps_mp4.mp4,/assets/videos/69ac9062c7d860e7441b1f36_6168566-hd_1920_1080_30fps_webm.webm" data-wf-ignore="true">
@@ -182,10 +200,10 @@ export function Features() {
                 </div>
                 <div className="content_image-features">
                   <div className="text_body-bold">
-                    Couples&apos; Reef Renewal
+                    {t.videoTitle}
                   </div>
                   <p className="text-size-small">
-                    Polynesian healing above paradise depths.
+                    {t.videoText}
                   </p>
                 </div>
               </div>
