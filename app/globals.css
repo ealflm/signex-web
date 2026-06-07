@@ -6,3 +6,104 @@
      @import "tailwindcss/theme.css" layer(theme);
      @import "tailwindcss/utilities.css" layer(utilities);
    (do not import the base/preflight layer). */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Hero quote form — progressive disclosure (ADDED feature, scoped).
+   Webflow's caladan-template.shared.css is NOT touched. These rules only drive
+   the new expand/collapse interaction and the form's layout. Fields keep Caladan's
+   own .text-field / .input_wrap / .label / .cta_primary styling.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* The form reads as a self-contained dark card (so it sits cleanly over the hero
+   image) instead of Caladan's full-width horizontal bar. Scoped via .hero-quote_panel
+   so other .form elements (e.g. the footer newsletter) are unaffected. */
+.hero-quote_panel.hero-quote_panel {
+  max-width: 44rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(8, 10, 12, 0.66);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+/* Vertical form layout with field grids (mirrors the reference: Name|Email + Phone,
+   then the product fields 2-up, Message full width). */
+.hero-quote_inner {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: var(--spacing--space-tiny, 0.5rem);
+  gap: var(--spacing--space-tiny, 0.5rem);
+}
+.hero-quote_grid {
+  display: grid;
+  grid-column-gap: var(--spacing--space-tiny, 0.5rem);
+  grid-row-gap: var(--spacing--space-tiny, 0.5rem);
+}
+.hero-quote_grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.hero-quote_field--full {
+  grid-column: 1 / -1;
+}
+
+/* "Product Information" group: collapsed by default, expands on focus.
+   grid-template-rows 0fr→1fr animates height with no JS measuring. */
+.hero-form_collapsible {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 320ms ease, opacity 240ms ease;
+}
+.hero-form_collapsible.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.hero-form_collapsible-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: var(--spacing--space-tiny, 0.5rem);
+  gap: var(--spacing--space-tiny, 0.5rem);
+}
+
+/* Message textarea — sized to match fields (more specific than .text-field). */
+.hero-quote_inner .hero-quote_message {
+  height: auto;
+  min-height: 5.5rem;
+  resize: vertical;
+}
+.hero-quote_inner .hero-form_file {
+  height: auto;
+}
+.hero-quote_submit {
+  align-self: flex-start;
+  margin-top: var(--spacing--space-minimal, 0.25rem);
+}
+
+/* Let the hero grow to fit the expanded form. Collapsed (no .is-open) keeps the
+   stock 100dvh hero untouched; :has() keys off the open state — no JS drilling. */
+.wrap_home-a:has(.hero-form_collapsible.is-open) {
+  height: auto;
+  min-height: 100dvh;
+  max-height: none;
+}
+.content_hero-home-a:has(.hero-form_collapsible.is-open) {
+  height: auto;
+}
+.master_hero-home-a:has(.hero-form_collapsible.is-open) {
+  overflow: visible;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-quote_grid--2 {
+    grid-template-columns: 1fr;
+  }
+  .hero-quote_panel.hero-quote_panel {
+    max-width: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-form_collapsible {
+    transition: none;
+  }
+}
