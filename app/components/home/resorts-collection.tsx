@@ -12,9 +12,16 @@
 // (a-124: STYLE_OPACITY + STYLE_FILTER on self) — giving the identical Caladan fade+unblur
 // used by every other home section. These ids are also carried by headline_features /
 // heading_resorts-slider; sharing a self-targeted reveal trigger is safe (each element
-// reveals independently — exactly like the 4 cards sharing 53807880 below).
-// The remaining source data-w-ids (card hover, image parallax) are kept as-is; they are
-// page-gated and inert on the home page (subtle polish to wire up later).
+// reveals independently — exactly like the 4 cards sharing one card-hover id below).
+//
+// The card hover-zoom and image scroll-parallax were page-gated the same way, so they are
+// re-pointed to the home page's resort-slider triggers, which run the identical relative
+// (`useEventTarget:"CHILDREN"`) actionLists: a-112/a-113 scale a card's child `.image_cover`
+// to 1.1 on hover, and a-114 (SCROLLING_IN_VIEW) drifts the child `.image_cover.is-parallax`
+// by -15px as it scrolls. Because the selectors are relative to each trigger element, sharing
+// these ids with the slider cards is safe — each card animates only its own image.
+//   • card `<a>` (.card_resort-v1)   → 6d379b8b-…676f  (slider card hover, a-112/a-113)
+//   • image wrap (.image_resort-v1)  → 6d379b8b-…6770  (slider image parallax, a-114)
 export function ResortsCollection() {
   return (
     <section className="section_hero-resorts" data-w-id="ad1a3029-1630-4dbd-9a8f-fd5ea3c4eb18">
@@ -37,8 +44,8 @@ export function ResortsCollection() {
           <div className="resorts w-dyn-list" data-w-id="b3ac1ddc-636d-f345-c58d-b372a067ce8d" style={{ opacity: 0, filter: 'blur(5px)' }}>
             <div className="grid_resorts w-dyn-items" role="list">
               <div className="w-dyn-item" role="listitem">
-                <a className="card_resort-v1 w-inline-block" data-w-id="53807880-bd66-11f3-781f-06506485a69b" href="/resorts/lagoon-harmony-bungalow">
-                  <div className="image_resort-v1" data-w-id="bef4cd1e-0693-afca-d231-4488a7c71967">
+                <a className="card_resort-v1 w-inline-block" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c676f" href="/resorts/lagoon-harmony-bungalow">
+                  <div className="image_resort-v1" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c6770">
                     <div className="overlay_resort-card-v1">
                       <div className="master_label w-variant-84e91bde-75c3-dd4c-a083-7846b4ae6170" data-wf--tag--variant="lighter">
                         <div className="label-small">
@@ -112,8 +119,8 @@ export function ResortsCollection() {
                 </a>
               </div>
               <div className="w-dyn-item" role="listitem">
-                <a className="card_resort-v1 w-inline-block" data-w-id="53807880-bd66-11f3-781f-06506485a69b" href="/resorts/coral-breath-studio">
-                  <div className="image_resort-v1" data-w-id="bef4cd1e-0693-afca-d231-4488a7c71967">
+                <a className="card_resort-v1 w-inline-block" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c676f" href="/resorts/coral-breath-studio">
+                  <div className="image_resort-v1" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c6770">
                     <div className="overlay_resort-card-v1">
                       <div className="master_label w-variant-84e91bde-75c3-dd4c-a083-7846b4ae6170" data-wf--tag--variant="lighter">
                         <div className="label-small">
@@ -187,8 +194,8 @@ export function ResortsCollection() {
                 </a>
               </div>
               <div className="w-dyn-item" role="listitem">
-                <a className="card_resort-v1 w-inline-block" data-w-id="53807880-bd66-11f3-781f-06506485a69b" href="/resorts/tide-song-villa">
-                  <div className="image_resort-v1" data-w-id="bef4cd1e-0693-afca-d231-4488a7c71967">
+                <a className="card_resort-v1 w-inline-block" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c676f" href="/resorts/tide-song-villa">
+                  <div className="image_resort-v1" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c6770">
                     <div className="overlay_resort-card-v1">
                       <div className="master_label w-variant-84e91bde-75c3-dd4c-a083-7846b4ae6170" data-wf--tag--variant="lighter">
                         <div className="label-small">
@@ -262,8 +269,8 @@ export function ResortsCollection() {
                 </a>
               </div>
               <div className="w-dyn-item" role="listitem">
-                <a className="card_resort-v1 w-inline-block" data-w-id="53807880-bd66-11f3-781f-06506485a69b" href="/resorts/reef-whisper-suite">
-                  <div className="image_resort-v1" data-w-id="bef4cd1e-0693-afca-d231-4488a7c71967">
+                <a className="card_resort-v1 w-inline-block" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c676f" href="/resorts/reef-whisper-suite">
+                  <div className="image_resort-v1" data-w-id="6d379b8b-4b7f-2d17-709e-271c021c6770">
                     <div className="overlay_resort-card-v1">
                       <div className="master_label w-variant-84e91bde-75c3-dd4c-a083-7846b4ae6170" data-wf--tag--variant="lighter">
                         <div className="label-small">
