@@ -231,3 +231,15 @@
   opacity: 0.3;
   user-select: none;
 }
+
+/* Resorts collection section on the HOME page.
+   Caladan's shared rule gives .section_hero-resorts a LARGE top padding because there
+   it's the /resorts page hero (sits right under the navbar). Ported below Features on
+   the home page it's a mid-page block, so the large top padding leaves too big a gap —
+   tighten it to the small padding (matching the bottom). Scoped to .home-a_rest-content
+   so the future /resorts hero keeps its original large top padding; the descendant
+   selector (0,2,0) also beats Caladan's .section_hero-resorts (0,1,0), which loads
+   after globals.css. */
+.home-a_rest-content .section_hero-resorts {
+  padding-top: var(--section-padding--small);
+}
