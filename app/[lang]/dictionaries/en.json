@@ -46,5 +46,16 @@
       { "title": "Long-Term Cooperation Mindset", "desc": "Manufacturing partnerships built for the long term." },
       { "title": "Respect for Brand Integrity", "desc": "Strict adherence to brand standards and specifications." }
     ]
+  },
+  "products": {
+    "eyebrow": "Our Products",
+    "title": "What We Manufacture",
+    "statLabels": { "products": "Products", "materials": "Materials", "lead": "Days" },
+    "categories": [
+      { "tag": "PVC · Silicone", "title": "Plastic logos & emblems", "slug": "plastic-logos-emblems", "products": 18, "materials": 4, "leadDays": 7 },
+      { "tag": "Woven · Printed", "title": "Labels, badges, nameplates", "slug": "labels-badges-nameplates", "products": 24, "materials": 6, "leadDays": 5 },
+      { "tag": "Bespoke", "title": "Custom identity components", "slug": "custom-identity-components", "products": 15, "materials": 5, "leadDays": 10 },
+      { "tag": "OEM Spec", "title": "OEM brand parts", "slug": "oem-brand-parts", "products": 12, "materials": 3, "leadDays": 14 }
+    ]
   }
 }
