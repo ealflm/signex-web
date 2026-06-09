@@ -100,22 +100,6 @@ export function ProductCategories({ dict }: { dict: Dictionary["products"] }) {
                             </div>
                           </div>
                         </div>
-                        <div className="tile_room-summary">
-                          <div className="icon_summary w-embed">
-                            <svg className="lucide lucide-clock-icon lucide-clock" fill="none" height="24" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                              <circle cx="12" cy="12" r="10" />
-                              <path d="M12 6v6l4 2" />
-                            </svg>
-                          </div>
-                          <div className="wrap_text-room-summary">
-                            <div>
-                              {cat.leadDays}
-                            </div>
-                            <div>
-                              {t.statLabels.lead}
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </a>

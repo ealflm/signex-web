@@ -50,12 +50,12 @@
   "products": {
     "eyebrow": "Sản Phẩm Của Chúng Tôi",
     "title": "Những Gì Chúng Tôi Sản Xuất",
-    "statLabels": { "products": "Sản phẩm", "materials": "Vật liệu", "lead": "Ngày" },
+    "statLabels": { "products": "Sản phẩm", "materials": "Vật liệu" },
     "categories": [
-      { "tag": "PVC · Silicone", "title": "Logo & biểu tượng nhựa", "slug": "plastic-logos-emblems", "products": 18, "materials": 4, "leadDays": 7 },
-      { "tag": "Dệt · In", "title": "Nhãn, phù hiệu & bảng tên", "slug": "labels-badges-nameplates", "products": 24, "materials": 6, "leadDays": 5 },
-      { "tag": "Đặt riêng", "title": "Linh kiện nhận diện tùy chỉnh", "slug": "custom-identity-components", "products": 15, "materials": 5, "leadDays": 10 },
-      { "tag": "Chuẩn OEM", "title": "Linh kiện thương hiệu OEM", "slug": "oem-brand-parts", "products": 12, "materials": 3, "leadDays": 14 }
+      { "tag": "PVC · Silicone", "title": "Logo & biểu tượng nhựa", "slug": "plastic-logos-emblems", "products": 18, "materials": 4 },
+      { "tag": "Dệt · In", "title": "Nhãn, phù hiệu & bảng tên", "slug": "labels-badges-nameplates", "products": 24, "materials": 6 },
+      { "tag": "Đặt riêng", "title": "Linh kiện nhận diện tùy chỉnh", "slug": "custom-identity-components", "products": 15, "materials": 5 },
+      { "tag": "Chuẩn OEM", "title": "Linh kiện thương hiệu OEM", "slug": "oem-brand-parts", "products": 12, "materials": 3 }
     ]
   }
 }
