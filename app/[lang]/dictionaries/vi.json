@@ -47,6 +47,12 @@
       { "title": "Tôn Trọng Tính Toàn Vẹn Thương Hiệu", "desc": "Tuân thủ nghiêm ngặt tiêu chuẩn thương hiệu." }
     ]
   },
+  "about": {
+    "eyebrow": "Chúng Tôi Là Ai",
+    "title": "Về ",
+    "titleAccent": "SIGNEX",
+    "body": "Với kinh nghiệm sản xuất từ năm 2003, tiền thân SIGNEX là đơn vị tại Việt Nam chuyên sản xuất các sản phẩm nhận diện thương hiệu bằng nhựa dẻo đạt tiêu chuẩn xuất khẩu, không mùi, không độc hại, có độ bền cao và chi tiết sắc nét, phục vụ cho ngành may mặc, và quảng cáo. Từ năm 2016, sản phẩm của SIGNEX đã có mặt tại các thị trường quốc tế như Châu Âu, Nhật Bản và Hoa Kỳ."
+  },
   "products": {
     "eyebrow": "Sản Phẩm Của Chúng Tôi",
     "title": "Những Gì Chúng Tôi Sản Xuất",

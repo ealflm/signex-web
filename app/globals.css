@@ -243,3 +243,16 @@
 .home-a_rest-content .section_hero-resorts {
   padding-top: var(--section-padding--small);
 }
+
+/* Home "About SIGNEX" paragraph width.
+   Caladan caps the body at 5 columns (.home_about-p) inside a 6-column headline wrapper
+   (.headline_home-about), which wraps signex's longer About copy to ~6 lines. Widen both
+   to 10 columns so the paragraph reads in ~3 lines. Both selectors are (0,2,0) — scoped to
+   .home-a_rest-content — so they beat Caladan's base rules (0,1,0), which load after
+   globals.css; the headline wrapper stays center-aligned, so only the paragraph gets wider. */
+.home-a_rest-content .headline_home-about {
+  max-width: var(--width--10-columns);
+}
+.home-a_rest-content .home_about-p {
+  max-width: var(--width--10-columns);
+}

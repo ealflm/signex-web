@@ -47,6 +47,12 @@
       { "title": "Respect for Brand Integrity", "desc": "Strict adherence to brand standards and specifications." }
     ]
   },
+  "about": {
+    "eyebrow": "Who We Are",
+    "title": "About ",
+    "titleAccent": "SIGNEX",
+    "body": "With manufacturing experience since 2003, SIGNEX's predecessor was a Vietnam-based company specializing in flexible-plastic brand identity products built to export standard — odorless, non-toxic, highly durable, and sharply detailed — serving the garment and advertising industries. Since 2016, SIGNEX products have reached international markets such as Europe, Japan, and the United States."
+  },
   "products": {
     "eyebrow": "Our Products",
     "title": "What We Manufacture",
