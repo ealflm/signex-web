@@ -55,7 +55,9 @@
   },
   "products": {
     "eyebrow": "Our Products",
-    "title": "What We Manufacture",
+    "title": "What We ",
+    "titleAccent": "Manufacture",
+    "body": "Produced with premium-grade PVC, TPU, silicone, and composite materials, ensuring durability, color stability, and accurate brand representation.",
     "statLabels": { "products": "Products", "materials": "Materials" },
     "categories": [
       { "tag": "PVC · Silicone", "title": "Plastic logos & emblems", "slug": "plastic-logos-emblems", "products": 18, "materials": 4 },

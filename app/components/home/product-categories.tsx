@@ -13,10 +13,14 @@ const CATEGORY_IMAGES = [
 /**
  * ProductCategories — the home-page product-category grid. Repurposes Caladan's
  * "section_hero-resorts" 2×2 card grid (formerly the resort "Choose Your Lagoon Sanctuary"
- * collection) IN PLACE: the section slot, classes, and IX2 reveal/hover/parallax data-w-id
+ * collection) IN PLACE: the section slot, card grid, and IX2 reveal/hover/parallax data-w-id
  * bindings are kept verbatim so the Webflow animations still fire on the home page. Only the
  * content is signex's — four product categories, each card linking to /products/<slug>
  * (detail pages are a later step). Dict-driven Server Component (EN + VI), like Features.
+ *
+ * The headline is restyled to MATCH the HomeAbout section: a two-tone h2 (.tone-medium accent)
+ * + a description paragraph, reusing Caladan's .headline_home-about / .home_about-p classes
+ * (so the globals.css 10-column width override applies here too — identical to "About SIGNEX").
  *
  * data-w-id REUSE (do NOT change — these were re-pointed to home-page triggers; see git
  * history of resorts-collection.tsx for the cross-page IX2 gating fix):
@@ -35,15 +39,23 @@ export function ProductCategories({ dict }: { dict: Dictionary["products"] }) {
     <section className="section_hero-resorts" data-w-id="ad1a3029-1630-4dbd-9a8f-fd5ea3c4eb18">
       <div className="padding-global">
         <div className="w-layout-blockcontainer container-large w-container">
-          <div className="headline_resorts" data-w-id="0f29df12-8c38-da6f-794d-3989ac10d663" style={{ opacity: 0, filter: 'blur(5px)' }}>
+          <div className="headline_home-about" data-w-id="0f29df12-8c38-da6f-794d-3989ac10d663" style={{ opacity: 0, filter: 'blur(5px)' }}>
             <div className="master_label" data-wf--tag--variant="base">
               <div className="label-small">
                 {t.eyebrow}
               </div>
             </div>
-            <h1>
+            <h2 className="margin-0">
               {t.title}
-            </h1>
+              <span className="tone-medium">
+                {t.titleAccent}
+              </span>
+            </h2>
+            <div className="home_about-p">
+              <p className="tone-medium">
+                {t.body}
+              </p>
+            </div>
           </div>
           <div className="resorts w-dyn-list" data-w-id="b3ac1ddc-636d-f345-c58d-b372a067ce8d" style={{ opacity: 0, filter: 'blur(5px)' }}>
             <div className="grid_resorts w-dyn-items" role="list">

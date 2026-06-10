@@ -55,7 +55,9 @@
   },
   "products": {
     "eyebrow": "Sản Phẩm Của Chúng Tôi",
-    "title": "Những Gì Chúng Tôi Sản Xuất",
+    "title": "Những Gì Chúng Tôi ",
+    "titleAccent": "Sản Xuất",
+    "body": "Sản xuất từ PVC, TPU, silicone và vật liệu composite cao cấp, đảm bảo độ bền, màu sắc ổn định và thể hiện chính xác nhận diện thương hiệu.",
     "statLabels": { "products": "Sản phẩm", "materials": "Vật liệu" },
     "categories": [
       { "tag": "PVC · Silicone", "title": "Logo & biểu tượng nhựa", "slug": "plastic-logos-emblems", "products": 18, "materials": 4 },
