@@ -3,6 +3,7 @@
 
 import { useRef, useState } from "react";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
+import { STANDARD_VALUES } from "@/app/lib/standard-options";
 
 /**
  * Hero quote form — progressive disclosure, full-width. Text comes from the server-loaded
@@ -15,15 +16,6 @@ import type { Dictionary } from "@/app/[lang]/dictionaries";
  * Reuses Caladan's existing form classes verbatim (.form, .input_wrap, .text-field,
  * .text_input-label.label-large, .button_submit-static, .cta_primary) — design unchanged.
  */
-
-// Stable option VALUES (locale-independent); display labels come from the dictionary.
-const STANDARD_VALUES = [
-  "OEKO-TEX Standard 100",
-  "ISO 9001",
-  "GRS (Recycled)",
-  "GOTS (Organic)",
-  "Other / Custom",
-];
 
 export function HeroQuoteForm({
   dict,
