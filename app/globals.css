@@ -253,6 +253,43 @@
   padding-top: var(--section-padding--small);
 }
 
+/* Contact form — widened 2-column field grid (ADDED).
+   The ref stacks every field full-width inside .master_contact-b's 8-column cap
+   (57rem). For the signex quote fields that reads too tall and narrow, so:
+   • .contact-form_wide lifts the form's own .master_contact-b wrapper to the
+     section's 10-column rhythm (the About headline/MVV grid cap) — the heading
+     above keeps the ref's 8-column width in its own wrapper;
+   • .contact-form_grid turns .profile-form_inner's flex column into a 2-col grid
+     (class+class (0,2,0) beats Caladan's .profile-form_inner (0,1,0));
+   • the three mm dimensions share one full-width 3-up row (.contact-form_dims)
+     — same grouping as the hero quote form's detail grid;
+   • .contact-form_full (Message) spans both columns.
+   Single column again under 768px, dims included. */
+.master_contact-b.contact-form_wide {
+  max-width: var(--width--10-columns);
+}
+.profile-form_inner.contact-form_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+.contact-form_dims {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: var(--spacing--space-tiny, 1rem);
+  grid-row-gap: var(--spacing--space-tiny, 1rem);
+}
+.contact-form_full {
+  grid-column: 1 / -1;
+}
+@media screen and (max-width: 767px) {
+  .profile-form_inner.contact-form_grid,
+  .contact-form_dims {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Home About / Products headline width.
    Both "About SIGNEX" (HomeAbout) and "What We Manufacture" (ProductCategories) reuse
    Caladan's .headline_home-about / .home_about-p. Caladan caps the body at 5 columns inside

@@ -11,9 +11,11 @@ import { STANDARD_VALUES } from "@/app/lib/standard-options";
  * dict-driven fields — Name/Email/Phone (required), Quantity, Standard, Height/Width/
  * Thickness, Upload Sample, Message — sharing the hero's `dict.form` labels,
  * placeholders, submit text, and success message (EN + VI), with the same data-names
- * and STANDARD_VALUES so submissions are shaped identically. Fields are stacked
- * full-width in the ref's `.profile-form_inner` column (contact-b's own layout);
- * `contact-*` ids keep them unique from the hero's `quote-*` fields on this page.
+ * and STANDARD_VALUES so submissions are shaped identically. Fields sit in a 2-column
+ * grid (the three mm dimensions share one 3-up row; Message spans full width) inside a
+ * widened card — scoped `contact-form_*` styles in globals.css; the heading keeps the
+ * ref's 8-column width in its own `.master_contact-b`, so the section uses two wrappers
+ * like the ref page does. `contact-*` ids keep fields unique from the hero's `quote-*`.
  *
  * - The section is LIGHT: `.section_hero-contact-b`'s `ink--base` bg resolves to
  *   `base--light-100`; dark text via `tone--strong`. Coherent with the rest of the home page.
@@ -58,6 +60,8 @@ export function Contact({ dict }: { dict: Dictionary["form"] }) {
                 Booking questions, events, or special requests?
               </p>
             </div>
+          </div>
+          <div className="master_contact-b contact-form_wide">
             <div className="form-block" data-w-id="0f29df12-8c38-da6f-794d-3989ac10d663" style={{ opacity: 0, filter: 'blur(5px)' }}>
               <StaticWebflowForm
                 id="contact-form"
@@ -67,7 +71,11 @@ export function Contact({ dict }: { dict: Dictionary["form"] }) {
                 failMarkup="<div>Oops! Something went wrong while submitting the form.</div>"
               >
                 <div className="account_form-inner">
-                  <div className="profile-form_inner">
+                  {/* 2-col field grid (scoped contact-form_grid overrides the ref's
+                      single flex column): Name|Email, Phone|Quantity, Standard|Upload,
+                      then the three mm dimensions share one full-width 3-up row and
+                      Message spans both columns. Single column under 768px. */}
+                  <div className="profile-form_inner contact-form_grid">
                     <div className="input_wrap">
                       <div className="text_input-label label-large">
                         {t.name}
@@ -112,24 +120,6 @@ export function Contact({ dict }: { dict: Dictionary["form"] }) {
                     </div>
                     <div className="input_wrap">
                       <div className="text_input-label label-large">
-                        {t.height}
-                      </div>
-                      <input className="text-field w-input" data-name="Height" id="contact-height" inputMode="decimal" name="Height" placeholder={t.heightPlaceholder} type="text" />
-                    </div>
-                    <div className="input_wrap">
-                      <div className="text_input-label label-large">
-                        {t.width}
-                      </div>
-                      <input className="text-field w-input" data-name="Width" id="contact-width" inputMode="decimal" name="Width" placeholder={t.widthPlaceholder} type="text" />
-                    </div>
-                    <div className="input_wrap">
-                      <div className="text_input-label label-large">
-                        {t.thickness}
-                      </div>
-                      <input className="text-field w-input" data-name="Thickness" id="contact-thickness" inputMode="decimal" name="Thickness" placeholder={t.thicknessPlaceholder} type="text" />
-                    </div>
-                    <div className="input_wrap">
-                      <div className="text_input-label label-large">
                         {t.upload}
                       </div>
                       <input accept=".jpg,.jpeg,.png,.pdf" className="text-field w-input" data-name="Sample" id="contact-sample" name="Sample" type="file" />
@@ -137,7 +127,27 @@ export function Contact({ dict }: { dict: Dictionary["form"] }) {
                         {t.uploadHelp}
                       </div>
                     </div>
-                    <div className="input_wrap">
+                    <div className="contact-form_dims">
+                      <div className="input_wrap">
+                        <div className="text_input-label label-large">
+                          {t.height}
+                        </div>
+                        <input className="text-field w-input" data-name="Height" id="contact-height" inputMode="decimal" name="Height" placeholder={t.heightPlaceholder} type="text" />
+                      </div>
+                      <div className="input_wrap">
+                        <div className="text_input-label label-large">
+                          {t.width}
+                        </div>
+                        <input className="text-field w-input" data-name="Width" id="contact-width" inputMode="decimal" name="Width" placeholder={t.widthPlaceholder} type="text" />
+                      </div>
+                      <div className="input_wrap">
+                        <div className="text_input-label label-large">
+                          {t.thickness}
+                        </div>
+                        <input className="text-field w-input" data-name="Thickness" id="contact-thickness" inputMode="decimal" name="Thickness" placeholder={t.thicknessPlaceholder} type="text" />
+                      </div>
+                    </div>
+                    <div className="input_wrap contact-form_full">
                       <div className="text_input-label label-large">
                         {t.message}
                       </div>
