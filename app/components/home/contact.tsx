@@ -5,8 +5,10 @@ import { STANDARD_VALUES } from "@/app/lib/standard-options";
 /**
  * Contact — home-page contact section. The SHELL is a faithful port of Caladan's
  * `section_hero-contact-b` (signex-web-ref/app/contact/contact-b/page.tsx): section,
- * heading block and `.form.is-v2` card are the ref's markup/classes verbatim (heading
- * copy still the ref's English placeholder; signex heading + i18n is a later phase).
+ * heading block and `.form.is-v2` card are the ref's markup/classes verbatim. The
+ * heading copy is signex's, dict-driven from `dict.contact` (two-tone title +
+ * subtitle, EN + VI); only the "Reach Out" eyebrow is still the ref's English
+ * placeholder (no VI copy provided yet).
  * The FORM CONTENT mirrors the hero quote form (section_hero-home-a): the same
  * dict-driven fields — Name/Email/Phone (required), Quantity, Standard, Height/Width/
  * Thickness, Upload Sample, Message — sharing the hero's `dict.form` labels,
@@ -31,8 +33,9 @@ import { STANDARD_VALUES } from "@/app/lib/standard-options";
  * - The section's ref data-w-id (ad1a3029-…eb18) is DROPPED — it already lives on the
  *   product-categories section on this page.
  */
-export function Contact({ dict }: { dict: Dictionary["form"] }) {
-  const t = dict;
+export function Contact({ dict }: { dict: Dictionary }) {
+  const c = dict.contact;
+  const t = dict.form;
 
   return (
     <section className="section_hero-contact-b">
@@ -50,14 +53,14 @@ export function Contact({ dict }: { dict: Dictionary["form"] }) {
                     home hero keeps the only h1 — same as ProductCategories (b25a69c).
                     .heading-style-h1 applies the identical h1 typography, so zero visual change. */}
                 <h2 className="heading-style-h1">
-                  Let&apos;s Plan{" "}
+                  {c.title}
                   <span className="tone-medium">
-                    Your Stay
+                    {c.titleAccent}
                   </span>
                 </h2>
               </div>
               <p className="text-size-large tone-medium">
-                Booking questions, events, or special requests?
+                {c.subtitle}
               </p>
             </div>
           </div>

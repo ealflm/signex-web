@@ -83,5 +83,10 @@
       { "tag": "Đặt riêng", "title": "Linh kiện nhận diện tùy chỉnh", "slug": "custom-identity-components", "products": 15, "materials": 5 },
       { "tag": "Chuẩn OEM", "title": "Linh kiện thương hiệu OEM", "slug": "oem-brand-parts", "products": 12, "materials": 3 }
     ]
+  },
+  "contact": {
+    "title": "Liên Hệ ",
+    "titleAccent": "Với Chúng Tôi",
+    "subtitle": "Bạn có thắc mắc? Chúng tôi luôn sẵn sàng hỗ trợ."
   }
 }

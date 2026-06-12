@@ -83,5 +83,10 @@
       { "tag": "Bespoke", "title": "Custom identity components", "slug": "custom-identity-components", "products": 15, "materials": 5 },
       { "tag": "OEM Spec", "title": "OEM brand parts", "slug": "oem-brand-parts", "products": 12, "materials": 3 }
     ]
+  },
+  "contact": {
+    "title": "Get In ",
+    "titleAccent": "Touch",
+    "subtitle": "Have questions? We're here to help you succeed."
   }
 }
