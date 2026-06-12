@@ -51,7 +51,25 @@
     "eyebrow": "Who We Are",
     "title": "About ",
     "titleAccent": "SIGNEX",
-    "body": "Founded in 2003, SIGNEX specializes in manufacturing soft plastic brand identity components that made from export-standard materials that are odorless, non-toxic, highly durable, and precisely detailed for the garment, consumer goods, and advertising industries. Since 2016, SIGNEX products have been supplied to international markets, including Europe, Japan, and the United States."
+    "body": "Founded in 2003, SIGNEX specializes in manufacturing soft plastic brand identity components that made from export-standard materials that are odorless, non-toxic, highly durable, and precisely detailed for the garment, consumer goods, and advertising industries. Since 2016, SIGNEX products have been supplied to international markets, including Europe, Japan, and the United States.",
+    "mission": {
+      "title": "Our Mission",
+      "body": "To manufacture reliable brand identity components that help businesses present their brand clearly and consistently across products and markets.",
+      "items": [
+        "Delivering consistent manufacturing quality across every production batch",
+        "Supporting brands with reliable OEM manufacturing solutions",
+        "Maintaining precise brand standards in every component produced",
+        "Building long-term manufacturing partnerships with our clients"
+      ]
+    },
+    "vision": {
+      "title": "Our Vision",
+      "body": "To become a trusted manufacturing partner for global brands, delivering consistent brand identity components with reliability, precision, and long-term cooperation."
+    },
+    "values": {
+      "title": "Our Values",
+      "body": "Integrity, ethics, and quality form the foundation for sustainable growth in all of SIGNEX's manufacturing activities."
+    }
   },
   "products": {
     "eyebrow": "Our Products",

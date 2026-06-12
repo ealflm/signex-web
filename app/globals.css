@@ -244,6 +244,15 @@
   padding-top: var(--section-padding--small);
 }
 
+/* Contact section on the HOME page — same situation as .section_hero-resorts above:
+   in the ref, .section_hero-contact-b is the /contact-b page HERO (large top padding,
+   sits right under the navbar). Ported below HomeAbout it's a mid-page block, so
+   tighten the top padding to small. Scoped to .home-a_rest-content so a future
+   /contact page keeps the original hero padding; (0,2,0) beats Caladan's (0,1,0). */
+.home-a_rest-content .section_hero-contact-b {
+  padding-top: var(--section-padding--small);
+}
+
 /* Home About / Products headline width.
    Both "About SIGNEX" (HomeAbout) and "What We Manufacture" (ProductCategories) reuse
    Caladan's .headline_home-about / .home_about-p. Caladan caps the body at 5 columns inside
@@ -257,4 +266,116 @@
 }
 .home-a_rest-content .home_about-p {
   max-width: var(--width--10-columns);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Home About — Mission / Vision / Values (ADDED, signex content).
+   Replaces Caladan's six-image collage (.grid_about-images) under the About
+   headline: mission statement + checklist on the left, Vision / Values tint
+   cards stacked on the right. All-new scoped classes (about-mvv_*) — Caladan's
+   stylesheet is untouched. The sub-heading reuses the compiled Webflow h5
+   typography variables (emoji-prefixed names are how Webflow exports them) so
+   it tracks Caladan's responsive type scale. The check/indigo/green accents are
+   hard-coded — they're signex brand accents, not in Caladan's palette.
+   ───────────────────────────────────────────────────────────────────────────── */
+.about-mvv_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 4rem;
+  grid-row-gap: 2rem;
+  align-items: start;
+  text-align: left;
+  /* Cap to the same 10-column rhythm as the About headline above (globals.css
+     override) — without this the grid fills .container-large (112.5rem) on wide
+     screens; the collage it replaced was capped at 8 columns by Caladan. */
+  max-width: var(--width--10-columns);
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-mvv_title {
+  margin: 0 0 0.875rem;
+  font-family: var(--_🔠-typography---font-family--h5);
+  font-size: var(--_🔠-typography---size--h5);
+  line-height: var(--_🔠-typography---line-height--h5);
+  font-weight: var(--_🔠-typography---font-weight--h5);
+  letter-spacing: var(--_🔠-typography---letter-spacing--h5);
+}
+.about-mvv_body {
+  margin: 0;
+}
+.about-mvv_list {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.875rem;
+  gap: 0.875rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.about-mvv_item {
+  display: flex;
+  align-items: flex-start;
+  grid-column-gap: 0.75rem;
+  gap: 0.75rem;
+  margin: 0;
+}
+.about-mvv_check {
+  flex: 0 0 auto;
+  margin-top: 0.125rem;
+  color: #1fa755;
+}
+.about-mvv_check svg {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.about-mvv_cards {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 1.5rem;
+  gap: 1.5rem;
+}
+.about-mvv_card {
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+.about-mvv_card.is-vision {
+  background-color: #edf0fb;
+}
+.about-mvv_card.is-values {
+  background-color: #e9f6ee;
+}
+.about-mvv_card-head {
+  display: flex;
+  align-items: center;
+  grid-column-gap: 0.625rem;
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+}
+.about-mvv_card-icon {
+  flex: 0 0 auto;
+}
+.about-mvv_card.is-vision .about-mvv_card-icon {
+  color: #4956e3;
+}
+.about-mvv_card.is-values .about-mvv_card-icon {
+  color: #1fa755;
+}
+.about-mvv_card-icon svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+/* h3 carries Caladan's sans heading family already; only resize to card scale. */
+.about-mvv_card-title {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+@media screen and (max-width: 767px) {
+  .about-mvv_grid {
+    grid-template-columns: 1fr;
+  }
 }

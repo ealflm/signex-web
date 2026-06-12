@@ -51,7 +51,25 @@
     "eyebrow": "Chúng Tôi Là Ai",
     "title": "Về ",
     "titleAccent": "SIGNEX",
-    "body": "Với kinh nghiệm sản xuất từ năm 2003, tiền thân SIGNEX là đơn vị tại Việt Nam chuyên sản xuất các sản phẩm nhận diện thương hiệu bằng nhựa dẻo đạt tiêu chuẩn xuất khẩu, không mùi, không độc hại, có độ bền cao và chi tiết sắc nét, phục vụ cho ngành may mặc, và quảng cáo. Từ năm 2016, sản phẩm của SIGNEX đã có mặt tại các thị trường quốc tế như Châu Âu, Nhật Bản và Hoa Kỳ."
+    "body": "Với kinh nghiệm sản xuất từ năm 2003, tiền thân SIGNEX là đơn vị tại Việt Nam chuyên sản xuất các sản phẩm nhận diện thương hiệu bằng nhựa dẻo đạt tiêu chuẩn xuất khẩu, không mùi, không độc hại, có độ bền cao và chi tiết sắc nét, phục vụ cho ngành may mặc, và quảng cáo. Từ năm 2016, sản phẩm của SIGNEX đã có mặt tại các thị trường quốc tế như Châu Âu, Nhật Bản và Hoa Kỳ.",
+    "mission": {
+      "title": "Sứ Mệnh",
+      "body": "Sản xuất sản phẩm nhựa dẻo nhận diện thương hiệu giúp doanh nghiệp thể hiện hình ảnh thương hiệu một cách rõ ràng và nhất quán trên sản phẩm và thị trường.",
+      "items": [
+        "Đảm bảo chất lượng sản xuất đồng nhất qua từng lô",
+        "Cung cấp giải pháp sản xuất OEM đáng tin cậy cho các thương hiệu",
+        "Duy trì tiêu chuẩn nhận diện chính xác trong từng sản phẩm",
+        "Xây dựng quan hệ hợp tác sản xuất lâu dài với khách hàng"
+      ]
+    },
+    "vision": {
+      "title": "Tầm Nhìn",
+      "body": "Trở thành đối tác sản xuất đáng tin cậy của các thương hiệu toàn cầu, cung cấp các chi tiết nhận diện với độ chính xác, tính ổn định và sự hợp tác bền vững."
+    },
+    "values": {
+      "title": "Giá Trị Cốt Lõi",
+      "body": "Lấy uy tín, đạo đức và chất lượng làm nền tảng phát triển bền vững cho mọi hoạt động sản xuất của SIGNEX."
+    }
   },
   "products": {
     "eyebrow": "Sản Phẩm Của Chúng Tôi",

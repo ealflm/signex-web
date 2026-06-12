@@ -5,6 +5,7 @@ import { Hero } from "@/app/components/home/hero";
 import { Features } from "@/app/components/home/features";
 import { ProductCategories } from "@/app/components/home/product-categories";
 import { HomeAbout } from "@/app/components/home/home-about";
+import { Contact } from "@/app/components/home/contact";
 import { Services } from "@/app/components/home/services";
 import { ResortsSlider } from "@/app/components/home/resorts-slider";
 import { Testimonial } from "@/app/components/home/testimonial";
@@ -23,6 +24,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <Features dict={dict.features} />
         <ProductCategories dict={dict.products} />
         <HomeAbout dict={dict.about} />
+        <Contact />
         <Services />
         <ResortsSlider />
         <Testimonial />
