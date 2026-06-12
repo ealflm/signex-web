@@ -85,8 +85,14 @@
     ]
   },
   "contact": {
+    "eyebrow": "Kết Nối",
     "title": "Liên Hệ ",
     "titleAccent": "Với Chúng Tôi",
-    "subtitle": "Bạn có thắc mắc? Chúng tôi luôn sẵn sàng hỗ trợ."
+    "subtitle": "Bạn có thắc mắc? Chúng tôi luôn sẵn sàng hỗ trợ.",
+    "cards": [
+      { "title": "Email", "lines": ["core@signex.vn", "nhuadeo@gmail.com"] },
+      { "title": "Số điện thoại", "lines": ["Tel: + 84 982 633 377", "Zalo: + 84 982 633 377"] },
+      { "title": "Địa chỉ", "lines": ["Office: 25/88/13 Bùi Quang Là, phường An Hội Tây, TP.HCM, Việt Nam.", "Factory: 85/45 Dương Thị Mười, phường Trung Mỹ Tây, TP.HCM, Việt Nam."] }
+    ]
   }
 }

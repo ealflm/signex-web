@@ -2,13 +2,24 @@ import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { StaticWebflowForm } from "@/app/components/static-webflow-form";
 import { STANDARD_VALUES } from "@/app/lib/standard-options";
 
+// Info-card icons (lucide) + per-card chip tone, index-aligned with dict.contact.cards
+// (Email / Phone / Address). Icons aren't translated, so they live here, not in the dict.
+const CARD_ICONS = [
+  // mail
+  <svg key="mail" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect height="16" rx="2" width="20" x="2" y="4" /></svg>,
+  // phone
+  <svg key="phone" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>,
+  // map-pin
+  <svg key="map-pin" fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>,
+];
+const CARD_TONE = ["is-email", "is-phone", "is-address"];
+
 /**
  * Contact — home-page contact section. The SHELL is a faithful port of Caladan's
  * `section_hero-contact-b` (signex-web-ref/app/contact/contact-b/page.tsx): section,
  * heading block and `.form.is-v2` card are the ref's markup/classes verbatim. The
- * heading copy is signex's, dict-driven from `dict.contact` (two-tone title +
- * subtitle, EN + VI); only the "Reach Out" eyebrow is still the ref's English
- * placeholder (no VI copy provided yet).
+ * heading copy is signex's, dict-driven from `dict.contact` (eyebrow + two-tone
+ * title + subtitle, EN + VI).
  * The FORM CONTENT mirrors the hero quote form (section_hero-home-a): the same
  * dict-driven fields — Name/Email/Phone (required), Quantity, Standard, Height/Width/
  * Thickness, Upload Sample, Message — sharing the hero's `dict.form` labels,
@@ -46,7 +57,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
               <div className="heading_contact-b">
                 <div className="master_label" data-wf--tag--variant="base">
                   <div className="label-small">
-                    Reach Out
+                    {c.eyebrow}
                   </div>
                 </div>
                 {/* Ref uses <h1> (contact-b is that page's hero); demoted mid-page so the
@@ -63,6 +74,30 @@ export function Contact({ dict }: { dict: Dictionary }) {
                 {c.subtitle}
               </p>
             </div>
+          </div>
+          {/* Email / Phone / Address info cards — dict-driven, between heading and form.
+              Reveal reuses the home-page grid trigger b3ac1ddc-…ce8d (a-124 on self),
+              same as ProductCategories/HomeAbout grids; scoped styles in globals.css. */}
+          <div className="contact_info-grid" data-w-id="b3ac1ddc-636d-f345-c58d-b372a067ce8d" style={{ opacity: 0, filter: 'blur(5px)' }}>
+            {c.cards.map((card, i) => (
+              <div className="contact_info-card" key={card.title}>
+                <div className={`contact_info-icon ${CARD_TONE[i]} w-embed`}>
+                  {CARD_ICONS[i]}
+                </div>
+                <div>
+                  <div className="text_body-bold">
+                    {card.title}
+                  </div>
+                  <div className="contact_info-lines tone-medium">
+                    {card.lines.map((line) => (
+                      <div key={line}>
+                        {line}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
           <div className="master_contact-b contact-form_wide">
             <div className="form-block" data-w-id="0f29df12-8c38-da6f-794d-3989ac10d663" style={{ opacity: 0, filter: 'blur(5px)' }}>

@@ -268,6 +268,62 @@
 .master_contact-b.contact-form_wide {
   max-width: var(--width--10-columns);
 }
+
+/* Email / Phone / Address info cards between the contact heading and form.
+   Three icon-chip cards (blue mail / green phone / purple map-pin — signex accents,
+   not in Caladan's palette, hence hard-coded). Capped at the same 10-column width
+   as the form card below so their edges align; collapses to one column on mobile. */
+.contact_info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+  max-width: var(--width--10-columns);
+  margin: 0 auto 3rem;
+  text-align: left;
+}
+.contact_info-card {
+  display: flex;
+  align-items: flex-start;
+  grid-column-gap: 0.85rem;
+  gap: 0.85rem;
+}
+.contact_info-icon {
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact_info-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.contact_info-icon.is-email {
+  background-color: #e7effd;
+  color: #3b5bdb;
+}
+.contact_info-icon.is-phone {
+  background-color: #e7f7ee;
+  color: #2f9e44;
+}
+.contact_info-icon.is-address {
+  background-color: #f3eafd;
+  color: #8b5cf6;
+}
+.contact_info-lines {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.15rem;
+  gap: 0.15rem;
+}
+@media screen and (max-width: 767px) {
+  .contact_info-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .profile-form_inner.contact-form_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

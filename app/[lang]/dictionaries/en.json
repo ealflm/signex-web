@@ -85,8 +85,14 @@
     ]
   },
   "contact": {
+    "eyebrow": "Reach Out",
     "title": "Get In ",
     "titleAccent": "Touch",
-    "subtitle": "Have questions? We're here to help you succeed."
+    "subtitle": "Have questions? We're here to help you succeed.",
+    "cards": [
+      { "title": "Email", "lines": ["core@signex.vn", "nhuadeo@gmail.com"] },
+      { "title": "Phone", "lines": ["Tel: + 84 982 633 377", "Zalo: + 84 982 633 377"] },
+      { "title": "Address", "lines": ["Office: 25/88/13 Bui Quang La, An Hoi Tay ward, Ho Chi Minh city, Viet Nam.", "Factory: 85/45 Duong Thi Muoi, Trung My Tay ward, Ho Chi Minh city, Viet Nam."] }
+    ]
   }
 }
