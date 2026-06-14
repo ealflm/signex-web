@@ -4,7 +4,7 @@ import type { Dictionary } from "@/app/[lang]/dictionaries";
 /**
  * Footer — signex content poured into Caladan's master_footer shell. The shell
  * (master_footer / padding-global / container-large / the giant SIGNEX wordmark /
- * palm / progressive_blur) is kept verbatim; only the CONTENT of footer_top-tile
+ * decorative corner watermark / progressive_blur) is kept; only the CONTENT of footer_top-tile
  * (now 3 columns: brand + socials | Contact us | Quick links) and footer_mid-tile
  * (now a shipping | payment utility row) is signex's, dict-driven (EN + VI).
  *
@@ -45,25 +45,32 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
         <div className="padding-global">
           <div className="w-layout-blockcontainer container-large w-container">
             <div className="footer_top-tile footer-signex_top">
-              {/* Column 1 — brand, tagline, socials */}
-              <div className="footer-signex_brand">
-                <div className="text-size-regular text_body-bold">
-                  {t.brand}
+              {/* Column 1 — brand. Top label "SIGNEX" using the same label-large heading
+                  as the other two columns (brand name is locale-invariant, so it's hard-coded
+                  like the field labels), then brand name, taglines, socials. */}
+              <div className="footer-signex_col">
+                <div className="label-large tone-medium">
+                  SIGNEX
                 </div>
-                <div className="footer-signex_tagline text-size-small tone-medium">
-                  {t.tagline.map((line) => (
-                    <div key={line}>
-                      {line}
-                    </div>
-                  ))}
-                </div>
-                <div className="footer-signex_socials">
-                  <a className="footer-signex_social is-facebook" href="#" aria-label="Facebook">
-                    {FACEBOOK_ICON}
-                  </a>
-                  <a className="footer-signex_social is-youtube" href="#" aria-label="YouTube">
-                    {YOUTUBE_ICON}
-                  </a>
+                <div className="footer-signex_brand">
+                  <div className="text-size-regular text_body-bold">
+                    {t.brand}
+                  </div>
+                  <div className="footer-signex_tagline text-size-small tone-medium">
+                    {t.tagline.map((line) => (
+                      <div key={line}>
+                        {line}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="footer-signex_socials">
+                    <a className="footer-signex_social is-facebook" href="#" aria-label="Facebook">
+                      {FACEBOOK_ICON}
+                    </a>
+                    <a className="footer-signex_social is-youtube" href="#" aria-label="YouTube">
+                      {YOUTUBE_ICON}
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -168,7 +175,11 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
                 </text>
               </svg>
             </a>
-            <img alt="Palm" className="palm-footer" loading="lazy" src="/assets/images/698394b9a5e52084acf76841_palm.svg" />
+            {/* Decorative lotus watermark (replaces Caladan's palm). Keeps the palm's
+                position/size/opacity via .palm-footer; .footer-signex_lotus recolours the
+                black source art to a faint white silhouette (brightness(0) invert(1)) so it
+                reads on the dark footer like the cream palm did. alt="" — decorative. */}
+            <img alt="" className="palm-footer footer-signex_lotus" loading="lazy" src="/assets/images/lotus.svg" />
           </div>
         </div>
         <div className="progressive_blur">

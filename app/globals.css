@@ -565,6 +565,19 @@
   padding-top: 0;
   padding-bottom: var(--spacing--space-micro);
 }
+/* Lotus footer watermark: the source SVG is black; flatten + invert it to a white
+   silhouette so .palm-footer's 0.12 opacity renders it as a faint light watermark on
+   the deep-navy footer (the Caladan palm was cream #FFFBE9). */
+.footer-signex_lotus {
+  filter: brightness(0) invert(1);
+}
+/* Un-flip: .palm-footer mirrors horizontally (rotateY 180deg) for the palm's orientation;
+   the lotus should render in its natural (unmirrored) direction. Higher specificity
+   (0,2,0) beats Caladan's .palm-footer (0,1,0); positioning comes from inset, not the
+   transform, so dropping the transform only removes the mirror. */
+.palm-footer.footer-signex_lotus {
+  transform: none;
+}
 .footer-signex_badges {
   display: flex;
   flex-wrap: wrap;
@@ -599,15 +612,6 @@
 }
 .footer-signex_pay.is-red {
   color: #c0392b;
-}
-/* Multi-column (≥600px, i.e. the 3-col and 2-col grids): the brand column has no
-   heading, so nudge it down to line its brand name up with the other columns' first
-   content line (their heading + gap ≈ 2.75rem), matching the mockup's vertical rhythm.
-   Dropped only once the grid stacks to one column (≤599px). */
-@media screen and (min-width: 600px) {
-  .footer-signex_brand {
-    padding-top: 2.75rem;
-  }
 }
 @media screen and (max-width: 991px) {
   .footer_top-tile.footer-signex_top {
