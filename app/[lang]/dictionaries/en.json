@@ -227,6 +227,49 @@
           "body": "Each batch undergoes visual and dimensional inspection to ensure it meets defined standards."
         }
       ]
+    },
+    "timeline": {
+      "eyebrow": "Step by Step",
+      "title": "Manufacturing Process ",
+      "titleAccent": "Overview",
+      "body": "Our manufacturing process follows a structured, repeatable workflow",
+      "intro": [
+        "SIGNEX operates as a direct manufacturing company, with production activities conducted under controlled conditions to ensure consistency and quality stability.",
+        "Our factory setup focuses on precision forming, material handling, and repeatable production, rather than mass output.",
+        "We invest in process control, not scale for scale's sake."
+      ],
+      "milestones": [
+        {
+          "num": "01",
+          "title": "Material Selection & Preparation",
+          "body": "Materials are selected based on performance requirements, durability, and brand application, including PVC, TPU, silicone, and composite plastics."
+        },
+        {
+          "num": "02",
+          "title": "Mold Development & Tooling",
+          "body": "Molds are developed or refined to ensure:",
+          "items": ["Accurate form reproduction", "Stable batch output", "Long-term tooling reliability"]
+        },
+        {
+          "num": "03",
+          "title": "Production & Forming",
+          "body": "Production is conducted with controlled parameters to ensure:",
+          "items": ["Shape consistency", "Surface quality", "Color accuracy"]
+        },
+        {
+          "num": "04",
+          "title": "Quality Inspection",
+          "body": "Quality checks are integrated throughout production:",
+          "items": ["Visual inspection", "Dimensional verification", "Batch comparison"],
+          "note": "Quality is controlled during production, not corrected afterward."
+        },
+        {
+          "num": "05",
+          "title": "Finishing & Packaging",
+          "body": "Final products are finished and packaged to protect:",
+          "items": ["Physical integrity", "Surface quality", "Brand appearance"]
+        }
+      ]
     }
   }
 }

@@ -959,3 +959,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* /about timeline (ported section_timeline): on ≤767px the .timeline_empty cells hide and each row
+   collapses to [circle | item]. Even rows render item|circle|empty, so re-order their circle to the
+   front (Caladan did this via per-instance w-node ids, which we dropped for the dict-driven map). */
+@media screen and (max-width: 767px) {
+  .timeline_row:nth-child(even) .wrap_circle-timeline {
+    order: -9999;
+  }
+}
+
+/* /about process-timeline lead-in paragraph (the 3-line intro above the steps), centered to match
+   the section header. The per-step bullet lists reuse .about-cap_list / .about-cap_item. */
+.about-process_intro {
+  max-width: 47.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacing--space-medium);
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  text-align: center;
+}
+.about-process_intro p {
+  margin: 0;
+}

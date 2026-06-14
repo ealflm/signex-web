@@ -227,6 +227,49 @@
           "body": "Mỗi lô đều trải qua kiểm tra ngoại quan và kích thước để đảm bảo đạt các tiêu chuẩn đã định."
         }
       ]
+    },
+    "timeline": {
+      "eyebrow": "Từng Bước",
+      "title": "Tổng Quan Quy Trình ",
+      "titleAccent": "Sản Xuất",
+      "body": "Quy trình sản xuất của chúng tôi tuân theo một luồng công việc có cấu trúc và lặp lại được",
+      "intro": [
+        "SIGNEX hoạt động như một công ty sản xuất trực tiếp, với các hoạt động sản xuất được thực hiện trong điều kiện kiểm soát để đảm bảo tính nhất quán và sự ổn định về chất lượng.",
+        "Hệ thống nhà xưởng của chúng tôi tập trung vào tạo hình chính xác, xử lý vật liệu và sản xuất lặp lại được, thay vì sản lượng hàng loạt.",
+        "Chúng tôi đầu tư vào kiểm soát quy trình, không chạy theo quy mô chỉ để có quy mô."
+      ],
+      "milestones": [
+        {
+          "num": "01",
+          "title": "Chọn Lọc & Chuẩn Bị Vật Liệu",
+          "body": "Vật liệu được lựa chọn dựa trên yêu cầu về hiệu năng, độ bền và ứng dụng thương hiệu, bao gồm PVC, TPU, silicone và nhựa composite."
+        },
+        {
+          "num": "02",
+          "title": "Phát Triển Khuôn & Gia Công",
+          "body": "Khuôn được phát triển hoặc tinh chỉnh để đảm bảo:",
+          "items": ["Tái tạo hình dạng chính xác", "Sản lượng lô ổn định", "Độ bền khuôn lâu dài"]
+        },
+        {
+          "num": "03",
+          "title": "Sản Xuất & Định Hình",
+          "body": "Sản xuất được thực hiện với các thông số kiểm soát để đảm bảo:",
+          "items": ["Hình dạng đồng nhất", "Chất lượng bề mặt", "Độ chính xác màu sắc"]
+        },
+        {
+          "num": "04",
+          "title": "Kiểm Tra Chất Lượng",
+          "body": "Kiểm tra chất lượng được tích hợp xuyên suốt quá trình sản xuất:",
+          "items": ["Kiểm tra ngoại quan", "Xác minh kích thước", "So sánh giữa các lô"],
+          "note": "Chất lượng được kiểm soát trong quá trình sản xuất, không phải khắc phục sau đó."
+        },
+        {
+          "num": "05",
+          "title": "Hoàn Thiện & Đóng Gói",
+          "body": "Sản phẩm cuối được hoàn thiện và đóng gói để bảo vệ:",
+          "items": ["Tính toàn vẹn vật lý", "Chất lượng bề mặt", "Hình ảnh thương hiệu"]
+        }
+      ]
     }
   }
 }

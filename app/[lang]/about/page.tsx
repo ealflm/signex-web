@@ -334,6 +334,102 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           </div>
         </div>
       </section>
+      {/* "Our Journey" timeline — ported from signex-web-ref's /about (section_timeline). The vertical
+          progress line is pure CSS (.timeline_progress-line is position:sticky, not IX2), so it works
+          un-gated; only the header reveal was page-gated and is re-pointed to the home-c a-124 id
+          6a32e52a (header reuses .headline_home-about for the eyebrow + reveal, like the other /about
+          sections). Rows alternate item left/right by index; on ≤767px the .timeline_empty hides and
+          even rows' circle is re-ordered to the front via a scoped nth-child rule (replacing Caladan's
+          per-node w-node ids). dict-driven EN+VI; milestones are SIGNEX-themed placeholders. */}
+      <section className="section_timeline">
+        <div className="padding-global">
+          <div className="w-layout-blockcontainer container-large w-container">
+            <div className="headline_home-about" data-w-id="6a32e52a-664f-8b1c-94cf-2d1d90c61659" style={{ opacity: 0, filter: 'blur(5px)' }}>
+              <div className="master_label" data-wf--tag--variant="base">
+                <div className="label-small">
+                  {dict.aboutPage.timeline.eyebrow}
+                </div>
+              </div>
+              <h2 className="margin-0">
+                {dict.aboutPage.timeline.title}
+                <span className="tone-medium">
+                  {dict.aboutPage.timeline.titleAccent}
+                </span>
+              </h2>
+              <div className="home_about-p">
+                <p className="tone-medium">
+                  {dict.aboutPage.timeline.body}
+                </p>
+              </div>
+            </div>
+            <div className="about-process_intro">
+              {dict.aboutPage.timeline.intro.map((line, i) => (
+                <p className="tone-medium" key={i}>
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="timeline">
+              <div className="content_timeline">
+                <div className="timeline_progress">
+                  <div className="timeline_fade-top" />
+                  <div className="timeline_progress-line" />
+                  <div className="timeline-line" />
+                  <div className="timeline_fade-bottom" />
+                </div>
+                <div className="timeline_list">
+                  {dict.aboutPage.timeline.milestones.map((m, i) => {
+                    const card = (
+                      <div className="item_timeline">
+                        <div className="title_timeline-card">
+                          <h3 className="heading-style-h4 margin-0">
+                            {m.title}
+                          </h3>
+                          <div className="label-large">
+                            {m.num}
+                          </div>
+                        </div>
+                        <p className="tone-medium">
+                          {m.body}
+                        </p>
+                        {m.items && (
+                          <ul className="about-cap_list" role="list">
+                            {m.items.map((it) => (
+                              <li className="about-cap_item tone-medium" key={it}>
+                                {it}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {m.note && (
+                          <p className="tone-medium">
+                            {m.note}
+                          </p>
+                        )}
+                      </div>
+                    );
+                    const circle = (
+                      <div className="wrap_circle-timeline">
+                        <div className="circle-timeline" />
+                      </div>
+                    );
+                    const empty = <div className="timeline_empty" />;
+                    return (
+                      <div className="timeline_row" key={m.num + m.title}>
+                        {i % 2 === 0 ? (
+                          <>{empty}{circle}{card}</>
+                        ) : (
+                          <>{card}{circle}{empty}</>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section_home-about">
         <div className="padding-global">
           <div className="w-layout-blockcontainer container-large w-container">
