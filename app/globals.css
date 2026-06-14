@@ -762,3 +762,21 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* /about hero (home-c layout): the Caladan buttons + bottom stats blocks were removed, leaving
+   only the heading. Caladan's .content_hero-home-c is a flex column with justify-content:space-between
+   (heading top, stats bottom) + asymmetric top/bottom padding (and a 20rem bottom reserve for the
+   stats on ≤767px). Center the lone heading vertically and equalize the vertical padding so it sits
+   in the true middle of the hero. Scoped to .section_hero-home-c, which only exists on /about;
+   specificity (0,2,0) beats Caladan's later-loaded (0,1,0). */
+.section_hero-home-c .content_hero-home-c {
+  justify-content: center;
+  padding-top: var(--section-padding--large);
+  padding-bottom: var(--section-padding--large);
+}
+@media screen and (max-width: 767px) {
+  .section_hero-home-c .content_hero-home-c {
+    padding-top: var(--section-padding--extra-large);
+    padding-bottom: var(--section-padding--extra-large);
+  }
+}

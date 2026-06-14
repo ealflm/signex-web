@@ -50,49 +50,10 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                 </div>
                 <div className="p_hero-home-c">
                   <p className="margin-0">
-                    Breathe with the tides in a resort suspended above Tahiti&apos;s reef. From moonlit lomilomi to family sound baths, Caladan turns the ocean&apos;s rhythm into your everyday ritual.
+                    {dict.aboutPage.hero.subtitle}
                   </p>
                 </div>
               </div>
-              <div className="button-group_hero-home-c">
-                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-                <a button="" className="cta_primary w-inline-block" data-wf--cta-primary--variant="primary" href="/contact/contact-a">
-                  <div className="button_text-mask">
-                    <div button-text="" className="text-button">
-                      Start Your Escape
-                    </div>
-                  </div>
-                  <div button-bg="" className="btn-bg"></div>
-                </a>
-                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-                <a button="" className="cta_primary w-variant-1ff8d96e-78cc-eac8-de90-206ecdaded5f w-inline-block" data-wf--cta-primary--variant="secondary" href="/book-inquiry">
-                  <div className="button_text-mask">
-                    <div button-text="" className="text-button w-variant-1ff8d96e-78cc-eac8-de90-206ecdaded5f">
-                      Get Template
-                    </div>
-                  </div>
-                  <div button-bg="" className="btn-bg w-variant-1ff8d96e-78cc-eac8-de90-206ecdaded5f"></div>
-                </a>
-              </div>
-            </div>
-            <div className="stats_home-c" data-w-id="8dd77407-7638-8860-84b4-1292d73f46a7" style={{ opacity: 0, filter: 'blur(5px)' }}>
-              <div className="stat-tile_home-c">
-                <h2 className="margin-0 heading-style-h4 tone-good">
-                  42 Villas
-                </h2>
-              </div>
-              <div className="divider_home-c-stats"></div>
-              <h2 className="margin-0 heading-style-h4 tone-good">
-                Private Lagoon
-              </h2>
-              <div className="divider_home-c-stats"></div>
-              <h2 className="margin-0 heading-style-h4 tone-good">
-                5 Restaurants
-              </h2>
-              <div className="divider_home-c-stats"></div>
-              <h2 className="margin-0 heading-style-h4 tone-good">
-                Award-Winning Spa
-              </h2>
             </div>
           </div>
           <div className="overlay_hero-home-b"></div>
