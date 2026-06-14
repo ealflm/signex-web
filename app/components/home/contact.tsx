@@ -161,10 +161,22 @@ export function Contact({ dict }: { dict: Dictionary }) {
                       <div className="text_input-label label-large">
                         {t.upload}
                       </div>
-                      <input accept=".jpg,.jpeg,.png,.pdf" className="text-field w-input" data-name="Sample" id="contact-sample" name="Sample" type="file" />
-                      <div className="text-size-small tone-medium">
-                        {t.uploadHelp}
-                      </div>
+                      {/* Custom upload dropzone: a <label> wraps the (visually hidden but
+                          functional) file input, so the dashed box + icon + format text
+                          IS the clickable control. Pure CSS — no JS/filename feedback. */}
+                      <label className="contact-upload">
+                        <input accept=".jpg,.jpeg,.png,.pdf" className="contact-upload_input" data-name="Sample" id="contact-sample" name="Sample" type="file" />
+                        <span className="contact-upload_icon w-embed" aria-hidden="true">
+                          <svg fill="none" height="100%" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="17 8 12 3 7 8" />
+                            <line x1="12" x2="12" y1="3" y2="15" />
+                          </svg>
+                        </span>
+                        <span className="contact-upload_text">
+                          {t.uploadHelp}
+                        </span>
+                      </label>
                     </div>
                     <div className="contact-form_dims">
                       <div className="input_wrap">

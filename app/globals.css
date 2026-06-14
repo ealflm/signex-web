@@ -101,8 +101,56 @@
   min-height: 4.25rem;
   resize: vertical;
 }
-.hero-quote_inner .hero-form_file {
-  height: auto;
+/* Custom file-upload dropzone (hero quote form, dark-panel variant of .contact-upload):
+   the native input is visually hidden inside a <label> styled as a dashed box with an
+   upload icon + format text. Light tones (white-based) for the dark hero glass panel. */
+.hero-quote_upload {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-gap: 0.5rem;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: var(--spacing--space-pico, 0.5rem) var(--spacing--space-nano, 0.75rem);
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: var(--_🔘-radius---ui--input, 0.75rem);
+  background-color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+.hero-quote_upload:hover,
+.hero-quote_upload:focus-within {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}
+/* Visually hidden but focusable/clickable via the wrapping label (keeps tabIndex gating). */
+.hero-quote_upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.hero-quote_upload-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+.hero-quote_upload-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  display: block;
+}
+.hero-quote_upload-text {
+  font-size: var(--_🔠-typography---size--b3, 0.875rem);
+  line-height: 1.2;
 }
 .hero-quote_submit {
   align-self: flex-end;
@@ -346,6 +394,58 @@
 }
 .contact-form_full {
   grid-column: 1 / -1;
+}
+/* Custom file-upload control (contact form): the native input is visually hidden inside
+   a <label> styled as a dashed dropzone with an upload icon + format text. Reuses the
+   form's input radius/background tokens; the dashed border + muted text are tone tokens
+   (the input default-border token is transparent in .form.is-v2, so it can't be used). */
+.contact-upload {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-gap: 0.5rem;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: var(--spacing--space-pico) var(--spacing--space-nano);
+  border: 1px dashed var(--_🎨-color--tokens---input--active--border);
+  border-radius: var(--_🔘-radius---ui--input);
+  background-color: var(--_🎨-color--tokens---input--default--background);
+  color: var(--_🎨-color--tokens---tone--medium);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+.contact-upload:hover,
+.contact-upload:focus-within {
+  border-color: var(--_🎨-color--tokens---tone--strong);
+  color: var(--_🎨-color--tokens---tone--strong);
+}
+/* Visually-hidden native input — stays focusable/clickable via the wrapping label. */
+.contact-upload_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.contact-upload_icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+.contact-upload_icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  display: block;
+}
+.contact-upload_text {
+  font-size: var(--_🔠-typography---size--b3);
+  line-height: 1.2;
 }
 @media screen and (max-width: 767px) {
   .profile-form_inner.contact-form_grid,
