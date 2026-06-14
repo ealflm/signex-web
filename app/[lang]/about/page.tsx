@@ -103,6 +103,176 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           <div className="w-layout-blockcontainer container-large w-container"></div>
         </div>
       </section>
+      {/* Testimonials — home-a "testimonials-v2" slider ported from signex-web-ref, inserted
+          above section_home-about. Headline reveal data-w-id re-pointed from the home-a trigger
+          (af30d5d7 — not registered under /about's home-c data-wf-page) to the now-unused home-c
+          stats reveal id (8dd77407) so it fades in like the rest of /about; the slider is a global
+          Webflow component. Caladan placeholder copy — to be localised later. */}
+      <section className="section_testimonial">
+        <div className="padding-global">
+          <div className="w-layout-blockcontainer container-large w-container">
+            <div className="headline_testimonials-v2" data-w-id="8dd77407-7638-8860-84b4-1292d73f46a7" style={{ opacity: 0, filter: 'blur(5px)' }}>
+              <div className="heading_testimonials-v2">
+                <div className="master_label" data-wf--tag--variant="base">
+                  <div className="label-small">
+                    What Our Guests Say
+                  </div>
+                </div>
+                <h2 className="margin-0">
+                  Stories
+                  <span className="tone-medium">
+                    from Paradise
+                  </span>
+                </h2>
+              </div>
+              <div className="text_testimonials-v2">
+                <p className="tone-medium margin-0">
+                  At Caladan, every guest becomes part of our story. Their moments by the sea inspire everything we do.
+                </p>
+              </div>
+            </div>
+            <div className="slider w-slider" data-animation="cross" data-autoplay="false" data-autoplay-limit="0" data-delay="4000" data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
+              <div className="mask_testimonials-v2 w-slider-mask">
+                <div className="slide_testimonials-v2 w-slide">
+                  <div className="card_testimonial-v2">
+                    <div className="left_testimonial-v2">
+                      <div className="quotes_testimonial-v2 w-embed">
+                        <svg fill="none" height="100%" viewBox="0 0 700 636" width="100%" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M700 285.355H500V256.066L685.355 70.7105L614.645 0L400 214.644V635.354H700V285.355Z" fill="currentColor">
+                          </path>
+                          <path d="M214.645 0L285.355 70.7105L100 256.066V285.355H300V635.354H0V214.644L214.645 0Z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </div>
+                      <p className="heading-style-h4">
+                        &quot;Our family actually unplugged here. The kids loved the sound bath and we all left lighter,
+                        <span className="tone-medium">
+                          calmer, and more connected than we&apos;ve felt in years.&quot;
+                        </span>
+                      </p>
+                    </div>
+                    <div className="right_testimonial-v2" id="w-node-af30d5d7-8441-26c7-d69a-89a24d922243-4d92222b">
+                      <img alt="Pexels stephanlouis 19119918" className="image_cover" loading="lazy" src="/assets/images/69ac691927961ac98c560fe2_pexels-stephanlouis-19119918.avif" />
+                      <div className="overlay_image-testimonial-v2">
+                        <div className="text-size-large">
+                          Daniel Novak
+                        </div>
+                        <div className="tone-medium">
+                          Adventure Seeker
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="slide_testimonials-v2 w-slide">
+                  <div className="card_testimonial-v2">
+                    <div className="left_testimonial-v2">
+                      <div className="quotes_testimonial-v2 w-embed">
+                        <svg fill="none" height="100%" viewBox="0 0 700 636" width="100%" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M700 285.355H500V256.066L685.355 70.7105L614.645 0L400 214.644V635.354H700V285.355Z" fill="currentColor">
+                          </path>
+                          <path d="M214.645 0L285.355 70.7105L100 256.066V285.355H300V635.354H0V214.644L214.645 0Z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </div>
+                      <p className="heading-style-h4">
+                        &quot;Caladan is pure paradise. Every sunrise felt like a painting, and the staff
+                        <span className="tone-medium">
+                          made us feel at home from the first moment.&quot;
+                        </span>
+                      </p>
+                    </div>
+                    <div className="right_testimonial-v2" id="w-node-cfe97504-2a8f-8887-cbac-858c993cc4f1-4d92222b">
+                      <img alt="Pexels julia volk 7292958" className="image_cover" loading="lazy" src="/assets/images/69ac6f71e2f6cf6c0843aa68_pexels-julia-volk-7292958.avif" />
+                      <div className="overlay_image-testimonial-v2">
+                        <div className="text-size-large text_body-bold">
+                          Lea Martinez
+                        </div>
+                        <div className="tone-medium">
+                          Family Traveler
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="slide_testimonials-v2 w-slide">
+                  <div className="card_testimonial-v2">
+                    <div className="left_testimonial-v2">
+                      <div className="quotes_testimonial-v2 w-embed">
+                        <svg fill="none" height="100%" viewBox="0 0 700 636" width="100%" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M700 285.355H500V256.066L685.355 70.7105L614.645 0L400 214.644V635.354H700V285.355Z" fill="currentColor">
+                          </path>
+                          <path d="M214.645 0L285.355 70.7105L100 256.066V285.355H300V635.354H0V214.644L214.645 0Z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </div>
+                      <p className="heading-style-h4">
+                        &quot;I arrived exhausted and left renewed. The lomilomi massage and sunrise sessions
+                        <span className="tone-medium">
+                          over the lagoon helped me release stress I&apos;d carried for months.&quot;
+                        </span>
+                      </p>
+                    </div>
+                    <div className="right_testimonial-v2" id="w-node-_14ef3a3b-48f6-9119-fd91-5369ec7344cd-4d92222b">
+                      <img alt="Pexels aymannouas 12935961" className="image_cover" loading="lazy" src="/assets/images/69ac6f718869ff1791ce4e94_pexels-aymannouas-12935961.avif" />
+                      <div className="overlay_image-testimonial-v2">
+                        <div className="text-size-large text_body-bold">
+                          Hana Saito
+                        </div>
+                        <div className="tone-medium">
+                          Solo Retreat Guest
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="slide-button w-slider-arrow-left">
+                <div className="slider_button" cms-icon-wrap="" data-wf--button-slider--variant="primary">
+                  <div className="wrao_icon-slider w-variant-5ba9241a-7079-4c4d-345e-a0127f34962f" data-wf--wrap-icon-slider--variant="left">
+                    <div className="icon_slider" data-wf--icon-slider--variant="large">
+                      <div className="icon_slider-button large w-embed">
+                        <svg fill="none" height="100%" viewBox="0 0 20 20" width="100%" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4.16663 10.0001H15.8333M15.8333 10.0001L9.99996 4.16675M15.8333 10.0001L9.99996 15.8334" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)">
+                          </path>
+                        </svg>
+                      </div>
+                      <div className="icon_slider-button medium w-embed">
+                        <svg fill="none" height="100%" viewBox="0 0 12 12" width="100%" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.5 6H9.5M9.5 6L6 2.5M9.5 6L6 9.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)">
+                          </path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="slide-button next w-slider-arrow-right">
+                <div className="slider_button" cms-icon-wrap="" data-wf--button-slider--variant="primary">
+                  <div className="wrao_icon-slider" data-wf--wrap-icon-slider--variant="right">
+                    <div className="icon_slider" data-wf--icon-slider--variant="large">
+                      <div className="icon_slider-button large w-embed">
+                        <svg fill="none" height="100%" viewBox="0 0 20 20" width="100%" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4.16663 10.0001H15.8333M15.8333 10.0001L9.99996 4.16675M15.8333 10.0001L9.99996 15.8334" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)">
+                          </path>
+                        </svg>
+                      </div>
+                      <div className="icon_slider-button medium w-embed">
+                        <svg fill="none" height="100%" viewBox="0 0 12 12" width="100%" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.5 6H9.5M9.5 6L6 2.5M9.5 6L6 9.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)">
+                          </path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="hide w-slider-nav w-round w-num">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section_home-about">
         <div className="padding-global">
           <div className="w-layout-blockcontainer container-large w-container">
@@ -367,200 +537,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="section_testimonial">
-        <div className="padding-global">
-          <div className="w-layout-blockcontainer container-large w-container">
-            <div className="headline_testimonials-v3" data-w-id="4ad2369d-0d37-b93d-5aa1-7b9ada6aaf73">
-              <div className="heading_testimonials-v3">
-                <div className="master_label" data-wf--tag--variant="base">
-                  <div className="label-small">
-                    Guest Voices Echo
-                  </div>
-                </div>
-                <h2 className="margin-0">
-                  Voices from
-                  <span className="tone-medium">
-                    the Overwater
-                  </span>
-                </h2>
-              </div>
-              <div className="p_testimonials-v3">
-                <p className="tone-medium margin-0">
-                  Hear from souls reborn above the reef. Families synced to ocean rhythms, solo travelers dissolving into tide-breath serenity.
-                </p>
-              </div>
-            </div>
-            <div className="master_slider">
-              <div className="shadow_slider smaller"></div>
-              <div
-                className="slider w-slider"
-                data-animation="slide"
-                data-autoplay="false"
-                data-autoplay-limit="0"
-                data-delay="4000"
-                data-disable-swipe="false"
-                data-duration="500"
-                data-easing="ease-out-sine"
-                data-hide-arrows="false"
-                data-infinite="true"
-                data-nav-spacing="3"
-              >
-                <div className="mask_testimonials-v3 w-slider-mask">
-                  <div className="slide_testimonials-v3 w-slide">
-                    <div className="card_testimonials-v3">
-                      <div className="content_card-testimonials-v3">
-                        <div className="testimonial-v3_top-tile">
-                          <div className="rating_testimonial">
-                            {[0,1,2,3,4].map((i) => (
-                              <div key={i} className="star-testimonial w-embed">
-                                <svg fill="none" height="100%" viewBox="0 0 16 16" width="100%" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M7.68323 1.53009C7.71245 1.47107 7.75758 1.42138 7.81353 1.38664C7.86949 1.3519 7.93404 1.3335 7.9999 1.3335C8.06576 1.3335 8.13031 1.3519 8.18626 1.38664C8.24222 1.42138 8.28735 1.47107 8.31656 1.53009L9.85656 4.64943C9.95802 4.85474 10.1078 5.03236 10.293 5.16706C10.4782 5.30176 10.6933 5.3895 10.9199 5.42276L14.3639 5.92676C14.4292 5.93621 14.4905 5.96374 14.5409 6.00622C14.5913 6.04871 14.6289 6.10446 14.6492 6.16716C14.6696 6.22987 14.6721 6.29703 14.6563 6.36105C14.6405 6.42507 14.6071 6.48339 14.5599 6.52943L12.0692 8.95476C11.905 9.11483 11.7821 9.31241 11.7111 9.53051C11.6402 9.74861 11.6233 9.98069 11.6619 10.2068L12.2499 13.6334C12.2614 13.6987 12.2544 13.7658 12.2296 13.8272C12.2048 13.8886 12.1632 13.9418 12.1096 13.9808C12.056 14.0197 11.9926 14.0428 11.9265 14.0474C11.8604 14.052 11.7944 14.0379 11.7359 14.0068L8.65723 12.3881C8.45438 12.2816 8.22868 12.2259 7.99956 12.2259C7.77044 12.2259 7.54475 12.2816 7.3419 12.3881L4.2639 14.0068C4.20545 14.0377 4.1395 14.0516 4.07353 14.0469C4.00757 14.0422 3.94424 14.0191 3.89076 13.9802C3.83728 13.9413 3.79579 13.8882 3.771 13.8269C3.74622 13.7656 3.73914 13.6986 3.75056 13.6334L4.3379 10.2074C4.3767 9.98125 4.35989 9.74902 4.28892 9.53079C4.21796 9.31256 4.09497 9.11486 3.93056 8.95476L1.4399 6.53009C1.39229 6.48411 1.35856 6.42569 1.34254 6.36147C1.32652 6.29726 1.32886 6.22984 1.34928 6.16689C1.36971 6.10393 1.40741 6.04799 1.45808 6.00541C1.50876 5.96284 1.57037 5.93536 1.6359 5.92609L5.07923 5.42276C5.30607 5.38976 5.52149 5.30213 5.70695 5.16742C5.89242 5.0327 6.04237 4.85494 6.1439 4.64943L7.68323 1.53009Z" fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path>
-                                </svg>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="testimonial-v3_text-tile">
-                            <div className="text-size-large text_body-bold">
-                              Finally, wellness that feels natural
-                            </div>
-                            <p className="tone-medium margin-0">
-                              &quot;Caladan is pure paradise. Every sunrise felt like a painting, and the staff
-                              <span className="tone-medium">
-                                made us feel at home from the first moment.&quot;
-                              </span>
-                            </p>
-                          </div>
-                        </div>
-                        <div className="testimonial-v3_bottom-tile">
-                          <div className="text_body-bold">
-                            Lea Martinez
-                          </div>
-                          <div className="tone-medium">
-                            Family Traveler
-                          </div>
-                        </div>
-                      </div>
-                      <div className="image_card-testimonials-v3" data-w-id="4ad2369d-0d37-b93d-5aa1-7b9ada6aaf96">
-                        <img alt="Pexels julia volk 7292958" className="image_cover" loading="lazy" src="/assets/images/69ac6f71e2f6cf6c0843aa68_pexels-julia-volk-7292958.avif" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="slide_testimonials-v3 w-slide">
-                    <div className="card_testimonials-v3">
-                      <div className="content_card-testimonials-v3">
-                        <div className="testimonial-v3_top-tile">
-                          <div className="rating_testimonial">
-                            {[0,1,2,3,4].map((i) => (
-                              <div key={i} className="star-testimonial w-embed">
-                                <svg fill="none" height="100%" viewBox="0 0 16 16" width="100%" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M7.68323 1.53009C7.71245 1.47107 7.75758 1.42138 7.81353 1.38664C7.86949 1.3519 7.93404 1.3335 7.9999 1.3335C8.06576 1.3335 8.13031 1.3519 8.18626 1.38664C8.24222 1.42138 8.28735 1.47107 8.31656 1.53009L9.85656 4.64943C9.95802 4.85474 10.1078 5.03236 10.293 5.16706C10.4782 5.30176 10.6933 5.3895 10.9199 5.42276L14.3639 5.92676C14.4292 5.93621 14.4905 5.96374 14.5409 6.00622C14.5913 6.04871 14.6289 6.10446 14.6492 6.16716C14.6696 6.22987 14.6721 6.29703 14.6563 6.36105C14.6405 6.42507 14.6071 6.48339 14.5599 6.52943L12.0692 8.95476C11.905 9.11483 11.7821 9.31241 11.7111 9.53051C11.6402 9.74861 11.6233 9.98069 11.6619 10.2068L12.2499 13.6334C12.2614 13.6987 12.2544 13.7658 12.2296 13.8272C12.2048 13.8886 12.1632 13.9418 12.1096 13.9808C12.056 14.0197 11.9926 14.0428 11.9265 14.0474C11.8604 14.052 11.7944 14.0379 11.7359 14.0068L8.65723 12.3881C8.45438 12.2816 8.22868 12.2259 7.99956 12.2259C7.77044 12.2259 7.54475 12.2816 7.3419 12.3881L4.2639 14.0068C4.20545 14.0377 4.1395 14.0516 4.07353 14.0469C4.00757 14.0422 3.94424 14.0191 3.89076 13.9802C3.83728 13.9413 3.79579 13.8882 3.771 13.8269C3.74622 13.7656 3.73914 13.6986 3.75056 13.6334L4.3379 10.2074C4.3767 9.98125 4.35989 9.74902 4.28892 9.53079C4.21796 9.31256 4.09497 9.11486 3.93056 8.95476L1.4399 6.53009C1.39229 6.48411 1.35856 6.42569 1.34254 6.36147C1.32652 6.29726 1.32886 6.22984 1.34928 6.16689C1.36971 6.10393 1.40741 6.04799 1.45808 6.00541C1.50876 5.96284 1.57037 5.93536 1.6359 5.92609L5.07923 5.42276C5.30607 5.38976 5.52149 5.30213 5.70695 5.16742C5.89242 5.0327 6.04237 4.85494 6.1439 4.64943L7.68323 1.53009Z" fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path>
-                                </svg>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="testimonial-v3_text-tile">
-                            <div className="text-size-large text_body-bold">
-                              The lagoon reset we needed
-                            </div>
-                            <p className="tone-medium margin-0">
-                              Our family actually unplugged here. The kids loved the sound bath and we all left lighter, calmer, and more connected than we&apos;ve felt in years.
-                            </p>
-                          </div>
-                        </div>
-                        <div className="testimonial-v3_bottom-tile">
-                          <div className="text_body-bold">
-                            Daniel Novak
-                          </div>
-                          <div className="tone-medium">
-                            Adventure Seeker
-                          </div>
-                        </div>
-                      </div>
-                      <div className="image_card-testimonials-v3" data-w-id="4ad2369d-0d37-b93d-5aa1-7b9ada6aafac">
-                        <img alt="Pexels stephanlouis 19119918" className="image_cover" loading="lazy" src="/assets/images/69ac691927961ac98c560fe2_pexels-stephanlouis-19119918.avif" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="slide_testimonials-v3 w-slide">
-                    <div className="card_testimonials-v3">
-                      <div className="content_card-testimonials-v3">
-                        <div className="testimonial-v3_top-tile">
-                          <div className="rating_testimonial">
-                            {[0,1,2,3,4].map((i) => (
-                              <div key={i} className="star-testimonial w-embed">
-                                <svg fill="none" height="100%" viewBox="0 0 16 16" width="100%" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M7.68323 1.53009C7.71245 1.47107 7.75758 1.42138 7.81353 1.38664C7.86949 1.3519 7.93404 1.3335 7.9999 1.3335C8.06576 1.3335 8.13031 1.3519 8.18626 1.38664C8.24222 1.42138 8.28735 1.47107 8.31656 1.53009L9.85656 4.64943C9.95802 4.85474 10.1078 5.03236 10.293 5.16706C10.4782 5.30176 10.6933 5.3895 10.9199 5.42276L14.3639 5.92676C14.4292 5.93621 14.4905 5.96374 14.5409 6.00622C14.5913 6.04871 14.6289 6.10446 14.6492 6.16716C14.6696 6.22987 14.6721 6.29703 14.6563 6.36105C14.6405 6.42507 14.6071 6.48339 14.5599 6.52943L12.0692 8.95476C11.905 9.11483 11.7821 9.31241 11.7111 9.53051C11.6402 9.74861 11.6233 9.98069 11.6619 10.2068L12.2499 13.6334C12.2614 13.6987 12.2544 13.7658 12.2296 13.8272C12.2048 13.8886 12.1632 13.9418 12.1096 13.9808C12.056 14.0197 11.9926 14.0428 11.9265 14.0474C11.8604 14.052 11.7944 14.0379 11.7359 14.0068L8.65723 12.3881C8.45438 12.2816 8.22868 12.2259 7.99956 12.2259C7.77044 12.2259 7.54475 12.2816 7.3419 12.3881L4.2639 14.0068C4.20545 14.0377 4.1395 14.0516 4.07353 14.0469C4.00757 14.0422 3.94424 14.0191 3.89076 13.9802C3.83728 13.9413 3.79579 13.8882 3.771 13.8269C3.74622 13.7656 3.73914 13.6986 3.75056 13.6334L4.3379 10.2074C4.3767 9.98125 4.35989 9.74902 4.28892 9.53079C4.21796 9.31256 4.09497 9.11486 3.93056 8.95476L1.4399 6.53009C1.39229 6.48411 1.35856 6.42569 1.34254 6.36147C1.32652 6.29726 1.32886 6.22984 1.34928 6.16689C1.36971 6.10393 1.40741 6.04799 1.45808 6.00541C1.50876 5.96284 1.57037 5.93536 1.6359 5.92609L5.07923 5.42276C5.30607 5.38976 5.52149 5.30213 5.70695 5.16742C5.89242 5.0327 6.04237 4.85494 6.1439 4.64943L7.68323 1.53009Z" fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path>
-                                </svg>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="testimonial-v3_text-tile">
-                            <div className="text-size-large text_body-bold">
-                              A sanctuary above the reef
-                            </div>
-                            <p className="tone-medium margin-0">
-                              I arrived exhausted and left renewed. The lomilomi massage and sunrise sessions over the lagoon helped me release stress I&apos;d carried for months.
-                            </p>
-                          </div>
-                        </div>
-                        <div className="testimonial-v3_bottom-tile">
-                          <div className="text_body-bold">
-                            Hana Saito
-                          </div>
-                          <div className="tone-medium">
-                            Solo Retreat Guest
-                          </div>
-                        </div>
-                      </div>
-                      <div className="image_card-testimonials-v3" data-w-id="4ad2369d-0d37-b93d-5aa1-7b9ada6aafc2">
-                        <img alt="Pexels aymannouas 12935961" className="image_cover" loading="lazy" src="/assets/images/69ac6f718869ff1791ce4e94_pexels-aymannouas-12935961.avif" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="button_slider-bottom w-slider-arrow-left">
-                  <div className="slider_button" cms-icon-wrap="" data-wf--button-slider--variant="primary">
-                    <div className="wrao_icon-slider w-variant-5ba9241a-7079-4c4d-345e-a0127f34962f" data-wf--wrap-icon-slider--variant="left">
-                      <div className="icon_slider" data-wf--icon-slider--variant="large">
-                        <div className="icon_slider-button large w-embed">
-                          <svg fill="none" height="100%" viewBox="0 0 20 20" width="100%" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.16663 10.0001H15.8333M15.8333 10.0001L9.99996 4.16675M15.8333 10.0001L9.99996 15.8334" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)"></path>
-                          </svg>
-                        </div>
-                        <div className="icon_slider-button medium w-embed">
-                          <svg fill="none" height="100%" viewBox="0 0 12 12" width="100%" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.5 6H9.5M9.5 6L6 2.5M9.5 6L6 9.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)"></path>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="button_slider-bottom w-slider-arrow-right">
-                  <div className="slider_button w-variant-3b1d5b2f-3e5d-c467-6981-e7b261b76e46" cms-icon-wrap="" data-wf--button-slider--variant="secondary">
-                    <div className="wrao_icon-slider" data-wf--wrap-icon-slider--variant="right">
-                      <div className="icon_slider" data-wf--icon-slider--variant="large">
-                        <div className="icon_slider-button large w-embed">
-                          <svg fill="none" height="100%" viewBox="0 0 20 20" width="100%" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.16663 10.0001H15.8333M15.8333 10.0001L9.99996 4.16675M15.8333 10.0001L9.99996 15.8334" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)"></path>
-                          </svg>
-                        </div>
-                        <div className="icon_slider-button medium w-embed">
-                          <svg fill="none" height="100%" viewBox="0 0 12 12" width="100%" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.5 6H9.5M9.5 6L6 2.5M9.5 6L6 9.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="var(--_❇️-icon---icon-stroke)"></path>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="hide w-slider-nav w-round w-num"></div>
-              </div>
-              <div className="shadow_slider smaller right"></div>
             </div>
           </div>
         </div>
