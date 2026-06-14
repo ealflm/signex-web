@@ -577,6 +577,20 @@
    transform, so dropping the transform only removes the mirror. */
 .palm-footer.footer-signex_lotus {
   transform: none;
+  /* Reduce the corner overflow: smaller + pulled inward vs the palm's 32rem / right:-11rem,
+     so less of the lotus is clipped off the footer's right edge. */
+  width: 32rem;
+  right: -3rem;
+  /* Anchor to the footer's BOTTOM instead of the top (the palm's inset sets top:8.3rem),
+     so the lotus rises from the bottom-right corner. */
+  top: auto;
+  bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  .palm-footer.footer-signex_lotus {
+    width: 22rem;
+    right: -2.5rem;
+  }
 }
 .footer-signex_badges {
   display: flex;
