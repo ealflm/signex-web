@@ -169,6 +169,40 @@
       "title": "Vì Sao Chọn ",
       "titleAccent": "Signex",
       "body": "Xuất sắc trong từng chi tiết, chất lượng trong từng sản phẩm"
+    },
+    "capability": {
+      "eyebrow": "Chuyên Môn Của Chúng Tôi",
+      "title": "Năng Lực ",
+      "titleAccent": "Sản Xuất",
+      "body": "SIGNEX tập trung vào sản xuất OEM và gia công nhận diện thương hiệu theo yêu cầu, với năng lực sản xuất được thiết kế để đáp ứng cả tiêu chuẩn kỹ thuật lẫn yêu cầu thương hiệu.",
+      "groups": [
+        {
+          "title": "Sản Phẩm Chính",
+          "items": [
+            "Logo và biểu tượng nhựa",
+            "Nhãn, phù hiệu và bảng tên thương hiệu",
+            "Linh kiện nhận diện tùy chỉnh cho sản phẩm và bao bì",
+            "Linh kiện thương hiệu OEM gia công theo yêu cầu"
+          ]
+        },
+        {
+          "title": "Vật Liệu",
+          "items": ["PVC", "TPU", "Silicone", "Nhựa composite", "Công thức vật liệu tùy chỉnh theo yêu cầu"]
+        },
+        {
+          "title": "Thế Mạnh Sản Xuất",
+          "items": [
+            "Tạo hình bằng khuôn và định hình chính xác",
+            "Hoàn thiện bề mặt đồng nhất và kiểm soát màu sắc",
+            "Ổn định và lặp lại giữa các lô",
+            "Linh hoạt cho sản lượng nhỏ đến vừa"
+          ]
+        }
+      ],
+      "closing": [
+        "Chúng tôi không chạy theo sản xuất hàng loạt mà đánh đổi khả năng kiểm soát.",
+        "Trọng tâm của chúng tôi là độ chính xác và sự ổn định trong sản xuất, qua từng lô."
+      ]
     }
   }
 }

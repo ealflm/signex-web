@@ -169,6 +169,40 @@
       "title": "Why Choose ",
       "titleAccent": "Signex",
       "body": "Excellence in every detail, quality in every product"
+    },
+    "capability": {
+      "eyebrow": "Our Expertise",
+      "title": "Manufacturing ",
+      "titleAccent": "Capability",
+      "body": "SIGNEX focuses on OEM and custom brand identity manufacturing, with production capabilities designed to meet both technical specifications and brand requirements.",
+      "groups": [
+        {
+          "title": "Core Products",
+          "items": [
+            "Plastic logos and emblems",
+            "Brand labels, badges, and nameplates",
+            "Custom identity components for products and packaging",
+            "OEM brand parts made to specification"
+          ]
+        },
+        {
+          "title": "Materials",
+          "items": ["PVC", "TPU", "Silicone", "Composite plastics", "Custom material formulations upon request"]
+        },
+        {
+          "title": "Production Strengths",
+          "items": [
+            "Mold-based forming and precision shaping",
+            "Consistent surface finishing and color control",
+            "Batch stability and repeatability",
+            "Adaptability for small to medium production volumes"
+          ]
+        }
+      ],
+      "closing": [
+        "We do not pursue mass production at the expense of control.",
+        "Our focus is manufacturing accuracy and stability, batch after batch."
+      ]
     }
   }
 }
