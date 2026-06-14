@@ -17,15 +17,27 @@ import type { Dictionary } from "@/app/[lang]/dictionaries";
  *   • The MVV grid reuses `b3ac1ddc-…ce8d` — the same home reveal trigger (a-124 on self)
  *     already shared by the ProductCategories grid — so the block fades/unblurs in on
  *     scroll like every other home section.
+ *
+ * `headlineWid`/`gridWid` default to those home-page triggers. They're overridable so the
+ * SAME section can be reused on another page whose `data-wf-page` registers different
+ * interaction ids (e.g. /about uses the home-c page id — see app/[lang]/about/page.tsx).
  */
-export function HomeAbout({ dict }: { dict: Dictionary["about"] }) {
+export function HomeAbout({
+  dict,
+  headlineWid = "0f29df12-8c38-da6f-794d-3989ac10d663",
+  gridWid = "b3ac1ddc-636d-f345-c58d-b372a067ce8d",
+}: {
+  dict: Dictionary["about"];
+  headlineWid?: string;
+  gridWid?: string;
+}) {
   const t = dict;
 
   return (
     <section className="section_home-about">
       <div className="padding-global">
         <div className="w-layout-blockcontainer container-large w-container">
-          <div className="headline_home-about" data-w-id="0f29df12-8c38-da6f-794d-3989ac10d663" style={{ opacity: 0, filter: 'blur(5px)' }}>
+          <div className="headline_home-about" data-w-id={headlineWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
             <div className="master_label" data-wf--tag--variant="base">
               <div className="label-small">
                 {t.eyebrow}
@@ -43,7 +55,7 @@ export function HomeAbout({ dict }: { dict: Dictionary["about"] }) {
               </p>
             </div>
           </div>
-          <div className="about-mvv_grid" data-w-id="b3ac1ddc-636d-f345-c58d-b372a067ce8d" style={{ opacity: 0, filter: 'blur(5px)' }}>
+          <div className="about-mvv_grid" data-w-id={gridWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
             <div className="about-mvv_mission">
               <h3 className="about-mvv_title">
                 {t.mission.title}

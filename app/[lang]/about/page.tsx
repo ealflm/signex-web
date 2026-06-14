@@ -8,6 +8,7 @@
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/app/lib/i18n-config";
 import { getDictionary } from "../dictionaries";
+import { HomeAbout } from "@/app/components/home/home-about";
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -160,6 +161,15 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           </div>
         </div>
       </section>
+      {/* "Về SIGNEX" Mission/Vision/Values section (reuse of the home page's HomeAbout), added
+          below the Who We Are (testimonial) block. Reveal ids overridden to home-c a-124 self-reveal
+          triggers that ARE registered under /about's home-c data-wf-page (the component defaults are
+          home-page ids, inert here); shared safely with the existing headline/resorts reveals. */}
+      <HomeAbout
+        dict={dict.about}
+        headlineWid="6a32e52a-664f-8b1c-94cf-2d1d90c61659"
+        gridWid="48327d56-479c-a448-b670-7db1a6576b2d"
+      />
       <section className="section_home-about">
         <div className="padding-global">
           <div className="w-layout-blockcontainer container-large w-container">
