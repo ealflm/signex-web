@@ -115,5 +115,8 @@
     "shipLabel": "We ship with:",
     "payLabel": "Payment options:",
     "payments": ["VISA", "JCB", "Napas"]
+  },
+  "nav": {
+    "cta": "Quote Now"
   }
 }

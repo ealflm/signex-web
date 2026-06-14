@@ -1,7 +1,8 @@
 // app/components/navbar.tsx
+import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { LangToggle } from "@/app/components/lang-toggle";
 
-export function Navbar() {
+export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
   return (
     <div className="master_navigation">
       <div className="banner-navbar" />
@@ -309,7 +310,7 @@ export function Navbar() {
               >
                 <div className="button_text-mask">
                   <div button-text="" className="text-button">
-                    Book Now
+                    {dict.cta}
                   </div>
                 </div>
                 <div button-bg="" className="btn-bg" />

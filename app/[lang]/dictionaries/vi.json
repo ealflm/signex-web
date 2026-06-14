@@ -115,5 +115,8 @@
     "shipLabel": "Hình thức giao hàng:",
     "payLabel": "Phương thức thanh toán:",
     "payments": ["VISA", "COD", "Napas"]
+  },
+  "nav": {
+    "cta": "Nhận báo giá"
   }
 }

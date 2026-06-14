@@ -65,7 +65,7 @@ export default async function RootLayout({
       </head>
       <body>
         <div className="page-wrapper">
-          <Navbar />
+          <Navbar dict={dict.nav} />
           <SalesCta />
           <main className="main-wrapper">
             {children}
