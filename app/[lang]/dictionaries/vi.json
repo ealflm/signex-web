@@ -133,7 +133,13 @@
     "testimonial": {
       "eyebrow": "Signex",
       "title": "Chúng Tôi Là ",
-      "titleAccent": "Ai"
+      "titleAccent": "Ai",
+      "body": [
+        "SIGNEX là nhà sản xuất hàng đầu chuyên về các sản phẩm nhận diện thương hiệu. Chúng tôi không chỉ tạo ra thương hiệu – chúng tôi tạo ra những giá trị mà thương hiệu đại diện.",
+        "Với hệ thống nhà xưởng hiện đại cùng đội ngũ chuyên gia tận tâm, chúng tôi mang đến các sản phẩm logo nhựa, emblem, nhãn mác, phù hiệu, bảng tên và linh kiện nhận diện tùy chỉnh được gia công với độ chính xác cao cho các thương hiệu toàn cầu.",
+        "Sự tận tâm với chất lượng, đổi mới và sự hài lòng của khách hàng đã đưa chúng tôi trở thành đối tác đáng tin cậy của các doanh nghiệp hướng đến sự xuất sắc trong nhận diện thương hiệu.",
+        "Từ linh kiện OEM đến các giải pháp tùy chỉnh, chúng tôi hiện thực hóa nhận diện thương hiệu của bạn bằng quy trình sản xuất vượt trội và sự tỉ mỉ trong từng chi tiết."
+      ]
     }
   }
 }

@@ -780,3 +780,31 @@
     padding-bottom: var(--section-padding--extra-large);
   }
 }
+
+/* /about testimonial card: the decorative quote glyph was swapped for the Signex wordmark.
+   Rendered as a CSS mask filled with currentColor so it inherits .quotes_testimonial-v2's faint
+   ink--dark-8 colour — identical to the original quote glyph (which used fill:currentColor). Fills
+   the quote container's responsive width (6.25rem, 4rem on ≤767px); aspect-ratio keeps the logo's
+   2.4:1 shape with no distortion. */
+.quotes_testimonial-v2 .quotes_testimonial-signex {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2048 / 855;
+  background-color: currentColor;
+  -webkit-mask: url("/assets/images/signex-logo.svg") center / contain no-repeat;
+  mask: url("/assets/images/signex-logo.svg") center / contain no-repeat;
+}
+
+/* /about testimonial card now holds the SIGNEX description (4 paragraphs) where a single big
+   heading-style-h4 quote used to be. Stack the paragraphs with comfortable spacing. */
+.testimonial-signex_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--space-nano);
+}
+
+/* Tighten the oversized space-huge (~6.5–10rem) gap between the logo and the description in the
+   testimonial card's left column (Caladan's .left_testimonial-v2 reserved it for a short quote). */
+.section_testimonial .left_testimonial-v2 {
+  row-gap: var(--spacing--space-small);
+}
