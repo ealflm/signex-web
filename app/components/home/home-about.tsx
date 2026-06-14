@@ -21,15 +21,19 @@ import type { Dictionary } from "@/app/[lang]/dictionaries";
  * `headlineWid`/`gridWid` default to those home-page triggers. They're overridable so the
  * SAME section can be reused on another page whose `data-wf-page` registers different
  * interaction ids (e.g. /about uses the home-c page id — see app/[lang]/about/page.tsx).
+ * `showMvv` (default true) renders the Mission/Vision/Values grid; /about passes false to
+ * show only the eyebrow + "About SIGNEX" heading + intro paragraph.
  */
 export function HomeAbout({
   dict,
   headlineWid = "0f29df12-8c38-da6f-794d-3989ac10d663",
   gridWid = "b3ac1ddc-636d-f345-c58d-b372a067ce8d",
+  showMvv = true,
 }: {
   dict: Dictionary["about"];
   headlineWid?: string;
   gridWid?: string;
+  showMvv?: boolean;
 }) {
   const t = dict;
 
@@ -55,6 +59,7 @@ export function HomeAbout({
               </p>
             </div>
           </div>
+          {showMvv && (
           <div className="about-mvv_grid" data-w-id={gridWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
             <div className="about-mvv_mission">
               <h3 className="about-mvv_title">
@@ -115,6 +120,7 @@ export function HomeAbout({
               </div>
             </div>
           </div>
+          )}
         </div>
       </div>
     </section>

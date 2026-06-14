@@ -8,7 +8,37 @@
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/app/lib/i18n-config";
 import { getDictionary } from "../dictionaries";
-import { HomeAbout } from "@/app/components/home/home-about";
+
+// lucide line icons for the manufacturing-approach cards (index-aligned with aboutPage.approach),
+// chosen per card content: factory (direct/in-house), badge-check (brand standards), lock
+// (confidentiality). Same icon style used elsewhere (stroke=currentColor, 24 viewBox).
+const SVG_PROPS = {
+  fill: "none",
+  height: 24,
+  stroke: "currentColor",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  strokeWidth: 2,
+  viewBox: "0 0 24 24",
+  width: 24,
+  xmlns: "http://www.w3.org/2000/svg",
+} as const;
+const APPROACH_ICONS = [
+  <svg key="factory" {...SVG_PROPS}>
+    <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+    <path d="M17 18h1" />
+    <path d="M12 18h1" />
+    <path d="M7 18h1" />
+  </svg>,
+  <svg key="badge-check" {...SVG_PROPS}>
+    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>,
+  <svg key="lock" {...SVG_PROPS}>
+    <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>,
+];
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -161,15 +191,53 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           </div>
         </div>
       </section>
-      {/* "Về SIGNEX" Mission/Vision/Values section (reuse of the home page's HomeAbout), added
-          below the Who We Are (testimonial) block. Reveal ids overridden to home-c a-124 self-reveal
-          triggers that ARE registered under /about's home-c data-wf-page (the component defaults are
-          home-page ids, inert here); shared safely with the existing headline/resorts reveals. */}
-      <HomeAbout
-        dict={dict.about}
-        headlineWid="6a32e52a-664f-8b1c-94cf-2d1d90c61659"
-        gridWid="48327d56-479c-a448-b670-7db1a6576b2d"
-      />
+      {/* "About SIGNEX" intro + the 3 manufacturing-approach cards as ONE grouped block (intro on top,
+          cards in a row below). Inlined into a single section so the only gap is the headline's
+          margin-bottom. The intro headline reveals via the home-c a-124 id 6a32e52a (registered under
+          /about's data-wf-page). The cards reuse signex's existing card aesthetic (the stat tiles'
+          light-gray surface + the MVV is-vision blue icon tint) via scoped .about-values_* in
+          globals.css; content is dict-driven EN+VI (aboutPage.approach), icons by index. */}
+      <section className="section_home-about">
+        <div className="padding-global">
+          <div className="w-layout-blockcontainer container-large w-container">
+            <div className="headline_home-about" data-w-id="6a32e52a-664f-8b1c-94cf-2d1d90c61659" style={{ opacity: 0, filter: 'blur(5px)' }}>
+              <div className="master_label" data-wf--tag--variant="base">
+                <div className="label-small">
+                  {dict.about.eyebrow}
+                </div>
+              </div>
+              <h2 className="margin-0">
+                {dict.about.title}
+                <span className="tone-medium">
+                  {dict.about.titleAccent}
+                </span>
+              </h2>
+              <div className="home_about-p">
+                <p className="tone-medium">
+                  {dict.about.body}
+                </p>
+              </div>
+            </div>
+            <div className="about-values_grid">
+              {dict.aboutPage.approach.map((c, i) => (
+                <div className="about-values_card" key={c.title}>
+                  <div className="about-values_icon w-embed">
+                    {APPROACH_ICONS[i]}
+                  </div>
+                  <h3 className="about-values_title">
+                    {c.title}
+                  </h3>
+                  {c.body.map((para, j) => (
+                    <p className="tone-medium about-values_body" key={j}>
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section_home-about">
         <div className="padding-global">
           <div className="w-layout-blockcontainer container-large w-container">

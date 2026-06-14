@@ -814,3 +814,52 @@
 .section_testimonial .left_testimonial-v2 {
   row-gap: var(--spacing--space-small);
 }
+
+/* /about manufacturing-approach cards (replaced the stat tiles). Reuse signex's existing look only:
+   the stat tiles' light-gray surface (ink--dark-4) + the MVV is-vision blue icon tint (#edf0fb /
+   #4956e3) + the MVV card-title type scale. Icon box on top, heading, then the body paragraphs. */
+.about-values_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--spacing--space-nano);
+}
+.about-values_card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: var(--_🔘-radius---general--default);
+  background-color: var(--_🎨-color--tokens---ink--dark-4);
+}
+.about-values_icon {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.625rem;
+  background-color: #edf0fb;
+  color: #4956e3;
+}
+.about-values_icon svg {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem;
+}
+.about-values_title {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.about-values_body {
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+  .about-values_grid {
+    grid-template-columns: 1fr;
+  }
+}

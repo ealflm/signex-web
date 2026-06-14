@@ -140,6 +140,29 @@
         "Our commitment to quality, innovation, and customer satisfaction has made us a trusted partner for businesses seeking excellence in brand representation.",
         "From OEM parts to custom solutions, we bring your brand identity to life through superior manufacturing processes and attention to detail."
       ]
-    }
+    },
+    "approach": [
+      {
+        "title": "Direct Manufacturing",
+        "body": [
+          "SIGNEX operates as a direct manufacturer with production managed entirely in-house.",
+          "This ensures clear technical communication, full production control, and stable quality across manufacturing batches."
+        ]
+      },
+      {
+        "title": "Brand-Oriented Manufacturing",
+        "body": [
+          "We understand that brand components are not generic parts.",
+          "Our manufacturing approach is therefore aligned with brand requirements, ensuring that each component respects established brand guidelines and maintains a consistent appearance across different production runs."
+        ]
+      },
+      {
+        "title": "OEM & Confidentiality",
+        "body": [
+          "We believe in building lasting relationships with our clients. Our partnership approach ensures consistent quality, reliable delivery, and continuous improvement.",
+          "We maintain transparent communication with our partners to ensure reliability, clarity in technical requirements, and long-term manufacturing stability."
+        ]
+      }
+    ]
   }
 }
