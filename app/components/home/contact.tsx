@@ -60,17 +60,18 @@ export function Contact({ dict }: { dict: Dictionary }) {
                     {c.eyebrow}
                   </div>
                 </div>
-                {/* Ref uses <h1> (contact-b is that page's hero); demoted mid-page so the
-                    home hero keeps the only h1 — same as ProductCategories (b25a69c).
-                    .heading-style-h1 applies the identical h1 typography, so zero visual change. */}
-                <h2 className="heading-style-h1">
+                {/* Ref uses <h1> (contact-b is that page's hero); rendered as <h2> so the
+                    home hero keeps the only h1. Sized with the bare-h2 typography (margin-0),
+                    matching the About / Products headlines (size--h2) so the section headings
+                    are visually consistent across the home page. */}
+                <h2 className="margin-0">
                   {c.title}
                   <span className="tone-medium">
                     {c.titleAccent}
                   </span>
                 </h2>
               </div>
-              <p className="text-size-large tone-medium">
+              <p className="tone-medium">
                 {c.subtitle}
               </p>
             </div>
