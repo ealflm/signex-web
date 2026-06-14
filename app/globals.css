@@ -815,6 +815,13 @@
   row-gap: var(--spacing--space-small);
 }
 
+/* Match the testimonial section's bottom padding to its top (Caladan defaults the bottom to
+   section-padding--extra-small vs --small at the top). Same token both sides → equal at every
+   breakpoint. Scoped under .main-wrapper for (0,2,0) > Caladan's later-loaded (0,1,0). */
+.main-wrapper .section_testimonial {
+  padding-bottom: var(--section-padding--small);
+}
+
 /* /about manufacturing-approach cards (replaced the stat tiles). Reuse signex's existing look only:
    the stat tiles' light-gray surface (ink--dark-4) + the MVV is-vision blue icon tint (#edf0fb /
    #4956e3) + the MVV card-title type scale. Icon box on top, heading, then the body paragraphs. */

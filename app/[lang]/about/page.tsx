@@ -203,18 +203,18 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
             <div className="headline_home-about" data-w-id="6a32e52a-664f-8b1c-94cf-2d1d90c61659" style={{ opacity: 0, filter: 'blur(5px)' }}>
               <div className="master_label" data-wf--tag--variant="base">
                 <div className="label-small">
-                  {dict.about.eyebrow}
+                  {dict.aboutPage.intro.eyebrow}
                 </div>
               </div>
               <h2 className="margin-0">
-                {dict.about.title}
+                {dict.aboutPage.intro.title}
                 <span className="tone-medium">
-                  {dict.about.titleAccent}
+                  {dict.aboutPage.intro.titleAccent}
                 </span>
               </h2>
               <div className="home_about-p">
                 <p className="tone-medium">
-                  {dict.about.body}
+                  {dict.aboutPage.intro.body}
                 </p>
               </div>
             </div>

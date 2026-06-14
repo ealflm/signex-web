@@ -163,6 +163,12 @@
           "We maintain transparent communication with our partners to ensure reliability, clarity in technical requirements, and long-term manufacturing stability."
         ]
       }
-    ]
+    ],
+    "intro": {
+      "eyebrow": "Why SIGNEX",
+      "title": "Why Choose ",
+      "titleAccent": "Signex",
+      "body": "Excellence in every detail, quality in every product"
+    }
   }
 }
