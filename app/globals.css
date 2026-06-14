@@ -232,6 +232,14 @@
   user-select: none;
 }
 
+/* Navbar Signex logo (user-supplied SVG, recoloured to #241018). Sized by height; its
+   width auto-derives from the ~2.4:1 aspect ratio and stays within .brand_navbar's cap. */
+.signex-logo-nav {
+  height: 1.85rem;
+  width: auto;
+  display: block;
+}
+
 /* Resorts collection section on the HOME page.
    Caladan's shared rule gives .section_hero-resorts a LARGE top padding because there
    it's the /resorts page hero (sits right under the navbar). Ported below Features on

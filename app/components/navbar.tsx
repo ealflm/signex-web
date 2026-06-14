@@ -266,7 +266,10 @@ export function Navbar() {
             </div>
             {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- faithful port of Webflow markup; navigation is driven by the Webflow runtime, not next/link */}
             <a aria-current="page" className="brand_navbar w-nav-brand w--current" href="/">
-              <img alt="Caladan" className="logo-nav" loading="lazy" src="/assets/images/69833e435f55c34294a79a9a_Caladan_.svg" />
+              {/* Signex logo (user-supplied SVG, recoloured to the navbar's #241018 ink —
+                  the same dark colour the original Caladan logo used). Sized by height
+                  since its aspect ratio (≈2.4:1) differs from the old wordmark. */}
+              <img alt="Signex" className="signex-logo-nav" loading="lazy" src="/assets/images/signex-logo.svg" />
             </a>
             <div className="nav_corners-wrap">
               <div className="nav_side w-embed">
