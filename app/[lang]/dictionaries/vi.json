@@ -117,6 +117,11 @@
     "payments": ["VISA", "COD", "Napas"]
   },
   "nav": {
-    "cta": "Nhận báo giá"
+    "cta": "Nhận báo giá",
+    "links": [
+      { "label": "Trang chủ", "href": "/" },
+      { "label": "Về chúng tôi", "href": "/about" },
+      { "label": "Liên hệ", "href": "/contact" }
+    ]
   }
 }

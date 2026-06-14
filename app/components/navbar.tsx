@@ -1,4 +1,5 @@
 // app/components/navbar.tsx
+import { Fragment } from "react";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { LangToggle } from "@/app/components/lang-toggle";
 
@@ -54,183 +55,19 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
               <nav className="nav-menu w-nav-menu" role="navigation">
                 <div className="nav_wrap-menu">
                   <div className="nav-menu_inner">
-                    <div className="divider_mobile-menu" />
-                    <div
-                      className="dropdown w-dropdown"
-                      data-delay="300"
-                      data-hover="true"
-                      data-w-id="8cf60b1d-bffe-d9ea-a5b9-44c5b13f8f45"
-                      nav-link=""
-                    >
-                      <div className="dropdown-toggle w-dropdown-toggle">
-                        <div>
-                          Company
-                        </div>
-                        <div className="icon-wrap_dropdown">
-                          <div className="icon-dropdown w-embed">
-                            <svg fill="none" height="100%" viewBox="0 0 16 16" width="100%" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                                d="M4 6L8 10L12 6"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                              />
-                            </svg>
+                    {/* Top-level nav: Home / About / Contact (dict-driven, EN + VI). Replaces
+                        Caladan's Company-dropdown + About us + Gallery. A .divider_mobile-menu
+                        precedes each item (mobile menu styling), matching the original pattern. */}
+                    {dict.links.map((l) => (
+                      <Fragment key={l.label}>
+                        <div className="divider_mobile-menu" />
+                        <a className="link_nav w-inline-block" href={l.href} nav-link="">
+                          <div>
+                            {l.label}
                           </div>
-                          <div className="dropdown-animated-box">
-                            <div className="dropdown-line" />
-                            <div className="dropdown-line absolute" />
-                          </div>
-                        </div>
-                      </div>
-                      <nav className="dropdown-list w-dropdown-list">
-                        <div className="dropdown-large_inner">
-                          <div className="dropdown-bg" />
-                          <div className="dropdown_inner">
-                            <div className="nav-menu_halves">
-                              <div className="left_nav-menu">
-                                <div className="nav_column">
-                                  <div className="label-small tone-medium">
-                                    pages
-                                  </div>
-                                  <div className="nav_list">
-                                    {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- faithful port of Webflow markup; navigation is driven by the Webflow runtime, not next/link */}
-                                    <a aria-current="page" className="link_dropdown w-inline-block w--current" href="/">
-                                      <div>
-                                        Home A
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/homepage/home-b">
-                                      <div>
-                                        Home B
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/homepage/home-c">
-                                      <div>
-                                        Home C
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/contact/contact-a">
-                                      <div>
-                                        Contact A
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/contact/contact-b">
-                                      <div>
-                                        Contact B
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/contact/contact-c">
-                                      <div>
-                                        Contact C
-                                      </div>
-                                    </a>
-                                  </div>
-                                </div>
-                                <div className="nav_column">
-                                  <div className="label-small tone-medium">
-                                    Other
-                                  </div>
-                                  <div className="nav_list">
-                                    <a className="link_dropdown w-inline-block" href="/blog/blog-a">
-                                      <div>
-                                        Blog A
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/blog/blog-b">
-                                      <div>
-                                        Blog B
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/blog/blog-c">
-                                      <div>
-                                        Blog C
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/faq">
-                                      <div>
-                                        FAQ
-                                      </div>
-                                    </a>
-                                    <a className="link_dropdown w-inline-block" href="/legal">
-                                      <div>
-                                        Legal
-                                      </div>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="card_menu-contact">
-                                <div className="overlay_menu-image" />
-                                <div className="menu_info-tile">
-                                  <a
-                                    button=""
-                                    className="cta_primary w-inline-block"
-                                    data-wf--cta-primary--variant="primary"
-                                    href="https://webflow.com/templates/designers/eclipso-studio"
-                                    target="_blank"
-                                  >
-                                    <div className="button_text-mask">
-                                      <div button-text="" className="text-button">
-                                        More Templates
-                                      </div>
-                                    </div>
-                                    <div button-bg="" className="btn-bg" />
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </nav>
-                    </div>
-                    <div className="divider_mobile-menu" />
-                    <a className="link_nav w-inline-block" href="/about" nav-link="">
-                      <div>
-                        About us
-                      </div>
-                      <div className="icon-wrap_dropdown not-visible">
-                        <div className="icon-dropdown w-embed">
-                          <svg fill="none" height="100%" viewBox="0 0 16 16" width="100%" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                              d="M4 6L8 10L12 6"
-                              stroke="#231F23"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="var(--_❇️-icon---icon-stroke)"
-                            />
-                          </svg>
-                        </div>
-                        <div className="dropdown-animated-box">
-                          <div className="dropdown-line" />
-                          <div className="dropdown-line absolute" />
-                        </div>
-                      </div>
-                    </a>
-                    <div className="divider_mobile-menu" />
-                    <a className="link_nav w-inline-block" href="/gallery" nav-link="">
-                      <div>
-                        Gallery
-                      </div>
-                      <div className="icon-wrap_dropdown not-visible">
-                        <div className="icon-dropdown w-embed">
-                          <svg fill="none" height="100%" viewBox="0 0 16 16" width="100%" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                              d="M4 6L8 10L12 6"
-                              stroke="#231F23"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="var(--_❇️-icon---icon-stroke)"
-                            />
-                          </svg>
-                        </div>
-                        <div className="dropdown-animated-box">
-                          <div className="dropdown-line" />
-                          <div className="dropdown-line absolute" />
-                        </div>
-                      </div>
-                    </a>
+                        </a>
+                      </Fragment>
+                    ))}
                     <div className="divider_mobile-menu" />
                     <div className="nav-menu_mobile-button">
                       <a
@@ -292,16 +129,6 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
             </div>
             <div className="nav_right">
               <LangToggle />
-              <div className="nav_button-desktop">
-                <a button="" className="cta_tertiary w-inline-block" href="/resorts">
-                  <div>
-                    View Resorts
-                  </div>
-                  <div className="underline_cta-button">
-                    <div className="cta_fill-line" />
-                  </div>
-                </a>
-              </div>
               <a
                 button=""
                 className="cta_primary w-inline-block"

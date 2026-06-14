@@ -242,9 +242,13 @@
 }
 
 /* ───────── Navbar EN/VI language toggle (ADDED) ───────── */
-/* Inherits the navbar's text colour via currentColor; inactive option is muted with
-   opacity so it reads correctly on the light nav pill without hard-coding a colour. */
+/* "View Resorts" tertiary look (button-1 type) with a single SLIDING underline: one bar
+   (.lang-toggle_underline) rests under the active locale and slides to the hovered/focused
+   option (its left/width are set inline from JS — measured off the option elements — and
+   animated here). Colour inherits the navbar text colour via currentColor; inactive
+   options are muted with opacity. */
 .lang-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -252,32 +256,37 @@
   white-space: nowrap;
 }
 .lang-toggle_option {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  font: inherit;
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
-  line-height: 1;
+  font-family: var(--_🔠-typography---font-family--button-1);
+  font-size: var(--_🔠-typography---size--button-1);
+  line-height: var(--_🔠-typography---line-height--button-1);
+  font-weight: var(--_🔠-typography---font-weight--button-1);
+  letter-spacing: var(--_🔠-typography---letter-spacing--button-1);
   color: currentColor;
   text-decoration: none;
-  opacity: 0.45;
+  opacity: 0.5;
   cursor: pointer;
-  transition: opacity 160ms ease;
+  transition: opacity 0.2s ease;
 }
-.lang-toggle_option:hover {
-  opacity: 0.8;
-}
+.lang-toggle_option:hover,
+.lang-toggle_option:focus-visible,
 .lang-toggle_option.is-active {
   opacity: 1;
-  font-weight: 600;
 }
 .lang-toggle_divider {
   font-size: 0.85rem;
   line-height: 1;
   opacity: 0.3;
   user-select: none;
+}
+.lang-toggle_underline {
+  position: absolute;
+  bottom: -0.15rem;
+  height: 1px;
+  background-color: currentColor;
+  pointer-events: none;
+}
+.lang-toggle_underline.is-animated {
+  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Navbar Signex logo (user-supplied SVG, recoloured to #241018). Sized by height; its
