@@ -123,5 +123,11 @@
       { "label": "Về chúng tôi", "href": "/about" },
       { "label": "Liên hệ", "href": "/contact" }
     ]
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Về ",
+      "titleAccent": "Signex"
+    }
   }
 }

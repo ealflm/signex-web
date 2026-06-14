@@ -7,10 +7,12 @@
 // interactions (the elements below start at opacity:0 / blur and are revealed on scroll).
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/app/lib/i18n-config";
+import { getDictionary } from "../dictionaries";
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound(); // narrows lang to Locale; rejects unknown locales with a 404
+  const dict = await getDictionary(lang); // localised copy for the sections being customised (EN + VI)
   return (
     <>
       <section className="section_hero-home-c">
@@ -40,9 +42,9 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
               <div className="heading_hero-home-c">
                 <div className="title_home-c">
                   <h1 className="heading-style-h0">
-                    The Lagoon
+                    {dict.aboutPage.hero.title}
                     <span className="tone-medium">
-                      Is Calling
+                      {dict.aboutPage.hero.titleAccent}
                     </span>
                   </h1>
                 </div>
