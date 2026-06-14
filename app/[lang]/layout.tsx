@@ -5,7 +5,8 @@ import { SalesCta } from "@/app/components/sales-cta";
 import { Footer } from "@/app/components/footer";
 import { WebflowRuntime } from "@/app/components/webflow-runtime";
 import { WebflowPageAttrs } from "@/app/components/webflow-page-attrs";
-import { LOCALES } from "@/app/lib/i18n-config";
+import { LOCALES, hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
+import { getDictionary } from "./dictionaries";
 
 // Verbatim from legacy/caladan/index.html <head>: the FOUC guard hides animated
 // elements until the IX2 runtime adds w-mod-ix3; the shim sets w-mod-js/w-mod-touch early.
@@ -41,6 +42,9 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  // dynamicParams=false + generateStaticParams restrict this to LOCALES; the guard
+  // just narrows the string to Locale for getDictionary (Footer is dict-driven, EN + VI).
+  const dict = await getDictionary(hasLocale(lang) ? lang : DEFAULT_LOCALE);
   return (
     // suppressHydrationWarning: the WF_MOD_SHIM script adds w-mod-js/w-mod-touch to <html> before
     // hydration, and WebflowPageAttrs sets data-wf-page on it — both intentionally diverge from SSR.
@@ -65,7 +69,7 @@ export default async function RootLayout({
           <SalesCta />
           <main className="main-wrapper">
             {children}
-            <Footer />
+            <Footer dict={dict.footer} />
           </main>
         </div>
         <WebflowPageAttrs />

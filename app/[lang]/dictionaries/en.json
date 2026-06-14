@@ -94,5 +94,26 @@
       { "title": "Phone", "lines": ["Tel: + 84 982 633 377", "Zalo: + 84 982 633 377"] },
       { "title": "Address", "lines": ["Office: 25/88/13 Bui Quang La, An Hoi Tay ward, Ho Chi Minh city, Viet Nam.", "Factory: 85/45 Duong Thi Muoi, Trung My Tay ward, Ho Chi Minh city, Viet Nam."] }
     ]
+  },
+  "footer": {
+    "brand": "SIGNEX – Manufacturing Brand Identity",
+    "tagline": ["We don't create brands.", "We manufacture what brands stand for."],
+    "contactHeading": "Contact us",
+    "company": "SIGNEX BRAND IDENTITY PRODUCTS MANUFACTURING CO., LTD",
+    "email": "core@signex.vn",
+    "tel": "(+84) 979 700 072",
+    "zalo": "(+84) 94 9999 326",
+    "tax": "0319401172",
+    "office": "25/88/13 Bui Quang La, An Hoi Tay ward, Ho Chi Minh city, Viet Nam.",
+    "factory": "85/45 Duong Thi Muoi, Trung My Tay ward, Ho Chi Minh city, Viet Nam.",
+    "quickHeading": "Quick links",
+    "links": [
+      { "label": "Home", "href": "/" },
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "shipLabel": "We ship with:",
+    "payLabel": "Payment options:",
+    "payments": ["VISA", "JCB", "Napas"]
   }
 }

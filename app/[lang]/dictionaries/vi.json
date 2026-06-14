@@ -94,5 +94,26 @@
       { "title": "Số điện thoại", "lines": ["Tel: + 84 982 633 377", "Zalo: + 84 982 633 377"] },
       { "title": "Địa chỉ", "lines": ["Office: 25/88/13 Bùi Quang Là, phường An Hội Tây, TP.HCM, Việt Nam.", "Factory: 85/45 Dương Thị Mười, phường Trung Mỹ Tây, TP.HCM, Việt Nam."] }
     ]
+  },
+  "footer": {
+    "brand": "SIGNEX – Sản Xuất Sản Phẩm Nhận Diện Thương Hiệu",
+    "tagline": ["Chúng tôi không tạo ra thương hiệu.", "Chúng tôi tạo ra những giá trị mà thương hiệu đại diện."],
+    "contactHeading": "Liên hệ",
+    "company": "CÔNG TY TNHH SẢN XUẤT SẢN PHẨM NHẬN DIỆN THƯƠNG HIỆU SIGNEX",
+    "email": "core@signex.vn",
+    "tel": "(+84) 979 700 072",
+    "zalo": "(+84) 94 9999 326",
+    "tax": "0319401172",
+    "office": "25/88/13 Bùi Quang Là, phường An Hội Tây, TP.HCM, Việt Nam.",
+    "factory": "85/45 Dương Thị Mười, phường Trung Mỹ Tây, TP.HCM, Việt Nam.",
+    "quickHeading": "Truy cập nhanh",
+    "links": [
+      { "label": "Trang chủ", "href": "/" },
+      { "label": "Về chúng tôi", "href": "/about" },
+      { "label": "Liên hệ", "href": "/contact" }
+    ],
+    "shipLabel": "Hình thức giao hàng:",
+    "payLabel": "Phương thức thanh toán:",
+    "payments": ["VISA", "COD", "Napas"]
   }
 }

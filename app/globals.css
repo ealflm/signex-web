@@ -472,3 +472,150 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Footer — SIGNEX redesign (ADDED). New 3-column content + shipping/payment row
+   poured into Caladan's master_footer shell. Text reuses the footer's own atoms
+   (text_body-bold/tone-medium/link_footer/text-size-*), which inherit the dark
+   master_footer tone remap; only LAYOUT and the brand chips/badges (brand colours
+   not in Caladan's palette) are scoped here. Vendored CSS is untouched.
+   ───────────────────────────────────────────────────────────────────────────── */
+/* 3-column top tile — override Caladan's auto/1fr footer_top-tile grid (0,2,0 beats
+   Caladan's (0,1,0) regardless of load order). brand | contact (wider) | quick links */
+.footer_top-tile.footer-signex_top {
+  /* Re-assert display:grid (0,2,0) so it survives Caladan's max-width:767px rule that
+     flips .footer_top-tile to display:flex — otherwise our grid-template-columns go
+     inert below 768px and the 600-767px band wrongly collapses to one column. */
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr 0.9fr;
+  align-items: start;
+}
+.footer-signex_brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-row-gap: 0.65rem;
+  gap: 0.65rem;
+  max-width: var(--width--3-columns);
+}
+.footer-signex_tagline {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.2rem;
+  gap: 0.2rem;
+}
+.footer-signex_socials {
+  display: flex;
+  grid-column-gap: 0.75rem;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.footer-signex_social {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+.footer-signex_social svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+.footer-signex_social.is-facebook {
+  background-color: #1877f2;
+}
+.footer-signex_social.is-youtube {
+  background-color: #ff0000;
+}
+/* Contact + Quick-links columns */
+.footer-signex_col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-row-gap: 1.25rem;
+  gap: 1.25rem;
+}
+.footer-signex_contact {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.8rem;
+  gap: 0.8rem;
+}
+.footer-signex_company {
+  max-width: 26rem;
+}
+.footer-signex_address {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.1rem;
+  gap: 0.1rem;
+}
+/* Shipping | Payment utility row (footer_mid-tile keeps its space-between layout).
+   Move Caladan's divider from ABOVE the row to BELOW it (between the shipping/payment
+   row and the SIGNEX wordmark): drop the inherited border-top, add a matching
+   border-bottom, and flip the divider padding from top to bottom. Same faint
+   light-8 hairline colour. */
+.footer_mid-tile.footer-signex_utility {
+  flex-wrap: wrap;
+  border-top: none;
+  border-bottom: 1px solid var(--_🎨-color--base---base--light-8);
+  padding-top: 0;
+  padding-bottom: var(--spacing--space-micro);
+}
+.footer-signex_badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-column-gap: 0.6rem;
+  gap: 0.6rem;
+}
+.footer-signex_badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.4rem;
+  padding: 0.32rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.footer-signex_badge.is-lalamove {
+  background-color: #f16622;
+  color: #ffffff;
+}
+.footer-signex_badge.is-grab {
+  background-color: #00b14f;
+  color: #ffffff;
+}
+.footer-signex_pay {
+  background-color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.footer-signex_pay.is-blue {
+  color: #1a1f71;
+}
+.footer-signex_pay.is-red {
+  color: #c0392b;
+}
+/* Multi-column (≥600px, i.e. the 3-col and 2-col grids): the brand column has no
+   heading, so nudge it down to line its brand name up with the other columns' first
+   content line (their heading + gap ≈ 2.75rem), matching the mockup's vertical rhythm.
+   Dropped only once the grid stacks to one column (≤599px). */
+@media screen and (min-width: 600px) {
+  .footer-signex_brand {
+    padding-top: 2.75rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .footer_top-tile.footer-signex_top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 599px) {
+  .footer_top-tile.footer-signex_top {
+    grid-template-columns: 1fr;
+  }
+}
