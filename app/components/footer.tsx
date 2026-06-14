@@ -49,9 +49,10 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
                   as the other two columns (brand name is locale-invariant, so it's hard-coded
                   like the field labels), then brand name, taglines, socials. */}
               <div className="footer-signex_col">
-                <div className="label-large tone-medium">
-                  SIGNEX
-                </div>
+                {/* Signex logo (replaces the "SIGNEX" text label). Same user SVG as the
+                    navbar, but rendered white (brightness(0) invert(1)) so it reads on the
+                    dark footer like the wordmark/lotus do. */}
+                <img alt="Signex" className="footer-signex_logo" loading="lazy" src="/assets/images/signex-logo.svg" />
                 <div className="footer-signex_brand">
                   <div className="text-size-regular text_body-bold">
                     {t.brand}

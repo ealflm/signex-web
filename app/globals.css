@@ -498,6 +498,14 @@
   grid-template-columns: 1.1fr 1.3fr 0.9fr;
   align-items: start;
 }
+/* Signex logo at the top of the footer brand column (replaces the "SIGNEX" label).
+   Recoloured-to-#241018 SVG flipped to white for the dark footer; sized by height. */
+.footer-signex_logo {
+  height: 2rem;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
 .footer-signex_brand {
   display: flex;
   flex-direction: column;
