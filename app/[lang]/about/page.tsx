@@ -40,26 +40,6 @@ const APPROACH_ICONS = [
   </svg>,
 ];
 
-// lucide line icons for the Manufacturing Capability cards (index-aligned with
-// aboutPage.capability.groups): package (Core Products), layers (Materials), gauge (Production Strengths).
-const CAPABILITY_ICONS = [
-  <svg key="package" {...SVG_PROPS}>
-    <path d="m7.5 4.27 9 5.15" />
-    <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
-    <path d="M3.3 7 12 12l8.7-5" />
-    <path d="M12 22V12" />
-  </svg>,
-  <svg key="layers" {...SVG_PROPS}>
-    <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
-    <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
-    <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
-  </svg>,
-  <svg key="gauge" {...SVG_PROPS}>
-    <path d="m12 14 4-4" />
-    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-  </svg>,
-];
-
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound(); // narrows lang to Locale; rejects unknown locales with a 404
@@ -285,11 +265,8 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
               </div>
             </div>
             <div className="about-values_grid">
-              {dict.aboutPage.capability.groups.map((g, i) => (
+              {dict.aboutPage.capability.groups.map((g) => (
                 <div className="about-values_card" key={g.title}>
-                  <div className="about-values_icon w-embed">
-                    {CAPABILITY_ICONS[i]}
-                  </div>
                   <h3 className="about-values_title">
                     {g.title}
                   </h3>

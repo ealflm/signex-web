@@ -923,16 +923,18 @@
   border-radius: var(--_🔘-radius---general--default);
   background-color: var(--_🎨-color--tokens---ink--dark-4);
 }
+/* Identical to the "Why Choose Signex" icon box (.about-values_icon): #edf0fb bg + #4956e3 mark,
+   2.75rem square, 0.625rem radius — for full consistency. */
 .about-steps_num {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   margin-bottom: 0.5rem;
-  border-radius: 0.75rem;
-  background-image: linear-gradient(160deg, #5b66e6, #3e4bce);
-  color: #ffffff;
+  border-radius: 0.625rem;
+  background-color: #edf0fb;
+  color: #4956e3;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1;
