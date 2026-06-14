@@ -115,13 +115,13 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
               <div className="heading_testimonials-v2">
                 <div className="master_label" data-wf--tag--variant="base">
                   <div className="label-small">
-                    What Our Guests Say
+                    {dict.aboutPage.testimonial.eyebrow}
                   </div>
                 </div>
                 <h2 className="margin-0">
-                  Stories
+                  {dict.aboutPage.testimonial.title}
                   <span className="tone-medium">
-                    from Paradise
+                    {dict.aboutPage.testimonial.titleAccent}
                   </span>
                 </h2>
               </div>
