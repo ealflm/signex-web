@@ -203,6 +203,30 @@
         "We do not pursue mass production at the expense of control.",
         "Our focus is manufacturing accuracy and stability, batch after batch."
       ]
+    },
+    "process": {
+      "eyebrow": "Our Process",
+      "title": "Manufacturing ",
+      "titleAccent": "Approach",
+      "body": "Excellence in every detail, quality in every product",
+      "steps": [
+        {
+          "title": "Material Selection & Formulation",
+          "body": "Materials are selected and prepared according to performance requirements and product specifications."
+        },
+        {
+          "title": "Mold Development & Tooling",
+          "body": "Precision molds are developed to ensure accurate form reproduction and stable long-term production."
+        },
+        {
+          "title": "Production & Forming",
+          "body": "Components are manufactured under controlled parameters to maintain consistent shape, surface quality, and color."
+        },
+        {
+          "title": "Quality Inspection",
+          "body": "Each batch undergoes visual and dimensional inspection to ensure it meets defined standards."
+        }
+      ]
     }
   }
 }

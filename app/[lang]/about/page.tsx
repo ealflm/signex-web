@@ -313,6 +313,50 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           </div>
         </div>
       </section>
+      {/* "Manufacturing Approach" — 4-step process (Image #47), same approach as the other /about
+          sections: standard header (eyebrow + tone-split h2 + description, reveals via shared home-c
+          a-124 id 6a32e52a) + 4 centered cards, each a numbered badge (1–4) + title + description.
+          Reuses signex's light-gray card surface + accent blue (#4956e3) for the number badge.
+          Custom scoped .about-steps_* in globals.css; dict-driven EN+VI (aboutPage.process). */}
+      <section className="section_home-about">
+        <div className="padding-global">
+          <div className="w-layout-blockcontainer container-large w-container">
+            <div className="headline_home-about" data-w-id="6a32e52a-664f-8b1c-94cf-2d1d90c61659" style={{ opacity: 0, filter: 'blur(5px)' }}>
+              <div className="master_label" data-wf--tag--variant="base">
+                <div className="label-small">
+                  {dict.aboutPage.process.eyebrow}
+                </div>
+              </div>
+              <h2 className="margin-0">
+                {dict.aboutPage.process.title}
+                <span className="tone-medium">
+                  {dict.aboutPage.process.titleAccent}
+                </span>
+              </h2>
+              <div className="home_about-p">
+                <p className="tone-medium">
+                  {dict.aboutPage.process.body}
+                </p>
+              </div>
+            </div>
+            <div className="about-steps_grid">
+              {dict.aboutPage.process.steps.map((s, i) => (
+                <div className="about-steps_card" key={s.title}>
+                  <div className="about-steps_num">
+                    {i + 1}
+                  </div>
+                  <h3 className="about-steps_title">
+                    {s.title}
+                  </h3>
+                  <p className="about-steps_body tone-medium">
+                    {s.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section_home-about">
         <div className="padding-global">
           <div className="w-layout-blockcontainer container-large w-container">

@@ -203,6 +203,30 @@
         "Chúng tôi không chạy theo sản xuất hàng loạt mà đánh đổi khả năng kiểm soát.",
         "Trọng tâm của chúng tôi là độ chính xác và sự ổn định trong sản xuất, qua từng lô."
       ]
+    },
+    "process": {
+      "eyebrow": "Quy Trình",
+      "title": "Phương Pháp ",
+      "titleAccent": "Sản Xuất",
+      "body": "Xuất sắc trong từng chi tiết, chất lượng trong từng sản phẩm",
+      "steps": [
+        {
+          "title": "Chọn Lọc & Pha Chế Vật Liệu",
+          "body": "Vật liệu được chọn lọc và chuẩn bị theo yêu cầu về hiệu năng và thông số sản phẩm."
+        },
+        {
+          "title": "Phát Triển Khuôn & Gia Công",
+          "body": "Khuôn chính xác được phát triển để đảm bảo tái tạo hình dạng chuẩn xác và sản xuất ổn định lâu dài."
+        },
+        {
+          "title": "Sản Xuất & Định Hình",
+          "body": "Linh kiện được sản xuất dưới các thông số kiểm soát để duy trì hình dạng, chất lượng bề mặt và màu sắc đồng nhất."
+        },
+        {
+          "title": "Kiểm Tra Chất Lượng",
+          "body": "Mỗi lô đều trải qua kiểm tra ngoại quan và kích thước để đảm bảo đạt các tiêu chuẩn đã định."
+        }
+      ]
     }
   }
 }
