@@ -45,6 +45,13 @@ function routeFromPathname(pathname: string): string {
 export function profileForRoute(pathnameWithLocale: string): { pageScripts: string[]; wfPage: string; wfCollection?: string } {
   const pathname = routeFromPathname(pathnameWithLocale);
   if (pathname === "/") return { pageScripts: [HOME], wfPage: WF_PAGE_IDS["/"] };
+  // /about is a verbatim port of the "home-c" layout. IX2 filters interaction events by the page's
+  // data-wf-page id, and home-c's reveal/parallax/slider events are registered under the HOME-C page
+  // id inside the shared DCDAA chunk. So /about must serve the EXACT profile the ref uses for
+  // /homepage/home-c — the same [DCDAA, STANDARD] bundles AND the home-c page id. Using /about's own
+  // page id (the default branch below) applies a different, empty event set, leaving every
+  // opacity:0/blur element stuck hidden. The wfPage id is the load-bearing part here, not the bundle.
+  if (pathname === "/about") return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS["/homepage/home-c"] };
   if (pathname.startsWith("/resorts/")) return { pageScripts: [DCDAA, RESORT], wfPage: "69af2cd1ff90f14953b3f7d6", wfCollection: "69af2cd0ff90f14953b3f7cf" };
   if (pathname.startsWith("/blogs/")) return { pageScripts: [DCDAA, STANDARD], wfPage: "69a98d48f21f4a171c4e1bae", wfCollection: "69a98d47f21f4a171c4e1948" };
   return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS[pathname] ?? "" };
