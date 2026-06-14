@@ -104,10 +104,10 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
             </div>
             {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- faithful port of Webflow markup; navigation is driven by the Webflow runtime, not next/link */}
             <a aria-current="page" className="brand_navbar w-nav-brand w--current" href="/">
-              {/* Signex logo (user-supplied SVG, recoloured to the navbar's #241018 ink —
-                  the same dark colour the original Caladan logo used). Sized by height
-                  since its aspect ratio (≈2.4:1) differs from the old wordmark. */}
-              <img alt="Signex" className="signex-logo-nav" loading="lazy" src="/assets/images/signex-logo.svg" />
+              {/* Signex logo rendered as a CSS mask filled with the nav links' ink token
+                  (tone--strong) so it matches "Trang chủ / Về chúng tôi / Liên hệ" exactly and
+                  tracks them in every navbar state. Sized by height (aspect ratio ≈2.4:1). */}
+              <span className="signex-logo-nav" role="img" aria-label="Signex" />
             </a>
             <div className="nav_corners-wrap">
               <div className="nav_side w-embed">

@@ -125,11 +125,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                   </span>
                 </h2>
               </div>
-              <div className="text_testimonials-v2">
-                <p className="tone-medium margin-0">
-                  At Caladan, every guest becomes part of our story. Their moments by the sea inspire everything we do.
-                </p>
-              </div>
             </div>
             <div className="slider w-slider" data-animation="cross" data-autoplay="false" data-autoplay-limit="0" data-delay="4000" data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
               <div className="mask_testimonials-v2 w-slider-mask">
@@ -152,14 +147,9 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                     </div>
                     <div className="right_testimonial-v2" id="w-node-af30d5d7-8441-26c7-d69a-89a24d922243-4d92222b">
                       <img alt="Pexels stephanlouis 19119918" className="image_cover" loading="lazy" src="/assets/images/69ac691927961ac98c560fe2_pexels-stephanlouis-19119918.avif" />
-                      <div className="overlay_image-testimonial-v2">
-                        <div className="text-size-large">
-                          Daniel Novak
-                        </div>
-                        <div className="tone-medium">
-                          Adventure Seeker
-                        </div>
-                      </div>
+                      {/* Gradient scrim kept (height:100%/inset:0 in Caladan CSS renders the full
+                          gradient even when empty); the Daniel Novak / Adventure Seeker name was removed. */}
+                      <div className="overlay_image-testimonial-v2" />
                     </div>
                   </div>
                 </div>

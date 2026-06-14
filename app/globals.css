@@ -293,8 +293,14 @@
    width auto-derives from the ~2.4:1 aspect ratio and stays within .brand_navbar's cap. */
 .signex-logo-nav {
   height: 1.85rem;
+  aspect-ratio: 2048 / 855;
   width: auto;
   display: block;
+  /* Match the nav links' colour exactly (.link_nav uses tone--strong); a CSS mask lets the
+     SVG wordmark take this token instead of its baked-in #241018, so it tracks the links. */
+  background-color: var(--_🎨-color--tokens---tone--strong);
+  -webkit-mask: url("/assets/images/signex-logo.svg") center / contain no-repeat;
+  mask: url("/assets/images/signex-logo.svg") center / contain no-repeat;
 }
 
 /* Resorts collection section on the HOME page.
