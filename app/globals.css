@@ -315,12 +315,12 @@
   padding-top: var(--section-padding--small);
 }
 
-/* Contact section on the HOME page — same situation as .section_hero-resorts above:
-   in the ref, .section_hero-contact-b is the /contact-b page HERO (large top padding,
-   sits right under the navbar). Ported below HomeAbout it's a mid-page block, so
-   tighten the top padding to small. Scoped to .home-a_rest-content so a future
-   /contact page keeps the original hero padding; (0,2,0) beats Caladan's (0,1,0). */
-.home-a_rest-content .section_hero-contact-b {
+/* Contact section (`.section_hero-contact-b`) — same situation as `.section_hero-resorts` above:
+   in the ref it's the /contact-b page HERO (large top padding, sits under the navbar). signex uses
+   it MID-PAGE in both places it appears — below HomeAbout on the home page, and below the contact-c
+   hero on /contact — so tighten the top padding to small in both. Scoped to .main-wrapper (wraps
+   every page's content) so it applies on home + /contact; (0,2,0) beats Caladan's (0,1,0). */
+.main-wrapper .section_hero-contact-b {
   padding-top: var(--section-padding--small);
 }
 
@@ -983,4 +983,27 @@
 }
 .about-process_intro p {
   margin: 0;
+}
+
+/* /contact hero intro: Caladan caps .contact-c_hero-p at 4 columns (28rem), wrapping the localised
+   subtitle (esp. the longer VI line) to 2 lines. Widen it so it sits on a single line on desktop
+   (it still wraps naturally on narrow viewports). Scoped to the contact hero; (0,2,0) > (0,1,0). */
+.section_hero-contact-c .contact-c_hero-p {
+  max-width: none;
+}
+
+/* /contact: the 4 Caladan info cards became 3 SIGNEX cards (Email/Phone/Address). 3-col on desktop
+   (Caladan's grid is 4-col → leaves an empty cell), and cards size to content top-aligned instead of
+   the fixed 22.5rem tall boxes (which left the short Email/Phone cards mostly empty). The grid still
+   stretches them to equal height. Scoped to the contact hero; (0,2,0) beats Caladan's (0,1,0). */
+@media screen and (min-width: 992px) {
+  .section_hero-contact-c .grid_contact-c {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.section_hero-contact-c .card_contact-c {
+  height: auto;
+  min-height: 0;
+  justify-content: flex-start;
+  grid-row-gap: var(--spacing--space-small);
 }

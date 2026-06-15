@@ -271,5 +271,30 @@
         }
       ]
     }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Get In ",
+      "titleAccent": "Touch",
+      "subtitle": "Let's discuss how we can bring your brand identity to life"
+    },
+    "cards": [
+      { "title": "Email", "lines": ["core@signex.vn", "nhuadeo@gmail.com"] },
+      { "title": "Phone", "lines": ["Tel: (+84) 979 700 072", "Zalo: (+84) 94 9999 326"] },
+      {
+        "title": "Address",
+        "company": "SIGNEX BRAND IDENTITY PRODUCTS MANUFACTURING CO., LTD",
+        "details": [
+          { "label": "Office", "value": "25/88/13 Bui Quang La, An Hoi Tay ward, Ho Chi Minh city, Viet Nam." },
+          { "label": "Factory", "value": "85/45 Duong Thi Muoi, Trung My Tay ward, Ho Chi Minh city, Viet Nam." },
+          { "label": "Tax", "value": "0319401172" }
+        ]
+      }
+    ],
+    "map": {
+      "eyebrow": "Map",
+      "title": "Find ",
+      "titleAccent": "Signex"
+    }
   }
 }

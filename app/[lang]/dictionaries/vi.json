@@ -271,5 +271,30 @@
         }
       ]
     }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Liên Hệ ",
+      "titleAccent": "Với Chúng Tôi",
+      "subtitle": "Hãy cùng trao đổi để hiện thực hóa nhận diện thương hiệu của bạn"
+    },
+    "cards": [
+      { "title": "Email", "lines": ["core@signex.vn", "nhuadeo@gmail.com"] },
+      { "title": "Số điện thoại", "lines": ["Tel: (+84) 979 700 072", "Zalo: (+84) 94 9999 326"] },
+      {
+        "title": "Địa chỉ",
+        "company": "CÔNG TY TNHH SẢN XUẤT SẢN PHẨM NHẬN DIỆN THƯƠNG HIỆU SIGNEX",
+        "details": [
+          { "label": "Office", "value": "25/88/13 Bùi Quang Là, phường An Hội Tây, TP.HCM, Việt Nam." },
+          { "label": "Factory", "value": "85/45 Dương Thị Mười, phường Trung Mỹ Tây, TP.HCM, Việt Nam." },
+          { "label": "Tax", "value": "0319401172" }
+        ]
+      }
+    ],
+    "map": {
+      "eyebrow": "Bản đồ",
+      "title": "Vị trí ",
+      "titleAccent": "Signex"
+    }
   }
 }

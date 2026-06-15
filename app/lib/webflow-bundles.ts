@@ -52,6 +52,9 @@ export function profileForRoute(pathnameWithLocale: string): { pageScripts: stri
   // page id (the default branch below) applies a different, empty event set, leaving every
   // opacity:0/blur element stuck hidden. The wfPage id is the load-bearing part here, not the bundle.
   if (pathname === "/about") return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS["/homepage/home-c"] };
+  // /contact is a verbatim port of the "contact-c" layout; same rule as /about — serve the contact-c
+  // profile so its reveal interactions (registered under the contact-c page id in DCDAA) fire.
+  if (pathname === "/contact") return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS["/contact/contact-c"] };
   if (pathname.startsWith("/resorts/")) return { pageScripts: [DCDAA, RESORT], wfPage: "69af2cd1ff90f14953b3f7d6", wfCollection: "69af2cd0ff90f14953b3f7cf" };
   if (pathname.startsWith("/blogs/")) return { pageScripts: [DCDAA, STANDARD], wfPage: "69a98d48f21f4a171c4e1bae", wfCollection: "69a98d47f21f4a171c4e1948" };
   return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS[pathname] ?? "" };

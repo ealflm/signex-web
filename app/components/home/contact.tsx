@@ -44,7 +44,20 @@ const CARD_TONE = ["is-email", "is-phone", "is-address"];
  * - The section's ref data-w-id (ad1a3029-…eb18) is DROPPED — it already lives on the
  *   product-categories section on this page.
  */
-export function Contact({ dict }: { dict: Dictionary }) {
+export function Contact({
+  dict,
+  headlineWid = "0f29df12-8c38-da6f-794d-3989ac10d663",
+  gridWid = "b3ac1ddc-636d-f345-c58d-b372a067ce8d",
+  formWid = "0f29df12-8c38-da6f-794d-3989ac10d663",
+}: {
+  dict: Dictionary;
+  headlineWid?: string;
+  gridWid?: string;
+  formWid?: string;
+}) {
+  // Reveal ids default to the home-page a-124 triggers; overridable so this section can be reused
+  // on a page with a different data-wf-page (e.g. /contact uses the contact-c page id — see
+  // app/[lang]/contact/page.tsx). IX2 filters reveals by data-wf-page (clone-playbook §1).
   const c = dict.contact;
   const t = dict.form;
 
@@ -53,7 +66,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
       <div className="padding-global">
         <div className="w-layout-blockcontainer container-large w-container">
           <div className="master_contact-b">
-            <div className="headline_contact-b" data-w-id="0f29df12-8c38-da6f-794d-3989ac10d663" style={{ opacity: 0, filter: 'blur(5px)' }}>
+            <div className="headline_contact-b" data-w-id={headlineWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
               <div className="heading_contact-b">
                 <div className="master_label" data-wf--tag--variant="base">
                   <div className="label-small">
@@ -79,7 +92,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
           {/* Email / Phone / Address info cards — dict-driven, between heading and form.
               Reveal reuses the home-page grid trigger b3ac1ddc-…ce8d (a-124 on self),
               same as ProductCategories/HomeAbout grids; scoped styles in globals.css. */}
-          <div className="contact_info-grid" data-w-id="b3ac1ddc-636d-f345-c58d-b372a067ce8d" style={{ opacity: 0, filter: 'blur(5px)' }}>
+          <div className="contact_info-grid" data-w-id={gridWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
             {c.cards.map((card, i) => (
               <div className="contact_info-card" key={card.title}>
                 <div className={`contact_info-icon ${CARD_TONE[i]} w-embed`}>
@@ -101,7 +114,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
             ))}
           </div>
           <div className="master_contact-b contact-form_wide">
-            <div className="form-block" data-w-id="0f29df12-8c38-da6f-794d-3989ac10d663" style={{ opacity: 0, filter: 'blur(5px)' }}>
+            <div className="form-block" data-w-id={formWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
               <StaticWebflowForm
                 id="contact-form"
                 name="contact-form"
