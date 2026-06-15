@@ -128,7 +128,12 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
               </div>
             </div>
             <div className="nav_right">
-              <LangToggle />
+              {/* EN/VI toggle wrapped in Caladan's .nav_button-desktop, which is display:none
+                  at ≤991px — so it hides on small screens exactly like the ref's "View Resorts"
+                  link (the navbar collapses to the hamburger at the same `medium` breakpoint). */}
+              <div className="nav_button-desktop">
+                <LangToggle />
+              </div>
               <a
                 button=""
                 className="cta_primary w-inline-block"

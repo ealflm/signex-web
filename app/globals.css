@@ -1001,6 +1001,14 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+/* Tablet (Caladan's 2-col range, 480–991px): with 3 cards the 3rd (Address) would orphan in
+   the left cell, leaving the right half empty. Span it across both columns so the layout reads
+   as a balanced "Email | Phone" row + a full-width Address row. */
+@media screen and (min-width: 480px) and (max-width: 991px) {
+  .section_hero-contact-c .card_contact-c:last-child {
+    grid-column: 1 / -1;
+  }
+}
 .section_hero-contact-c .card_contact-c {
   height: auto;
   min-height: 0;
@@ -1021,4 +1029,26 @@
   width: 100%;
   height: 56rem;
   border: 0;
+}
+
+/* /404 — square (1:1) hero image. Caladan's .image_404 is a tall portrait
+   (height:75rem / 25rem on mobile); override to a 1:1 box so the cover image
+   reads as a square. Specificity (0,2,0) beats Caladan's .image_404 (0,1,0)
+   at every breakpoint (Caladan CSS loads after globals.css). */
+._404 .image_404 {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  max-height: none;
+}
+
+/* /404 — balanced vertical breathing room. Caladan's .grid_404 only has
+   --section-padding--extra-small top/bottom, so the content hugs the navbar and the
+   footer; bump to --medium so the 404 row sits centred between them. (0,2,0) beats
+   Caladan's .grid_404 (0,1,0) at every breakpoint.
+   The navbar (.master_navigation) is position:fixed and ~5.75rem tall, overlapping the
+   top of the page — so add its height to padding-top. The VISIBLE gap below the navbar
+   then equals the (equal-value) bottom padding. */
+._404 .grid_404 {
+  padding-top: calc(var(--section-padding--medium) + 5.75rem);
+  padding-bottom: var(--section-padding--medium);
 }

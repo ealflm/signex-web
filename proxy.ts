@@ -22,9 +22,14 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const segment = pathname.split("/")[1];
 
-  // Already on a locale path → remember the choice for later bare-path visits.
+  // Already on a locale path → remember the choice for later bare-path visits, and forward
+  // the locale as a request header. The header is the reliable source for the localized 404
+  // (app/[lang]/not-found.tsx gets no route params, and a freshly-set cookie isn't visible to
+  // the same render — but a forwarded request header is).
   if (hasLocale(segment)) {
-    const res = NextResponse.next();
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-locale", segment);
+    const res = NextResponse.next({ request: { headers: requestHeaders } });
     res.cookies.set(COOKIE, segment, { path: "/", maxAge: 60 * 60 * 24 * 365 });
     return res;
   }

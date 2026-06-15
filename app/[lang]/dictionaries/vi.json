@@ -296,5 +296,13 @@
       "title": "Vị trí ",
       "titleAccent": "Signex"
     }
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Có vẻ bạn đã ",
+    "titleAccent": "đi lạc đường",
+    "body": "Trang bạn tìm kiếm đã được di chuyển hoặc không còn tồn tại. Hãy quay lại — Signex luôn sẵn sàng hiện thực hóa nhận diện thương hiệu của bạn.",
+    "cta": "Về trang chủ",
+    "imageAlt": "Xưởng sản xuất Signex"
   }
 }
