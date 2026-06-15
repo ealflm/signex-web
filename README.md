@@ -20,6 +20,22 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Docker
+
+A production image is built from the multi-stage `Dockerfile` using Next's `output: "standalone"`
+(only the runtime server + traced dependencies + `.next/static` + `public/` assets).
+
+```bash
+docker compose up -d --build      # build + run  → http://localhost:2051
+docker compose logs -f web        # tail logs
+docker compose down               # stop + remove
+```
+
+- The app listens on **2051** inside the container (matches `npm start`). Publish on a different
+  host port without editing the compose file: `HOST_PORT=3000 docker compose up -d`.
+- No database or external services — content is static dictionaries + the vendored Webflow assets,
+  so the single `web` service is self-contained. No runtime environment variables are required.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

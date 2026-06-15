@@ -1,0 +1,33 @@
+# signex-web — single self-contained Next.js service (no DB/cache; content is static
+# dictionaries + vendored Webflow assets).
+#
+#   docker compose up -d --build      # build + run    → http://localhost:2051
+#   docker compose logs -f web        # tail logs
+#   docker compose down               # stop + remove
+#
+# Override the published host port without editing this file:  HOST_PORT=3000 docker compose up -d
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: signex-web:latest
+    container_name: signex-web
+    restart: unless-stopped
+    ports:
+      # host:container — app listens on 2051 inside (matches package.json `start`).
+      - "${HOST_PORT:-2051}:2051"
+    environment:
+      NODE_ENV: production
+      PORT: "2051"
+      HOSTNAME: "0.0.0.0"
+      NEXT_TELEMETRY_DISABLED: "1"
+    healthcheck:
+      # /en is served 200 directly (bare / 307-redirects via proxy.ts); busybox wget ships in the image.
+      # Use 127.0.0.1 (not localhost): the server binds IPv4 0.0.0.0, but in Alpine `localhost`
+      # resolves to IPv6 ::1 first, so a localhost probe would fail and mark the container unhealthy.
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:2051/en"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
