@@ -1007,3 +1007,18 @@
   justify-content: flex-start;
   grid-row-gap: var(--spacing--space-small);
 }
+
+/* /contact "Find Signex" map — replaces the Caladan FAQ accordion in the section_faq block.
+   Full container width, rounded to match the site; dark-4 fallback while the embed loads. */
+.contact-map {
+  width: 100%;
+  border-radius: var(--_🔘-radius---general--default);
+  overflow: hidden;
+  background-color: var(--_🎨-color--tokens---ink--dark-4);
+}
+.contact-map_frame {
+  display: block;
+  width: 100%;
+  height: 56rem;
+  border: 0;
+}

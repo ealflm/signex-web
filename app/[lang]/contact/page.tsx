@@ -131,109 +131,15 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                 </span>
               </h2>
             </div>
-            <div className="list_faq w-variant-a17cbdad-6679-0257-a93e-3f662f8b04be" data-wf--faq-list--variant="small-centered">
-              <div className="faq-slot">
-                <div className="expandable-single">
-                  <div className="expandable-top">
-                    <div className="name_faq">
-                      <div className="text_body-bold">
-                        What makes Caladan different from other beach resorts?
-                      </div>
-                    </div>
-                    <div className="faq_animation-box">
-                      <div className="faq-line">
-                      </div>
-                      <div className="faq-line vertical">
-                      </div>
-                    </div>
-                  </div>
-                  <div className="expandable-bottom">
-                    <p className="faq_p">
-                      Caladan combines modern coastal design with a focus on sustainability, offering guests a serene beachfront experience surrounded by nature and comfort.
-                    </p>
-                  </div>
-                </div>
-                <div className="expandable-single">
-                  <div className="expandable-top">
-                    <div className="name_faq">
-                      <div className="text_body-bold">
-                        Do you offer all-inclusive vacation packages?
-                      </div>
-                    </div>
-                    <div className="faq_animation-box">
-                      <div className="faq-line">
-                      </div>
-                      <div className="faq-line vertical">
-                      </div>
-                    </div>
-                  </div>
-                  <div className="expandable-bottom">
-                    <p className="faq_p">
-                      Yes! We provide several all-inclusive packages that include meals, drinks, and select water activities. You can choose or customize a package during booking.
-                    </p>
-                  </div>
-                </div>
-                <div className="expandable-single">
-                  <div className="expandable-top">
-                    <div className="name_faq">
-                      <div className="text_body-bold">
-                        What activities are available at the resort?
-                      </div>
-                    </div>
-                    <div className="faq_animation-box">
-                      <div className="faq-line">
-                      </div>
-                      <div className="faq-line vertical">
-                      </div>
-                    </div>
-                  </div>
-                  <div className="expandable-bottom">
-                    <p className="faq_p">
-                      Guests can enjoy kayaking, scuba diving, yoga sessions at sunrise, beach volleyball, and evening bonfires. There&apos;s always something relaxing or adventurous to do.
-                    </p>
-                  </div>
-                </div>
-                <div className="expandable-single">
-                  <div className="expandable-top">
-                    <div className="name_faq">
-                      <div className="text_body-bold">
-                        Do you accommodate special dietary needs?
-                      </div>
-                    </div>
-                    <div className="faq_animation-box">
-                      <div className="faq-line">
-                      </div>
-                      <div className="faq-line vertical">
-                      </div>
-                    </div>
-                  </div>
-                  <div className="expandable-bottom">
-                    <p className="faq_p">
-                      Yes, our chefs are happy to prepare meals for guests with dietary restrictions such as vegetarian, vegan, gluten-free, or allergy-sensitive options.
-                    </p>
-                  </div>
-                </div>
-                <div className="expandable-single">
-                  <div className="expandable-top">
-                    <div className="name_faq">
-                      <div className="text_body-bold">
-                        Can I host events or weddings at Caladan?
-                      </div>
-                    </div>
-                    <div className="faq_animation-box">
-                      <div className="faq-line">
-                      </div>
-                      <div className="faq-line vertical">
-                      </div>
-                    </div>
-                  </div>
-                  <div className="expandable-bottom">
-                    <p className="faq_p">
-                      Yes! Caladan offers breathtaking beachfront venues ideal for weddings, private parties, and corporate retreats. Our event planners handle every detail to make your occasion unforgettable.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="contact-map">
+              <iframe
+                title="Signex — 85/45 Dương Thị Mười, Phường Trung Mỹ Tây, TP.HCM"
+                className="contact-map_frame"
+                src="https://www.google.com/maps?q=85%2F45%20D%C6%B0%C6%A1ng%20Th%E1%BB%8B%20M%C6%B0%E1%BB%9Di%2C%20Ph%C6%B0%E1%BB%9Dng%20Trung%20M%E1%BB%B9%20T%C3%A2y%2C%20Tp.HCM&output=embed&z=16"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
