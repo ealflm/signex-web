@@ -5,10 +5,19 @@
 // contact-c data-wf-page id) in app/lib/webflow-bundles.ts — IX2 filters reveal interactions by
 // data-wf-page, so the headline/grid/image/faq reveals (which start at opacity:0/blur) only fire
 // when the page id matches contact-c. data-w-ids are kept verbatim (page id matches → no re-point).
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { hasLocale } from "@/app/lib/i18n-config";
+import { hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 import { getDictionary } from "../dictionaries";
 import { Contact } from "@/app/components/home/contact";
+import { buildMetadata } from "@/app/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = hasLocale(lang) ? lang : DEFAULT_LOCALE;
+  const m = (await getDictionary(locale)).meta;
+  return buildMetadata({ locale, meta: m, title: `${m.contact.title} | ${m.siteName}`, description: m.contact.description, path: "/contact" });
+}
 
 // Contact info-card icons (lucide), index-aligned with contactPage.cards: mail / phone / map-pin.
 // height/width 100% so they fill .icon_contact-c (the Caladan contact-c icon wrapper).

@@ -5,9 +5,18 @@
 // page so the route is locale-validated. NOTE: /about is mapped to the HOME webflow bundle
 // in app/lib/webflow-bundles.ts because that bundle carries this layout's IX2 reveal
 // interactions (the elements below start at opacity:0 / blur and are revealed on scroll).
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { hasLocale } from "@/app/lib/i18n-config";
+import { hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 import { getDictionary } from "../dictionaries";
+import { buildMetadata } from "@/app/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = hasLocale(lang) ? lang : DEFAULT_LOCALE;
+  const m = (await getDictionary(locale)).meta;
+  return buildMetadata({ locale, meta: m, title: `${m.about.title} | ${m.siteName}`, description: m.about.description, path: "/about" });
+}
 
 // lucide line icons for the manufacturing-approach cards (index-aligned with aboutPage.approach),
 // chosen per card content: factory (direct/in-house), badge-check (brand standards), lock

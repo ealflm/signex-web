@@ -18,7 +18,7 @@ import { getDictionary } from "./dictionaries";
 import { hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 
 export const metadata: Metadata = {
-  title: "Page not found | Signex",
+  title: "Page not found | SIGNEX",
 };
 
 export default async function NotFound() {

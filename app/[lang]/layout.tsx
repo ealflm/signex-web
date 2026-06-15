@@ -6,6 +6,7 @@ import { WebflowRuntime } from "@/app/components/webflow-runtime";
 import { WebflowPageAttrs } from "@/app/components/webflow-page-attrs";
 import { LOCALES, hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 import { getDictionary } from "./dictionaries";
+import { buildMetadata } from "@/app/lib/seo";
 
 // Verbatim from legacy/caladan/index.html <head>: the FOUC guard hides animated
 // elements until the IX2 runtime adds w-mod-ix3; the shim sets w-mod-js/w-mod-touch early.
@@ -14,18 +15,15 @@ const WF_GUARD_STYLE =
 const WF_MOD_SHIM =
   '!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);';
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://caladan-template.webflow.io"),
-  title: "Caladan™ - Webflow HTML website template",
-  description:
-    "Caladan is a premium Webflow template designed for tropical resorts and beach hotels. Includes booking pages, galleries, and resort experiences.",
-  openGraph: { type: "website", images: ["/assets/images/69b2ce4ca643fd73303e9753_OG.jpg"] },
-  twitter: { card: "summary_large_image" },
-  icons: {
-    icon: "/assets/images/69a71ff9c9936d719cf8c24e_32.svg",
-    apple: "/assets/images/69a71ffbadce191ccff097d8_256.svg",
-  },
-};
+// Localized site metadata (EN/VI). This is the base for every route; pages like /about and
+// /contact override it with their own generateMetadata. Home (which has no page-level metadata)
+// uses this directly. See app/lib/seo.ts for why metadata is built whole (shallow merge).
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = hasLocale(lang) ? lang : DEFAULT_LOCALE;
+  const dict = await getDictionary(locale);
+  return buildMetadata({ locale, meta: dict.meta, title: dict.meta.title, description: dict.meta.description });
+}
 
 // Pre-render one route per locale; reject any other locale with a 404.
 export const dynamicParams = false;

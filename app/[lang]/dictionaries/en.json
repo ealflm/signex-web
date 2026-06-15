@@ -304,5 +304,19 @@
     "body": "The page you're looking for has moved or no longer exists. Let's get you back on track — Signex is ready to bring your brand identity to life.",
     "cta": "Back to homepage",
     "imageAlt": "Signex production floor"
+  },
+  "meta": {
+    "siteName": "SIGNEX",
+    "title": "SIGNEX — Brand Identity Products Manufacturer",
+    "description": "SIGNEX manufactures brand identity products in Vietnam — plastic logos and emblems, woven and printed labels, badges, nameplates and custom OEM components for fashion and lifestyle brands. Consistent quality, batch after batch.",
+    "ogImageAlt": "SIGNEX — Manufacturing Brand Identity",
+    "about": {
+      "title": "About Us",
+      "description": "Inside SIGNEX — our manufacturing capability, approach and process for producing consistent, high-quality brand identity products: logos, emblems, labels, badges, nameplates and custom OEM components."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch with SIGNEX for a quote on brand identity manufacturing — plastic logos, woven labels, badges, nameplates and custom OEM components. Office and factory in Ho Chi Minh City, Vietnam."
+    }
   }
 }
