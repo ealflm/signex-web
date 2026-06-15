@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { Navbar } from "@/app/components/navbar";
-import { SalesCta } from "@/app/components/sales-cta";
 import { Footer } from "@/app/components/footer";
 import { WebflowRuntime } from "@/app/components/webflow-runtime";
 import { WebflowPageAttrs } from "@/app/components/webflow-page-attrs";
@@ -51,7 +50,10 @@ export default async function RootLayout({
     <html
       lang={lang}
       suppressHydrationWarning
-      data-wf-domain="caladan-template.webflow.io"
+      // Real brand domain (NOT *.webflow.io) so the Webflow "brand" module never injects the
+      // "Made in Webflow" badge — it only force-shows it when data-wf-domain ends in .webflow.io.
+      // Keep this in sync with siteAttrs() in app/lib/webflow-bundles.ts (set client-side too).
+      data-wf-domain="signex.vn"
       data-wf-site="69833b76e5b4bee55e873012"
     >
       <head>
@@ -66,7 +68,6 @@ export default async function RootLayout({
       <body>
         <div className="page-wrapper">
           <Navbar dict={dict.nav} />
-          <SalesCta />
           <main className="main-wrapper">
             {children}
             <Footer dict={dict.footer} />

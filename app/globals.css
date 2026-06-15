@@ -1052,3 +1052,37 @@
   padding-top: calc(var(--section-padding--medium) + 5.75rem);
   padding-bottom: var(--section-padding--medium);
 }
+
+/* Hide the Webflow attribution badge that the vendored Webflow runtime injects
+   (caladan-template.schunk.368c30933a13e5d4.js appends a .w-webflow-badge to <body>).
+   Caladan's shared CSS has its own `.w-webflow-badge { display:…!important }` (0,1,0) that
+   loads AFTER globals.css, so an equal-specificity rule loses — scope under `body` (0,1,1)
+   to win regardless of source order. */
+body .w-webflow-badge {
+  display: none !important;
+}
+
+/* Mobile-menu EN/VI switch (in .nav-menu_mobile-button, ≤991px only): center it within
+   the column wrapper and enlarge the options so it reads as a proper menu control rather
+   than the tiny navbar-corner toggle. The JS-driven underline re-measures these sizes. */
+.nav-menu_mobile-button .lang-toggle {
+  align-self: center;
+  gap: 0.6rem;
+}
+.nav-menu_mobile-button .lang-toggle_option {
+  font-size: 1.125rem;
+}
+.nav-menu_mobile-button .lang-toggle_divider {
+  font-size: 1rem;
+}
+
+/* Mobile menu scrollbars: Caladan sets `.nav-menu_inner { overflow: scroll }` at ≤991px,
+   which ALWAYS renders (empty) scrollbars on both axes even though the short
+   Home/About/Contact + EN/VI menu fits with no overflow. Switch to `auto` so bars show only
+   if the menu ever exceeds the viewport. Higher specificity (.nav-menu …) is needed to beat
+   Caladan's equal-specificity rule, which loads after globals.css. */
+@media screen and (max-width: 991px) {
+  .nav-menu .nav-menu_inner {
+    overflow: auto;
+  }
+}

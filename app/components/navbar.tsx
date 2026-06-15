@@ -68,35 +68,14 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
                         </a>
                       </Fragment>
                     ))}
+                    {/* EN/VI language switch inside the mobile menu (replaces Caladan's
+                        "More Templates" CTA + the © Eclipso Studio / Made-with-Webflow footer,
+                        both removed). .nav-menu_mobile-button is display:none on desktop and
+                        only shows ≤991px, so this toggle appears only when the mobile menu is
+                        open — the desktop toggle lives in .nav_right. */}
                     <div className="divider_mobile-menu" />
                     <div className="nav-menu_mobile-button">
-                      <a
-                        button=""
-                        className="cta_primary w-inline-block"
-                        data-wf--cta-primary--variant="primary"
-                        href="https://webflow.com/templates/designers/eclipso-studio"
-                        target="_blank"
-                      >
-                        <div className="button_text-mask">
-                          <div button-text="" className="text-button">
-                            More Templates
-                          </div>
-                        </div>
-                        <div button-bg="" className="btn-bg" />
-                      </a>
-                    </div>
-                    <div className="dropdown-mobile_bottom">
-                      <div className="nav-menu_bottom">
-                        <a className="text-size-small tone-medium" href="https://www.eclipso.studio/" target="_blank">
-                          © Eclipso Studio
-                        </a>
-                        <div className="text-size-small tone-medium">
-                          Made with
-                          <a className="link-underline tone-medium-2" href="https://webflow.com/" target="_blank">
-                            Webflow
-                          </a>
-                        </div>
-                      </div>
+                      <LangToggle />
                     </div>
                   </div>
                 </div>
@@ -134,6 +113,7 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
               <div className="nav_button-desktop">
                 <LangToggle />
               </div>
+              {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- faithful port of Webflow markup; navigation is driven by the Webflow runtime, not next/link */}
               <a
                 button=""
                 className="cta_primary w-inline-block"

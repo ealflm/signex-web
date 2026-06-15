@@ -60,4 +60,10 @@ export function profileForRoute(pathnameWithLocale: string): { pageScripts: stri
   return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS[pathname] ?? "" };
 }
 
-export function siteAttrs() { return { domain: "caladan-template.webflow.io", site: WF_SITE }; }
+// domain is intentionally NOT a *.webflow.io value: the vendored Webflow "brand" module
+// (caladan-template.schunk.368c30933a13e5d4.js) force-injects the "Made in Webflow" badge ONLY
+// when data-wf-domain ends in ".webflow.io" and differs from the current hostname. Using the
+// real brand domain makes that test fail, so the badge element is never created (no DOM node,
+// no badge-image requests, no flash). data-wf-domain is read elsewhere only by the static,
+// non-submitting form module, so this is safe; IX2 keys off data-wf-site / data-wf-page.
+export function siteAttrs() { return { domain: "signex.vn", site: WF_SITE }; }
