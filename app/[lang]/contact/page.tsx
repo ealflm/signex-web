@@ -114,6 +114,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         headlineWid="ad1a3029-1630-4dbd-9a8f-fd5ea3c4eb1b"
         gridWid="9ee4e313-28b4-9f47-35ac-12e943420a2d"
         formWid="a7c263a0-bae9-4cd0-4784-0bc0e59ff63b"
+        showCards={false}
       />
       <section className="section_faq">
         <div className="padding-global">

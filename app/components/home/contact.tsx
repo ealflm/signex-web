@@ -49,11 +49,15 @@ export function Contact({
   headlineWid = "0f29df12-8c38-da6f-794d-3989ac10d663",
   gridWid = "b3ac1ddc-636d-f345-c58d-b372a067ce8d",
   formWid = "0f29df12-8c38-da6f-794d-3989ac10d663",
+  showCards = true,
 }: {
   dict: Dictionary;
   headlineWid?: string;
   gridWid?: string;
   formWid?: string;
+  // The Email/Phone/Address info cards. Default on (home page); /contact passes false because
+  // those cards already appear in its contact-c hero above this section (avoid duplicates).
+  showCards?: boolean;
 }) {
   // Reveal ids default to the home-page a-124 triggers; overridable so this section can be reused
   // on a page with a different data-wf-page (e.g. /contact uses the contact-c page id — see
@@ -91,28 +95,32 @@ export function Contact({
           </div>
           {/* Email / Phone / Address info cards — dict-driven, between heading and form.
               Reveal reuses the home-page grid trigger b3ac1ddc-…ce8d (a-124 on self),
-              same as ProductCategories/HomeAbout grids; scoped styles in globals.css. */}
-          <div className="contact_info-grid" data-w-id={gridWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
-            {c.cards.map((card, i) => (
-              <div className="contact_info-card" key={card.title}>
-                <div className={`contact_info-icon ${CARD_TONE[i]} w-embed`}>
-                  {CARD_ICONS[i]}
-                </div>
-                <div>
-                  <div className="text_body-bold">
-                    {card.title}
+              same as ProductCategories/HomeAbout grids; scoped styles in globals.css.
+              Hidden on /contact (showCards=false) — that page already shows these cards in
+              its contact-c hero above this section. */}
+          {showCards && (
+            <div className="contact_info-grid" data-w-id={gridWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
+              {c.cards.map((card, i) => (
+                <div className="contact_info-card" key={card.title}>
+                  <div className={`contact_info-icon ${CARD_TONE[i]} w-embed`}>
+                    {CARD_ICONS[i]}
                   </div>
-                  <div className="contact_info-lines tone-medium">
-                    {card.lines.map((line) => (
-                      <div key={line}>
-                        {line}
-                      </div>
-                    ))}
+                  <div>
+                    <div className="text_body-bold">
+                      {card.title}
+                    </div>
+                    <div className="contact_info-lines tone-medium">
+                      {card.lines.map((line) => (
+                        <div key={line}>
+                          {line}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
           <div className="master_contact-b contact-form_wide">
             <div className="form-block" data-w-id={formWid} style={{ opacity: 0, filter: 'blur(5px)' }}>
               <StaticWebflowForm
