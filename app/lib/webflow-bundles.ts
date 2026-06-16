@@ -55,6 +55,11 @@ export function profileForRoute(pathnameWithLocale: string): { pageScripts: stri
   // /contact is a verbatim port of the "contact-c" layout; same rule as /about — serve the contact-c
   // profile so its reveal interactions (registered under the contact-c page id in DCDAA) fire.
   if (pathname === "/contact") return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS["/contact/contact-c"] };
+  // /products/<slug> = category-detail pages, cloned from the "blog-b" layout (featured block +
+  // card grid). Same page-id rule as /about & /contact: blog-b's reveal interactions are
+  // registered under the blog-b page id in DCDAA, so serve that profile (data-w-ids kept verbatim
+  // from blog-b → reveals fire). The blog-b page also runs the STANDARD bundle.
+  if (pathname.startsWith("/products/")) return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS["/blog/blog-b"] };
   if (pathname.startsWith("/resorts/")) return { pageScripts: [DCDAA, RESORT], wfPage: "69af2cd1ff90f14953b3f7d6", wfCollection: "69af2cd0ff90f14953b3f7cf" };
   if (pathname.startsWith("/blogs/")) return { pageScripts: [DCDAA, STANDARD], wfPage: "69a98d48f21f4a171c4e1bae", wfCollection: "69a98d47f21f4a171c4e1948" };
   return { pageScripts: [DCDAA, STANDARD], wfPage: WF_PAGE_IDS[pathname] ?? "" };
