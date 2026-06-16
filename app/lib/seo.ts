@@ -9,8 +9,15 @@ import type { Dictionary } from "@/app/[lang]/dictionaries";
 
 export const SITE_URL = "https://signex.vn";
 const OG_IMAGE = "/assets/images/signex-og.png";
-// Brand wordmark (transparent SVG) as the favicon — recognisable SIGNEX logotype.
-const ICON = "/assets/images/signex-logo.svg";
+// Favicons (favicon.io set: SIGNEX lotus mark). The .ico is auto-served from app/favicon.ico;
+// these PNGs add the type/size hints modern browsers + Apple devices prefer.
+const ICONS = {
+  icon: [
+    { url: "/assets/images/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    { url: "/assets/images/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+  ],
+  apple: "/assets/images/apple-touch-icon.png",
+};
 
 export function buildMetadata({
   locale,
@@ -56,6 +63,6 @@ export function buildMetadata({
       description,
       images: [OG_IMAGE],
     },
-    icons: { icon: ICON, apple: ICON },
+    icons: ICONS,
   };
 }
