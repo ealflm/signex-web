@@ -4,7 +4,7 @@
 // that DRY and consistent: the root layout and each page call it with their own title +
 // description + path, and get a full, localized Metadata object back.
 import type { Metadata } from "next";
-import type { Locale } from "@/app/lib/i18n-config";
+import { DEFAULT_LOCALE, type Locale } from "@/app/lib/i18n-config";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 
 const SITE_URL = "https://signex.vn";
@@ -36,8 +36,9 @@ export function buildMetadata({
     applicationName: meta.siteName,
     alternates: {
       canonical: url,
-      // hreflang: point each locale at the same page in the other language.
-      languages: { en: `/en${path}`, vi: `/vi${path}`, "x-default": `/en${path}` },
+      // hreflang: point each locale at the same page in the other language; x-default →
+      // the site default (Vietnamese) for visitors with no matching language preference.
+      languages: { en: `/en${path}`, vi: `/vi${path}`, "x-default": `/${DEFAULT_LOCALE}${path}` },
     },
     openGraph: {
       type: "website",

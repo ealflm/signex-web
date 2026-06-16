@@ -4,7 +4,8 @@
 
 export const LOCALES = ["en", "vi"] as const;
 export type Locale = (typeof LOCALES)[number];
-export const DEFAULT_LOCALE: Locale = "en";
+// Vietnamese is the default: new visitors land on /vi (SIGNEX is a Vietnamese brand).
+export const DEFAULT_LOCALE: Locale = "vi";
 
 export function hasLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value);

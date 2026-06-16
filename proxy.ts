@@ -1,20 +1,18 @@
 // proxy.ts — Next 16 renamed `middleware` to `proxy` (same level as app/).
-// Locale routing: bare paths redirect to the detected locale (cookie → Accept-Language →
-// default); locale-prefixed paths set a cookie so future bare-path visits stay in language.
+// Locale routing: bare paths redirect to the chosen locale (remembered cookie → default vi);
+// locale-prefixed paths set a cookie so future bare-path visits stay in language.
 import { NextResponse, type NextRequest } from "next/server";
 import { DEFAULT_LOCALE, hasLocale } from "@/app/lib/i18n-config";
 
 const COOKIE = "NEXT_LOCALE";
 
+// New visitors default to Vietnamese (DEFAULT_LOCALE = "vi"); only a previously-remembered
+// choice (the NEXT_LOCALE cookie, set when the user uses the EN/VI toggle) overrides it.
+// Browser Accept-Language is intentionally NOT consulted, so the site reliably opens in
+// Vietnamese regardless of the visitor's browser language.
 function detectLocale(request: NextRequest): string {
   const cookie = request.cookies.get(COOKIE)?.value;
   if (cookie && hasLocale(cookie)) return cookie;
-
-  const accept = request.headers.get("accept-language") ?? "";
-  for (const part of accept.split(",")) {
-    const base = part.split(";")[0].trim().toLowerCase().split("-")[0];
-    if (hasLocale(base)) return base;
-  }
   return DEFAULT_LOCALE;
 }
 
