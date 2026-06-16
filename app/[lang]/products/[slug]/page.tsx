@@ -129,10 +129,9 @@ export default async function CategoryDetailPage({ params }: { params: Promise<{
             <div className="blogs w-dyn-list" data-w-id="2a5ebab5-4e4d-85db-43cb-631c22168ac4" style={{ opacity: 0, filter: 'blur(5px)' }}>
               <div className="grid_blog-b w-dyn-items" role="list">
                 {cat.items.map((p, i) => (
-                  <div className="w-dyn-item" role="listitem" key={p.title}>
-                    {/* Product cards aren't linked (no per-product page yet) — a styled div keeps
-                        the card_blog-b look + the shared image-parallax binding. */}
-                    <div className="card_blog-b w-inline-block">
+                  <div className="w-dyn-item" role="listitem" key={p.slug}>
+                    {/* Each card links to the product detail page (zoomable image + info). */}
+                    <a className="card_blog-b w-inline-block" href={`/products/${cat.slug}/${p.slug}`}>
                       <div className="wrap_image-blog-b" data-w-id="2a5ebab5-4e4d-85db-43cb-631c22168ac8">
                         <div className="image_blog-a">
                           <img alt={p.title} className="image_cover is-parallax" loading="lazy" src={PRODUCT_IMAGES[i % PRODUCT_IMAGES.length]} />
@@ -155,7 +154,7 @@ export default async function CategoryDetailPage({ params }: { params: Promise<{
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 ))}
               </div>

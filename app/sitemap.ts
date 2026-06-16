@@ -16,7 +16,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Indexable routes, path WITHOUT the locale prefix ("" = home). Category-detail pages are
   // derived from the dict so the sitemap stays in sync when categories change.
   const { products } = await getDictionary(DEFAULT_LOCALE);
-  const routes = ["", "/about", "/contact", ...products.categories.map((c) => `/products/${c.slug}`)];
+  const routes = [
+    "", "/about", "/contact",
+    ...products.categories.map((c) => `/products/${c.slug}`),
+    ...products.categories.flatMap((c) => c.items.map((it) => `/products/${c.slug}/${it.slug}`)),
+  ];
   return routes.flatMap((path) => {
     // Shared, reciprocal hreflang map for this route — identical on every locale's entry so
     // each <loc> references all versions (incl. itself) + x-default → the default locale.
@@ -26,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${SITE_URL}/${locale}${path}`,
       lastModified: LAST_MODIFIED,
       changeFrequency: "monthly" as const,
-      priority: path === "" ? 1 : path.startsWith("/products/") ? 0.7 : 0.8,
+      priority: path === "" ? 1 : path.split("/").length >= 4 ? 0.6 : path.startsWith("/products/") ? 0.7 : 0.8,
       alternates: { languages },
     }));
   });
