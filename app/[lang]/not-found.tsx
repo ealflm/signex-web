@@ -19,6 +19,14 @@ import { hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 
 export const metadata: Metadata = {
   title: "Page not found | SIGNEX",
+  // Clear the SEO metadata this page would otherwise inherit from the [lang] layout's
+  // generateMetadata (Next merges metadata shallowly). A noindex 404 must NOT declare a
+  // canonical pointing at the live homepage, advertise hreflang-cluster membership, or carry
+  // the home OG/Twitter card — that contradicts "don't index me". Next already auto-injects
+  // <meta name="robots" content="noindex"> for notFound() responses, so robots isn't set here.
+  alternates: { canonical: null, languages: {} },
+  openGraph: null, // null (not undefined) — undefined is treated as "inherit" by Next's shallow merge
+  twitter: null,
 };
 
 export default async function NotFound() {

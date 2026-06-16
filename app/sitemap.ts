@@ -1,0 +1,31 @@
+// /sitemap.xml — one <url> entry per (route × locale) with a complete, reciprocal set of
+// hreflang alternates (en, vi, x-default) so Google can map the localized versions. Served at
+// the app root (proxy.ts skips dotted paths, so it isn't locale-redirected). Add new indexable
+// routes to ROUTES; the 404 catch-all and the bare redirecting paths are intentionally excluded.
+import type { MetadataRoute } from "next";
+import { LOCALES, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
+import { SITE_URL } from "@/app/lib/seo";
+
+// Indexable routes, path WITHOUT the locale prefix ("" = home).
+const ROUTES = ["", "/about", "/contact"] as const;
+
+// Stable <lastmod> — a fixed date (bump it when page content meaningfully changes). NOT
+// `new Date()`: that would change on every build even with no content change, which trains
+// Google to distrust the signal.
+const LAST_MODIFIED = "2026-06-16";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return ROUTES.flatMap((path) => {
+    // Shared, reciprocal hreflang map for this route — identical on every locale's entry so
+    // each <loc> references all versions (incl. itself) + x-default → the default locale.
+    const languages: Record<string, string> = { "x-default": `${SITE_URL}/${DEFAULT_LOCALE}${path}` };
+    for (const l of LOCALES) languages[l] = `${SITE_URL}/${l}${path}`;
+    return LOCALES.map((locale) => ({
+      url: `${SITE_URL}/${locale}${path}`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "monthly" as const,
+      priority: path === "" ? 1 : 0.8,
+      alternates: { languages },
+    }));
+  });
+}

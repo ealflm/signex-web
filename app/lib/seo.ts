@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import { DEFAULT_LOCALE, type Locale } from "@/app/lib/i18n-config";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 
-const SITE_URL = "https://signex.vn";
+export const SITE_URL = "https://signex.vn";
 const OG_IMAGE = "/assets/images/signex-og.png";
 // Brand wordmark (transparent SVG) as the favicon — recognisable SIGNEX logotype.
 const ICON = "/assets/images/signex-logo.svg";
@@ -48,7 +48,7 @@ export function buildMetadata({
       url,
       locale: ogLocale,
       alternateLocale: altLocale,
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: meta.ogImageAlt }],
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: meta.ogImageAlt, type: "image/png" }],
     },
     twitter: {
       card: "summary_large_image",

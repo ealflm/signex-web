@@ -9,6 +9,14 @@ import { LOCALES } from "@/app/lib/i18n-config";
 // on the server (where it's a no-op anyway).
 const useIsomorphicLayoutEffect = typeof document !== "undefined" ? useLayoutEffect : useEffect;
 
+// Accessible names for the toggle links (visible text is only "EN"/"VI"). Each is phrased as
+// an action in the TARGET language's endonym, so e.g. a Vietnamese screen-reader user hears the
+// VI option in Vietnamese regardless of the page's current language.
+const LANG_LABEL: Record<string, string> = {
+  en: "Switch to English",
+  vi: "Chuyển sang Tiếng Việt",
+};
+
 /**
  * Navbar EN/VI switch with a single sliding underline ("magic line"): the underline rests
  * under the ACTIVE locale and slides to whichever option is hovered/focused, returning to
@@ -64,6 +72,9 @@ export function LangToggle() {
             href={hrefFor(locale)}
             className={`lang-toggle_option${locale === activeLocale ? " is-active" : ""}`}
             aria-current={locale === activeLocale ? "true" : undefined}
+            // Visible text is just "EN"/"VI"; give screen readers an action phrase, stated as the
+            // target language's own endonym so it's understandable regardless of current page lang.
+            aria-label={LANG_LABEL[locale] ?? locale.toUpperCase()}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
             onFocus={() => setHovered(i)}

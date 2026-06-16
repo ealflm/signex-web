@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "../globals.css";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/components/footer";
@@ -7,6 +7,7 @@ import { WebflowPageAttrs } from "@/app/components/webflow-page-attrs";
 import { LOCALES, hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 import { getDictionary } from "./dictionaries";
 import { buildMetadata } from "@/app/lib/seo";
+import { OrgJsonLd } from "@/app/components/org-json-ld";
 
 // Verbatim from legacy/caladan/index.html <head>: the FOUC guard hides animated
 // elements until the IX2 runtime adds w-mod-ix3; the shim sets w-mod-js/w-mod-touch early.
@@ -18,6 +19,14 @@ const WF_MOD_SHIM =
 // Localized site metadata (EN/VI). This is the base for every route; pages like /about and
 // /contact override it with their own generateMetadata. Home (which has no page-level metadata)
 // uses this directly. See app/lib/seo.ts for why metadata is built whole (shallow merge).
+// Browser UI theme color (address bar) — brand deep-navy. Width/scale repeat Next's defaults
+// so exporting `viewport` doesn't drop them.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#071522",
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const locale = hasLocale(lang) ? lang : DEFAULT_LOCALE;
@@ -71,6 +80,7 @@ export default async function RootLayout({
             <Footer dict={dict.footer} />
           </main>
         </div>
+        <OrgJsonLd dict={dict} />
         <WebflowPageAttrs />
         <WebflowRuntime />
       </body>
