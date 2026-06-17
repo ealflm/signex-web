@@ -14,6 +14,7 @@ export function ProductImageZoom({ src, alt, hint }: { src: string; alt: string;
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
+  const moved = useRef(false); // did the pointer drag (vs a plain tap) since pointerdown?
 
   const clamp = (s: number) => Math.min(MAX, Math.max(MIN, s));
   const reset = useCallback(() => { setScale(1); setTx(0); setTy(0); }, []);
@@ -38,16 +39,26 @@ export function ProductImageZoom({ src, alt, hint }: { src: string; alt: string;
     if (ns === 1) { setTx(0); setTy(0); }
   };
   const onWheel = (e: React.WheelEvent) => { applyScale(scale - e.deltaY * 0.0016 * scale); };
-  const onImgClick = (e: React.MouseEvent) => { e.stopPropagation(); applyScale(scale === 1 ? 2.2 : 1); };
+  const onImgClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // A pan ends with a click event too — if the pointer dragged, DON'T toggle zoom off,
+    // just keep the new pan position. Only a plain tap toggles zoom in/out.
+    if (moved.current) { moved.current = false; return; }
+    applyScale(scale === 1 ? 2.2 : 1);
+  };
   const onPointerDown = (e: React.PointerEvent) => {
-    if (scale <= 1) return;
+    if (scale <= 1) return; // panning only when zoomed in
     (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
     drag.current = { x: e.clientX, y: e.clientY, tx, ty };
+    moved.current = false;
   };
   const onPointerMove = (e: React.PointerEvent) => {
     if (!drag.current) return;
-    setTx(drag.current.tx + (e.clientX - drag.current.x));
-    setTy(drag.current.ty + (e.clientY - drag.current.y));
+    const dx = e.clientX - drag.current.x;
+    const dy = e.clientY - drag.current.y;
+    if (Math.abs(dx) + Math.abs(dy) > 5) moved.current = true; // crossed the drag threshold
+    setTx(drag.current.tx + dx);
+    setTy(drag.current.ty + dy);
   };
   const onPointerUp = () => { drag.current = null; };
 
