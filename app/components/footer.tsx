@@ -131,7 +131,6 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
                 </div>
                 <div className="column_footer-links">
                   {t.links.map((l) => (
-                    // eslint-disable-next-line @next/next/no-html-link-for-pages -- faithful port convention; in-page navigation is driven by the Webflow runtime, not next/link
                     <a className="link_footer" href={l.href} key={l.label}>
                       {l.label}
                     </a>
