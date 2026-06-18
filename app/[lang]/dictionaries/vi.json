@@ -28,7 +28,8 @@
     "message": "Lời Nhắn",
     "messagePlaceholder": "Mô tả yêu cầu sản phẩm...",
     "submit": "Gửi Thông Tin",
-    "success": "Cảm ơn bạn — chúng tôi đã nhận được yêu cầu và sẽ phản hồi trong vòng 24 giờ."
+    "success": "Cảm ơn bạn — chúng tôi đã nhận được yêu cầu và sẽ phản hồi trong vòng 24 giờ.",
+    "fail": "Rất tiếc — đã xảy ra lỗi khi gửi biểu mẫu. Vui lòng thử lại."
   },
   "features": {
     "eyebrow": "Xuất Sắc Trong Sản Xuất Từ Năm 2003",
@@ -163,6 +164,7 @@
     "payments": ["VISA", "COD", "Napas"]
   },
   "nav": {
+    "skip": "Bỏ qua đến nội dung",
     "cta": "Nhận báo giá",
     "links": [
       { "label": "Trang chủ", "href": "/" },

@@ -15,21 +15,37 @@ export function ProductImageZoom({ src, alt, hint }: { src: string; alt: string;
   const [ty, setTy] = useState(0);
   const drag = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
   const moved = useRef(false); // did the pointer drag (vs a plain tap) since pointerdown?
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const clamp = (s: number) => Math.min(MAX, Math.max(MIN, s));
   const reset = useCallback(() => { setScale(1); setTx(0); setTy(0); }, []);
   const close = useCallback(() => { setOpen(false); reset(); }, [reset]);
 
-  // While open: ESC to close + lock body scroll.
+  // While open: lock body scroll + manage focus (move in, trap, restore) + ESC to close.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+    const dialog = dialogRef.current;
+    const restoreTo = document.activeElement as HTMLElement | null; // the trigger button
+    dialog?.focus(); // move focus into the dialog so keyboard/AT users land in it
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { close(); return; }
+      if (e.key === "Tab" && dialog) {
+        // Trap focus among the dialog's controls (the only focusable descendants).
+        const f = Array.from(dialog.querySelectorAll<HTMLElement>("button"));
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1], active = document.activeElement;
+        if (e.shiftKey && (active === first || active === dialog)) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && active === last) { e.preventDefault(); first.focus(); }
+      }
+    };
     document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevOverflow;
+      restoreTo?.focus?.(); // return focus to the trigger on close
     };
   }, [open, close]);
 
@@ -70,13 +86,13 @@ export function ProductImageZoom({ src, alt, hint }: { src: string; alt: string;
 
   return (
     <>
-      <button type="button" className="product-zoom_trigger" onClick={() => setOpen(true)} aria-label={hint}>
+      <button type="button" className="product-zoom_trigger" onClick={() => setOpen(true)} aria-label={`${alt} — ${hint}`}>
         <img className="image_cover" src={src} alt={alt} loading="lazy" />
         <span className="product-zoom_hint" aria-hidden="true">{ZoomIcon}{hint}</span>
       </button>
 
       {open && (
-        <div className="product-zoom_overlay" role="dialog" aria-modal="true" aria-label={alt} onClick={close} onWheel={onWheel}>
+        <div ref={dialogRef} tabIndex={-1} className="product-zoom_overlay" role="dialog" aria-modal="true" aria-label={alt} onClick={close} onWheel={onWheel}>
           <div className="product-zoom_controls" onClick={(e) => e.stopPropagation()}>
             <button type="button" onClick={() => applyScale(scale - 0.6)} aria-label="Zoom out">−</button>
             <button type="button" onClick={() => applyScale(scale + 0.6)} aria-label="Zoom in">+</button>

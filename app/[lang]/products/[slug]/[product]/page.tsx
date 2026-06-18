@@ -10,17 +10,7 @@ import { hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 import { getDictionary } from "../../../dictionaries";
 import { buildMetadata } from "@/app/lib/seo";
 import { ProductImageZoom } from "@/app/components/product-image-zoom";
-
-// Same product-image set as the category grid, cycled by the item's index within its category,
-// so a product shows the SAME image on the grid card and its detail page.
-const PRODUCT_IMAGES = [
-  "/assets/images/69a9a5725487307243a72031_pexels-adriendrj-33980501.avif",
-  "/assets/images/69a9a51013e52d8aa1532730_pexels-alohaphotostudio-6961666.avif",
-  "/assets/images/69a9a43eeca7b6045e93b8cd_pexels-freestockpro-1007657.avif",
-  "/assets/images/69a9a3f79f4956225122393e_pexels-shameel-mukkath-3421394-15059057__1_.avif",
-  "/assets/images/69a9a296fd1002040c1e9240_pexels-brett-sayles-2126124.avif",
-  "/assets/images/69a9a01bdb6ad07ce787019a_pexels-slimmars-13-197677686-13801311.avif",
-];
+import { productImage } from "@/app/lib/product-images";
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -62,7 +52,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   if (!found) notFound(); // unknown category or product → 404
   const { cat, item, itemIdx } = found;
   const pl = dict.products.product;
-  const image = PRODUCT_IMAGES[itemIdx % PRODUCT_IMAGES.length];
+  const image = productImage(itemIdx);
 
   return (
     <section className="section_product-detail">
@@ -93,7 +83,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 {item.desc}
               </p>
               {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Webflow-runtime nav, not next/link */}
-              <a button="" className="cta_primary w-inline-block" data-wf--cta-primary--variant="primary" href="/book-inquiry">
+              <a button="" className="cta_primary w-inline-block" data-wf--cta-primary--variant="primary" href="/contact">
                 <div className="button_text-mask">
                   <div button-text="" className="text-button">
                     {pl.cta}

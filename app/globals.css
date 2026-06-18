@@ -1208,3 +1208,37 @@ body .w-webflow-badge {
   transition: background-color 0.15s ease;
 }
 .product-zoom_controls button:hover { background-color: rgba(255, 255, 255, 0.24); }
+
+/* App Router error boundary (app/[lang]/error.tsx + app/global-error.tsx) — action row
+   (Try again button + home link). The "Try again" CTA reuses .cta_primary on a native
+   <button>, so reset its default chrome. */
+.error-page_actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-column-gap: var(--spacing--space-small);
+  grid-row-gap: var(--spacing--space-tiny);
+  gap: var(--spacing--space-small);
+}
+.error-page_actions .cta_primary {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Skip-to-content link (a11y) — visually hidden until focused, then pinned top-left over the nav. */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 10000;
+  transform: translateY(-150%);
+  padding: 0.6rem 1rem;
+  border-radius: var(--_🔘-radius---general--default, 0.75rem);
+  background-color: var(--_🎨-color--tokens---ink--base, #fff);
+  color: var(--_🎨-color--tokens---tone--strong, #0b1f33);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(8, 10, 12, 0.18);
+  transition: transform 0.18s ease;
+}
+.skip-link:focus { transform: translateY(0); outline: 2px solid var(--_🎨-color--tokens---tone--strong, #0b1f33); }

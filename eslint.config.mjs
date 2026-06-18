@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored Webflow runtime assets (minified third-party JS) — never lint these.
+    "public/**",
   ]),
 ]);
 

@@ -1,14 +1,5 @@
 import type { Dictionary } from "@/app/[lang]/dictionaries";
-
-// Card image placeholders — reuse the four resort .avif assets already wired in the old
-// resorts-collection. Index-aligned with dict.categories (1→4 = grid order). Images are not
-// translated, so they live here, not in the dictionary. Swap to real category art later.
-const CATEGORY_IMAGES = [
-  "/assets/images/69b049a16076b1b2188d012d_rumman-amin-s3o2rkTkF7I-unsplash.avif",
-  "/assets/images/69b037b7b9f0bc0f27d8889d_dinuka-lankaloka-HKr5cn6S0q0-unsplash.avif",
-  "/assets/images/69b03783cb355b95794c522e_pexels-roman-odintsov-5667901.avif",
-  "/assets/images/69aff4da51c27aa9c99aba98_pexels-keeganjchecks-14524361.avif",
-];
+import { categoryImage } from "@/app/lib/product-images";
 
 /**
  * ProductCategories — the home-page product-category grid. Repurposes Caladan's
@@ -70,7 +61,7 @@ export function ProductCategories({ dict }: { dict: Dictionary["products"] }) {
                           </div>
                         </div>
                       </div>
-                      <img alt="" className="image_cover is-parallax" loading="lazy" src={CATEGORY_IMAGES[i]} />
+                      <img alt="" className="image_cover is-parallax" loading="lazy" src={categoryImage(i)} />
                     </div>
                     <div className="wrap_content-resort-v1">
                       <div className="text-size-large text_body-bold">

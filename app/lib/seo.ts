@@ -8,6 +8,7 @@ import { DEFAULT_LOCALE, type Locale } from "@/app/lib/i18n-config";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 
 export const SITE_URL = "https://signex.vn";
+export const THEME_COLOR = "#071522"; // brand deep-navy (browser theme-color + PWA manifest)
 const OG_IMAGE = "/assets/images/signex-og.png";
 // Favicons (favicon.io set: SIGNEX lotus mark). The .ico is auto-served from app/favicon.ico;
 // these PNGs add the type/size hints modern browsers + Apple devices prefer.

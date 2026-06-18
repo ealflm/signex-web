@@ -14,23 +14,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 import { getDictionary } from "../../dictionaries";
 import { buildMetadata } from "@/app/lib/seo";
-
-// Category hero image — index-aligned with products.categories (same 4 as the home grid).
-const CATEGORY_IMAGES = [
-  "/assets/images/69b049a16076b1b2188d012d_rumman-amin-s3o2rkTkF7I-unsplash.avif",
-  "/assets/images/69b037b7b9f0bc0f27d8889d_dinuka-lankaloka-HKr5cn6S0q0-unsplash.avif",
-  "/assets/images/69b03783cb355b95794c522e_pexels-roman-odintsov-5667901.avif",
-  "/assets/images/69aff4da51c27aa9c99aba98_pexels-keeganjchecks-14524361.avif",
-];
-// Product-card images — cycled by index (placeholder stock; swap to real product photos later).
-const PRODUCT_IMAGES = [
-  "/assets/images/69a9a5725487307243a72031_pexels-adriendrj-33980501.avif",
-  "/assets/images/69a9a51013e52d8aa1532730_pexels-alohaphotostudio-6961666.avif",
-  "/assets/images/69a9a43eeca7b6045e93b8cd_pexels-freestockpro-1007657.avif",
-  "/assets/images/69a9a3f79f4956225122393e_pexels-shameel-mukkath-3421394-15059057__1_.avif",
-  "/assets/images/69a9a296fd1002040c1e9240_pexels-brett-sayles-2126124.avif",
-  "/assets/images/69a9a01bdb6ad07ce787019a_pexels-slimmars-13-197677686-13801311.avif",
-];
+import { categoryImage, productImage } from "@/app/lib/product-images";
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -57,7 +41,7 @@ export default async function CategoryDetailPage({ params }: { params: Promise<{
   const cat = dict.products.categories[idx];
   const stats = dict.products.statLabels;
   const t = dict.products.detail;
-  const heroImg = CATEGORY_IMAGES[idx % CATEGORY_IMAGES.length];
+  const heroImg = categoryImage(idx);
 
   return (
     <>
@@ -134,7 +118,7 @@ export default async function CategoryDetailPage({ params }: { params: Promise<{
                     <a className="card_blog-b w-inline-block" href={`/products/${cat.slug}/${p.slug}`}>
                       <div className="wrap_image-blog-b" data-w-id="2a5ebab5-4e4d-85db-43cb-631c22168ac8">
                         <div className="image_blog-a">
-                          <img alt={p.title} className="image_cover is-parallax" loading="lazy" src={PRODUCT_IMAGES[i % PRODUCT_IMAGES.length]} />
+                          <img alt={p.title} className="image_cover is-parallax" loading="lazy" src={productImage(i)} />
                         </div>
                         <div className="overlay_tag-home">
                           <div className="master_label w-variant-84e91bde-75c3-dd4c-a083-7846b4ae6170" data-wf--tag--variant="lighter">

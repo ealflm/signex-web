@@ -6,7 +6,8 @@ import { WebflowRuntime } from "@/app/components/webflow-runtime";
 import { WebflowPageAttrs } from "@/app/components/webflow-page-attrs";
 import { LOCALES, hasLocale, DEFAULT_LOCALE } from "@/app/lib/i18n-config";
 import { getDictionary } from "./dictionaries";
-import { buildMetadata } from "@/app/lib/seo";
+import { buildMetadata, THEME_COLOR } from "@/app/lib/seo";
+import { siteAttrs } from "@/app/lib/webflow-bundles";
 import { OrgJsonLd } from "@/app/components/org-json-ld";
 
 // Verbatim from legacy/caladan/index.html <head>: the FOUC guard hides animated
@@ -24,7 +25,7 @@ const WF_MOD_SHIM =
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#071522",
+  themeColor: THEME_COLOR,
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,6 +52,7 @@ export default async function RootLayout({
   // dynamicParams=false + generateStaticParams restrict this to LOCALES; the guard
   // just narrows the string to Locale for getDictionary (Footer is dict-driven, EN + VI).
   const dict = await getDictionary(hasLocale(lang) ? lang : DEFAULT_LOCALE);
+  const { domain, site } = siteAttrs(); // single source for the Webflow site attrs
   return (
     // suppressHydrationWarning: the WF_MOD_SHIM script adds w-mod-js/w-mod-touch to <html> before
     // hydration, and WebflowPageAttrs sets data-wf-page on it — both intentionally diverge from SSR.
@@ -60,8 +62,8 @@ export default async function RootLayout({
       // Real brand domain (NOT *.webflow.io) so the Webflow "brand" module never injects the
       // "Made in Webflow" badge — it only force-shows it when data-wf-domain ends in .webflow.io.
       // Keep this in sync with siteAttrs() in app/lib/webflow-bundles.ts (set client-side too).
-      data-wf-domain="signex.vn"
-      data-wf-site="69833b76e5b4bee55e873012"
+      data-wf-domain={domain}
+      data-wf-site={site}
     >
       <head>
         <style dangerouslySetInnerHTML={{ __html: WF_GUARD_STYLE }} />
@@ -73,9 +75,11 @@ export default async function RootLayout({
         <link rel="stylesheet" href="/assets/fonts/ibm-plex-mono.css" />
       </head>
       <body>
+        {/* Skip link — first focusable element, lets keyboard/AT users jump past the navbar. */}
+        <a href="#main" className="skip-link">{dict.nav.skip}</a>
         <div className="page-wrapper">
           <Navbar dict={dict.nav} />
-          <main className="main-wrapper">
+          <main id="main" className="main-wrapper">
             {children}
             <Footer dict={dict.footer} />
           </main>

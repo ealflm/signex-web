@@ -112,6 +112,7 @@ export function WebflowRuntime() {
     bootedPathname.current = pathname; // claim synchronously, before any await
 
     let cancelled = false;
+    let booted = false; // flips true once this boot fully completes (see cleanup)
     (async () => {
       const html = document.documentElement;
       html.classList.add("w-mod-js");
@@ -165,9 +166,23 @@ export function WebflowRuntime() {
         window.dispatchEvent(new Event("resize"));
         window.dispatchEvent(new Event("scroll"));
       });
+      booted = true;
     })().catch((e) => console.error("WebflowRuntime:", e));
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+      // React Strict Mode (dev) double-invokes effects: setup → cleanup → setup. The route is
+      // claimed synchronously (bootedPathname), so if this boot is torn down before it finishes,
+      // release the claim so the next setup re-boots — otherwise it no-ops and animations never
+      // init in dev. (In prod the runtime mounts once and never unmounts, so this is dev-only.)
+      if (!booted) bootedPathname.current = null;
+      // Tear down what this boot started so a re-boot doesn't leak the Lenis rAF loop / instance.
+      if (typeof window !== "undefined") {
+        if (window.__caladanRaf) { cancelAnimationFrame(window.__caladanRaf); window.__caladanRaf = undefined; }
+        try { window.__lenis?.destroy?.(); } catch {}
+        window.__lenis = undefined;
+      }
+    };
   }, [pathname]);
 
   return null;

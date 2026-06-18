@@ -82,7 +82,7 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
               </nav>
             </div>
             {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- faithful port of Webflow markup; navigation is driven by the Webflow runtime, not next/link */}
-            <a aria-current="page" className="brand_navbar w-nav-brand w--current" href="/">
+            <a className="brand_navbar w-nav-brand" href="/">
               {/* Signex logo rendered as a CSS mask filled with the nav links' ink token
                   (tone--strong) so it matches "Trang chủ / Về chúng tôi / Liên hệ" exactly and
                   tracks them in every navbar state. Sized by height (aspect ratio ≈2.4:1). */}
@@ -118,7 +118,7 @@ export function Navbar({ dict }: { dict: Dictionary["nav"] }) {
                 button=""
                 className="cta_primary w-inline-block"
                 data-wf--cta-primary--variant="primary"
-                href="/book-inquiry"
+                href="/contact"
               >
                 <div className="button_text-mask">
                   <div button-text="" className="text-button">

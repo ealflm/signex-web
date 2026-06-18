@@ -128,7 +128,7 @@ export function Contact({
                 name="contact-form"
                 className="form is-v2"
                 successMarkup={`<div>${t.success}</div>`}
-                failMarkup="<div>Oops! Something went wrong while submitting the form.</div>"
+                failMarkup={`<div>${t.fail}</div>`}
               >
                 <div className="account_form-inner">
                   {/* 2-col field grid (scoped contact-form_grid overrides the ref's
@@ -137,36 +137,36 @@ export function Contact({
                       Message spans both columns. Single column under 768px. */}
                   <div className="profile-form_inner contact-form_grid">
                     <div className="input_wrap">
-                      <div className="text_input-label label-large">
+                      <label className="text_input-label label-large" htmlFor="contact-name">
                         {t.name}
                         <sup>*</sup>
-                      </div>
+                      </label>
                       <input className="text-field w-input" data-name="Name" id="contact-name" maxLength={256} name="Name" placeholder={t.namePlaceholder} required type="text" />
                     </div>
                     <div className="input_wrap">
-                      <div className="text_input-label label-large">
+                      <label className="text_input-label label-large" htmlFor="contact-email">
                         {t.email}
                         <sup>*</sup>
-                      </div>
+                      </label>
                       <input className="text-field w-input" data-name="Email" id="contact-email" maxLength={256} name="Email" placeholder={t.emailPlaceholder} required type="email" />
                     </div>
                     <div className="input_wrap">
-                      <div className="text_input-label label-large">
+                      <label className="text_input-label label-large" htmlFor="contact-phone">
                         {t.phone}
                         <sup>*</sup>
-                      </div>
+                      </label>
                       <input className="text-field w-input" data-name="Phone" id="contact-phone" maxLength={256} name="Phone" placeholder={t.phonePlaceholder} required type="tel" />
                     </div>
                     <div className="input_wrap">
-                      <div className="text_input-label label-large">
+                      <label className="text_input-label label-large" htmlFor="contact-quantity">
                         {t.quantity}
-                      </div>
+                      </label>
                       <input className="text-field w-input" data-name="Quantity" id="contact-quantity" name="Quantity" placeholder={t.quantityPlaceholder} type="text" />
                     </div>
                     <div className="input_wrap">
-                      <div className="text_input-label label-large">
+                      <label className="text_input-label label-large" htmlFor="contact-standard">
                         {t.standard}
-                      </div>
+                      </label>
                       <select className="text-field select w-select" data-name="Standard" defaultValue="" id="contact-standard" name="Standard">
                         <option value="">
                           {t.standardPlaceholder}
@@ -179,9 +179,9 @@ export function Contact({
                       </select>
                     </div>
                     <div className="input_wrap">
-                      <div className="text_input-label label-large">
+                      <label className="text_input-label label-large" htmlFor="contact-sample">
                         {t.upload}
-                      </div>
+                      </label>
                       {/* Custom upload dropzone: a <label> wraps the (visually hidden but
                           functional) file input, so the dashed box + icon + format text
                           IS the clickable control. Pure CSS — no JS/filename feedback. */}
@@ -201,28 +201,28 @@ export function Contact({
                     </div>
                     <div className="contact-form_dims">
                       <div className="input_wrap">
-                        <div className="text_input-label label-large">
+                        <label className="text_input-label label-large" htmlFor="contact-height">
                           {t.height}
-                        </div>
+                        </label>
                         <input className="text-field w-input" data-name="Height" id="contact-height" inputMode="decimal" name="Height" placeholder={t.heightPlaceholder} type="text" />
                       </div>
                       <div className="input_wrap">
-                        <div className="text_input-label label-large">
+                        <label className="text_input-label label-large" htmlFor="contact-width">
                           {t.width}
-                        </div>
+                        </label>
                         <input className="text-field w-input" data-name="Width" id="contact-width" inputMode="decimal" name="Width" placeholder={t.widthPlaceholder} type="text" />
                       </div>
                       <div className="input_wrap">
-                        <div className="text_input-label label-large">
+                        <label className="text_input-label label-large" htmlFor="contact-thickness">
                           {t.thickness}
-                        </div>
+                        </label>
                         <input className="text-field w-input" data-name="Thickness" id="contact-thickness" inputMode="decimal" name="Thickness" placeholder={t.thicknessPlaceholder} type="text" />
                       </div>
                     </div>
                     <div className="input_wrap contact-form_full">
-                      <div className="text_input-label label-large">
+                      <label className="text_input-label label-large" htmlFor="contact-message">
                         {t.message}
-                      </div>
+                      </label>
                       <textarea className="text-field text-area w-input" data-name="Message" id="contact-message" name="Message" placeholder={t.messagePlaceholder}></textarea>
                     </div>
                   </div>

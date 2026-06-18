@@ -28,7 +28,8 @@
     "message": "Message",
     "messagePlaceholder": "Describe your product requirements...",
     "submit": "Send Message",
-    "success": "Thank you — we've received your request and will get back to you within 24 hours."
+    "success": "Thank you — we've received your request and will get back to you within 24 hours.",
+    "fail": "Oops! Something went wrong while submitting the form. Please try again."
   },
   "features": {
     "eyebrow": "Excellence in Manufacturing Since 2003",
@@ -163,6 +164,7 @@
     "payments": ["VISA", "JCB", "Napas"]
   },
   "nav": {
+    "skip": "Skip to content",
     "cta": "Quote Now",
     "links": [
       { "label": "Home", "href": "/" },

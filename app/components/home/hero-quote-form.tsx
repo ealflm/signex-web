@@ -1,7 +1,7 @@
 // app/components/home/hero-quote-form.tsx
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { STANDARD_VALUES } from "@/app/lib/standard-options";
 
@@ -29,6 +29,9 @@ export function HeroQuoteForm({
   const [done, setDone] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const doneRef = useRef<HTMLDivElement>(null);
+  // On submit the success message replaces the form — announce it (role=status) + move focus to it.
+  useEffect(() => { if (done) doneRef.current?.focus(); }, [done]);
 
   const handleFocus = () => setExpanded(true);
 
@@ -100,10 +103,10 @@ export function HeroQuoteForm({
             {/* ---- Contact info — horizontal bar (always visible) ---- */}
             <div className="hero-quote_bar">
               <div className="input_wrap">
-                <div className="text_input-label label-large">
+                <label className="text_input-label label-large" htmlFor="quote-name">
                   {dict.name}
                   <sup>*</sup>
-                </div>
+                </label>
                 <input
                   className="text-field w-input"
                   autoComplete="new-password"
@@ -117,10 +120,10 @@ export function HeroQuoteForm({
                 />
               </div>
               <div className="input_wrap">
-                <div className="text_input-label label-large">
+                <label className="text_input-label label-large" htmlFor="quote-email">
                   {dict.email}
                   <sup>*</sup>
-                </div>
+                </label>
                 <input
                   className="text-field w-input"
                   autoComplete="new-password"
@@ -134,10 +137,10 @@ export function HeroQuoteForm({
                 />
               </div>
               <div className="input_wrap">
-                <div className="text_input-label label-large">
+                <label className="text_input-label label-large" htmlFor="quote-phone">
                   {dict.phone}
                   <sup>*</sup>
-                </div>
+                </label>
                 <input
                   className="text-field w-input"
                   autoComplete="new-password"
@@ -164,10 +167,11 @@ export function HeroQuoteForm({
               <div className="hero-form_collapsible-inner">
                 <div className="hero-quote_grid hero-quote_grid--3">
                   <div className="input_wrap">
-                    <div className="text_input-label label-large">{dict.quantity}</div>
+                    <label className="text_input-label label-large" htmlFor="quote-quantity">{dict.quantity}</label>
                     <input
                       className="text-field w-input"
                       data-name="Quantity"
+                      id="quote-quantity"
                       name="Quantity"
                       placeholder={dict.quantityPlaceholder}
                       tabIndex={detailTab}
@@ -175,10 +179,11 @@ export function HeroQuoteForm({
                     />
                   </div>
                   <div className="input_wrap">
-                    <div className="text_input-label label-large">{dict.standard}</div>
+                    <label className="text_input-label label-large" htmlFor="quote-standard">{dict.standard}</label>
                     <select
                       className="text-field select w-select"
                       data-name="Standard"
+                      id="quote-standard"
                       name="Standard"
                       tabIndex={detailTab}
                       defaultValue=""
@@ -192,10 +197,11 @@ export function HeroQuoteForm({
                     </select>
                   </div>
                   <div className="input_wrap">
-                    <div className="text_input-label label-large">{dict.height}</div>
+                    <label className="text_input-label label-large" htmlFor="quote-height">{dict.height}</label>
                     <input
                       className="text-field w-input"
                       data-name="Height"
+                      id="quote-height"
                       inputMode="decimal"
                       name="Height"
                       placeholder={dict.heightPlaceholder}
@@ -204,10 +210,11 @@ export function HeroQuoteForm({
                     />
                   </div>
                   <div className="input_wrap">
-                    <div className="text_input-label label-large">{dict.width}</div>
+                    <label className="text_input-label label-large" htmlFor="quote-width">{dict.width}</label>
                     <input
                       className="text-field w-input"
                       data-name="Width"
+                      id="quote-width"
                       inputMode="decimal"
                       name="Width"
                       placeholder={dict.widthPlaceholder}
@@ -216,10 +223,11 @@ export function HeroQuoteForm({
                     />
                   </div>
                   <div className="input_wrap">
-                    <div className="text_input-label label-large">{dict.thickness}</div>
+                    <label className="text_input-label label-large" htmlFor="quote-thickness">{dict.thickness}</label>
                     <input
                       className="text-field w-input"
                       data-name="Thickness"
+                      id="quote-thickness"
                       inputMode="decimal"
                       name="Thickness"
                       placeholder={dict.thicknessPlaceholder}
@@ -254,10 +262,11 @@ export function HeroQuoteForm({
                   </div>
                 </div>
                 <div className="input_wrap">
-                  <div className="text_input-label label-large">{dict.message}</div>
+                  <label className="text_input-label label-large" htmlFor="quote-message">{dict.message}</label>
                   <textarea
                     className="text-field w-input hero-quote_message"
                     data-name="Message"
+                    id="quote-message"
                     name="Message"
                     placeholder={dict.messagePlaceholder}
                     tabIndex={detailTab}
@@ -271,7 +280,7 @@ export function HeroQuoteForm({
         </form>
       )}
       {done && (
-        <div className="success-message w-form-done" style={{ display: "block" }}>
+        <div ref={doneRef} tabIndex={-1} role="status" className="success-message w-form-done" style={{ display: "block" }}>
           <div>{dict.success}</div>
         </div>
       )}
